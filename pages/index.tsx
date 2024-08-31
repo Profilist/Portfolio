@@ -5,6 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 import Header from "./Header";
 import Introduction from "./Introduction";
 import Projects from "./Projects";
+import Experience from "./Experience";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Header currentPage="Home"/>
         <Introduction/>
         <Projects/>
+        {/* <Experience/> */}
       </main>
     </>
   );

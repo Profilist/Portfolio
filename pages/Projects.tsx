@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.headerContainer}>
         <h1 className={styles.header}>Projects</h1>
         <button className={styles.button}>View All</button>
