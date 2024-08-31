@@ -92,6 +92,10 @@
     margin: 20px 0px; 
 }
 
+.title {
+    font-size: 4rem;
+}
+
 @media (max-width: 600px) {
     .projectsContainer {
         grid-template-columns: repeat(1, 1fr);

@@ -16,7 +16,7 @@ export default function Home() {
         <Header currentPage="Projects" />
         <div className={styles.wrapper}>
           <div className={styles.headerContainer}>
-            <h1 className={styles.header}>Projects</h1>
+            <h1 className={styles.title}>Projects</h1>
           </div>
           <div className={styles.projectsContainer}>
             <ProjectCard
