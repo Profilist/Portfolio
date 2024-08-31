@@ -1,3 +1,25 @@
+@keyframes fadeInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .wrapper {
     margin-bottom: 4rem;
 }
@@ -12,6 +34,14 @@
     max-width: var(--max-width);
     padding: 0 2rem;
     transition: all 0.3s ease;
+}
+
+.projectsContainer > *:nth-child(2n-1) {
+    animation: fadeInFromTop 2s ease-out forwards;
+}
+
+.projectsContainer > *:nth-child(2n) {
+    animation: fadeInFromBottom 2s ease-out forwards;
 }
 
 .projectsContainer > *:nth-child(2n-1) {
