@@ -3,7 +3,7 @@ import ProjectCard from "../ProjectCard";
 import Header from "../Header";
 import styles from "../../styles/Projects.module.css";
 
-export default function Home() {
+export default function projectPage() {
   return (
     <>
       <Head>

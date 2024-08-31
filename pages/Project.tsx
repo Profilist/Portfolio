@@ -3,7 +3,7 @@ import styles from "../styles/Projects.module.css";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
 
-const Projects = () => {
+const Project = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.headerContainer}>
@@ -42,4 +42,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Project;

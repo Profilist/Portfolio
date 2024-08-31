@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
-// import styles from "../styles/Home.module.css";
 import Header from "./Header";
 import Introduction from "./Introduction";
-import Projects from "./Projects";
+import Project from "./Project";
 import Experience from "./Experience";
 import Contact from "./Contact";
 
@@ -20,7 +19,7 @@ export default function Home() {
       <main>
         <Header currentPage="Home"/>
         <Introduction/>
-        <Projects/>
+        <Project/>
         <Experience/>
         <Contact/>
       </main>

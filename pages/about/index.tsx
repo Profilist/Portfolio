@@ -5,7 +5,7 @@ import Contact from "../Contact";
 import styles from "../../styles/About.module.css";
 import Image from "next/image";
 
-export default function Home() {
+export default function about() {
   return (
     <>
       <Head>
@@ -19,7 +19,7 @@ export default function Home() {
         <div className={styles.headerContainer}>
           <h1>About Me</h1>
           <p>Email: larris.xie@uwaterloo.ca</p>
-          <a href="/Resume.pdf" download className={styles.button}>
+          <a href="/resume.pdf" download className={styles.button}>
             <p>CV</p>
             <Image src="/downloadfile.svg" alt="" width={24} height={24} />
           </a>
