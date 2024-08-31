@@ -1,0 +1,23 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--gray);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+    color: var(--text-color);
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.description {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}

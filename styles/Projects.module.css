@@ -1,0 +1,46 @@
+.projectsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4rem;
+    margin: 0 auto;
+    width: fit-content; 
+    max-width: var(--max-width);
+    padding: 0 2rem;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem; 
+    margin: 0 auto;
+    max-width: var(--max-width); 
+    width: 100%; 
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .headerContainer {
+        max-width: 90vw;
+    }
+
+    .projectsContainer {
+        max-width: 90vw;
+    }
+}
+
+.button {
+    background: linear-gradient(to right, var(--blue), var(--dark-purple));
+    color: white;
+    padding: 20px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.header {
+    margin: 20px 0px; 
+}
