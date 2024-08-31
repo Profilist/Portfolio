@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "../styles/Projects.module.css";
 import ProjectCard from "./ProjectCard";
+import Link from "next/link";
 
 const Projects = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.headerContainer}>
         <h1 className={styles.header}>Projects</h1>
-        <button className={styles.button}>View All</button>
+        <Link href="/projects">
+          <button className={styles.button}>View All</button>
+        </Link>
       </div>
       <div className={styles.projectsContainer}>
         <ProjectCard

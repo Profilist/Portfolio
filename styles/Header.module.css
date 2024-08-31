@@ -20,7 +20,7 @@
     transform: translateX(-50%);
 }
 
-.navContainer p {
+.navContainer .link {
   margin: 1rem;
   color: var(--text-color);
 }

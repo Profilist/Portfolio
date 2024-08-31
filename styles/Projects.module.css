@@ -44,17 +44,6 @@
     }
 }
 
-@media (max-width: 600px) {
-    .projectsContainer {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 4rem;
-    }
-
-    .projectsContainer > *:nth-child(2n-1) {
-        margin-top: 0; 
-    }
-}
-
 .button {
     background: linear-gradient(to right, var(--blue), var(--dark-purple));
     color: white;
@@ -65,8 +54,25 @@
     margin-bottom: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
 .header {
     margin: 20px 0px; 
+}
+
+@media (max-width: 600px) {
+    .projectsContainer {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4rem;
+    }
+
+    .projectsContainer > *:nth-child(2n-1) {
+        margin-top: 0; 
+    }
+
+    .button {
+        padding: 20px 25px;
+    }
 }

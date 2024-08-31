@@ -15,11 +15,11 @@ const Header: React.FC<HeaderProps> = ({ currentPage }) => {
       </Link>
 
       <div className={styles.navContainer}>
-        <p className={currentPage === "Home" ? styles.active : ""}>Home</p>
-        <p className={currentPage === "Projects" ? styles.active : ""}>
+        <Link href="/" className={currentPage === "Home" ? styles.active : styles.link}>Home</Link>
+        <Link href="/projects" className={currentPage === "Projects" ? styles.active : styles.link}>
           Projects
-        </p>
-        <p className={currentPage === "About" ? styles.active : ""}>About</p>
+        </Link>
+        <Link href="/about" className={currentPage === "About" ? styles.active : styles.link}>About</Link>
       </div>
 
       <div className={styles.logos}>
