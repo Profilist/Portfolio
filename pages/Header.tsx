@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../styles/Header.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
 interface HeaderProps {
   currentPage: string;
@@ -8,9 +10,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ currentPage }) => {
   return (
     <div className={styles.header}>
-      <a className={styles.logo} href="/">
-        <img src="/logoDark.svg" alt="Logo" width={180} height={37} />
-      </a>
+      <Link className={styles.logo} href="/">
+        <Image src="/logoDark.svg" alt="Logo" width={180} height={37} />
+      </Link>
 
       <div className={styles.navContainer}>
         <p className={currentPage === "Home" ? styles.active : ""}>Home</p>
@@ -22,10 +24,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage }) => {
 
       <div className={styles.logos}>
         <a href="https://github.com/Profilist">
-          <img src="/github.svg" alt="GitHub Logo" width={48} height={48} />
+          <Image src="/github.svg" alt="GitHub Logo" width={48} height={48} />
         </a>
         <a href="https://linkedin.com/in/larrisxie">
-          <img src="/linkedin.svg" alt="LinkedIn Logo" width={48} height={48} />
+          <Image src="/linkedin.svg" alt="LinkedIn Logo" width={48} height={48} />
         </a>
       </div>
     </div>

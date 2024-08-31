@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/ProjectCard.module.css';
+import Image from 'next/image';
 
 interface ProjectCardProps {
     projectName: string;
@@ -15,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectName, projectDescripti
         <div className={styles.name}>{projectName}</div>
         <div className={styles.description}>{projectDescription}</div>
         <a href={projectGithub}>
-          <img src="/github.svg" alt="GitHub Logo" width={48} height={48} />
+          <Image src="/github.svg" alt="GitHub Logo" width={48} height={48} />
         </a>
     </div>
   )
