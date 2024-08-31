@@ -10,11 +10,25 @@
     font-size: 1.5rem;
 }
 
-.experienceContainer {
+.contactContainer {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     max-width: var(--max-width);
     padding: 0 2rem;
     transition: all 0.3s ease;
+}
+
+.contactItem {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.contactItem:last-child {
+    margin-bottom: 10rem;
 }
