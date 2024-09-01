@@ -1,93 +1,86 @@
-.headerContainer, .techstack {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem; 
-    margin: 0 auto;
-    max-width: var(--max-width); 
-    color: var(--text-color);
-    font-size: 1.5rem;
+.headerContainer, .techstackHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space;
+  align-items: center;
+  padding: 0 2rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  color: var(--text-color);
+  font-size: 1.5rem;
 }
 
 .headerContainer h1 {
-    font-size: 4rem;
-    margin: 2rem 0 0.5rem 0;
+  font-size: 4rem;
+  margin: 2rem 0 0.5rem 0;
 }
 
 .headerContainer p {
-    margin: 2rem;
-}
-
-.techstack {
-    flex-direction: row;
+  margin: 2rem;
 }
 
 .description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 2rem 0 2rem;
-    margin: 0 auto;
-    max-width: var(--max-width);
-    color: var(--text-color);
-    font-size: 1.75rem;
-    line-height: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2rem 0 2rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  color: var(--text-color);
+  font-size: 1.75rem;
+  line-height: 2.25rem;
 }
 
 .description span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .button {
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-    background: linear-gradient(to right, var(--blue), var(--dark-purple));
-    color: white;
-    padding: 5px 100px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, var(--blue), var(--dark-purple));
+  color: white;
+  padding: 5px 100px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  font-weight: bold;
 }
-.button p, .button Image{
-    margin: 1rem;
+.button p,
+.button Image {
+  margin: 1rem;
 }
 
 @media (max-width: 768px) {
-    .headerContainer h1 {
-        font-size: 3rem;
-    }
+  .description {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 
-    .description {
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
-
-    .button {
-        padding: 5px 50px;
-        font-size: 1.25rem;
-    }
+  .button {
+    padding: 5px 50px;
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .headerContainer h1 {
-        font-size: 2.5rem;
-    }
+  .headerContainer h1 {
+    font-size: 2.5rem;
+  }
 
-    .description {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-    }
+  .description {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 
-    .button {
-        padding: 5px 20px;
-        font-size: 1rem;
-    }
+  .button {
+    padding: 5px 20px;
+    font-size: 1rem;
+  }
 }

@@ -4,6 +4,7 @@ import Experience from "../Experience";
 import Contact from "../Contact";
 import styles from "../../styles/About.module.css";
 import Image from "next/image";
+import Conveyor from "./Conveyor";
 
 export default function about() {
   return (
@@ -26,14 +27,18 @@ export default function about() {
         </div>
         <div className={styles.description}>
           <p>
-            I’m a <span>Software Developer</span> from Toronto with a strong foundation in
-            Computer Science, currently studying at the <span>University of Waterloo. </span> 
+            I’m a <span>Software Developer</span> from Toronto with a strong
+            foundation in Computer Science, currently studying at the{" "}
+            <span>University of Waterloo. </span>
             I’m actively seeking out new challenges and opportunities in the
             software industry.
           </p>
         </div>
         <div className={styles.techstack}>
-          <h1>My Tech Stack</h1>
+          <div className={styles.techstackHeader}>
+            <h1>My Tech Stack</h1>
+          </div>
+          <Conveyor />
         </div>
         <Experience />
         <Contact />

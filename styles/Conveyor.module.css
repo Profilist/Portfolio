@@ -1,0 +1,27 @@
+.logoConveyorWrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin: 2rem;
+}
+
+.logoConveyor {
+  display: flex;
+  align-items: center;
+  animation: scroll 10s linear infinite;
+  will-change: transform; 
+}
+
+.logoContainer {
+  flex: 0 0 auto;
+  padding: 0 1rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
