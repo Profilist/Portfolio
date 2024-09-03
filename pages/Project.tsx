@@ -32,9 +32,9 @@ const Project = () => {
           projectImage=""
         />
         <ProjectCard
-          projectName="Year of the Habit"
-          projectDescription="A New Year's resolution website."
-          projectGithub="https://github.com/Profilist/Year-of-the-Habit"
+          projectName="ML Research Paper"
+          projectDescription="A research paper about a ML approach to detect financial fraud. Mentored by professor Maria Konte."
+          projectGithub="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history"
           projectImage=""
         />
       </div>

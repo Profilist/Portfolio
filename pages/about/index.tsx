@@ -27,8 +27,7 @@ export default function about() {
         </div>
         <div className={styles.description}>
           <p>
-            I’m a <span>Software Developer</span> from Toronto with a strong
-            foundation in Computer Science, currently studying at the{" "}
+            I’m a <span>Software Developer</span> from Toronto, currently studying Computer Science at the{" "}
             <span>University of Waterloo. </span>
             I’m actively seeking out new challenges and opportunities in the
             software industry.
