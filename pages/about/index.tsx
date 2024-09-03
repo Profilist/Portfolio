@@ -7,6 +7,32 @@ import Image from "next/image";
 import Conveyor from "./Conveyor";
 
 export default function about() {
+  const handleDownload = async () => {
+    try {
+      const response = await fetch("/api/getResume");
+      if (!response.ok) {
+        throw new Error("Failed to fetch the file");
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "resume.pdf");
+      document.body.appendChild(link);
+      link.click();
+      if (link.parentNode) {
+        link.parentNode.removeChild(link);
+      } else {
+        document.body.removeChild(link); 
+      }
+
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Download failed:", error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -20,14 +46,15 @@ export default function about() {
         <div className={styles.headerContainer}>
           <h1>About Me</h1>
           <p>Email: larris.xie@uwaterloo.ca</p>
-          <a href="/resume.pdf" download className={styles.button}>
+          <button onClick={handleDownload} className={styles.button}>
             <p>CV</p>
             <Image src="/downloadfile.svg" alt="" width={24} height={24} />
-          </a>
+          </button>
         </div>
         <div className={styles.description}>
           <p>
-            I’m a <span>Software Developer</span> from Toronto, currently studying Computer Science at the{" "}
+            I’m a <span>Software Developer</span> from Toronto, currently
+            studying Computer Science at the{" "}
             <span>University of Waterloo. </span>
             I’m actively seeking out new challenges and opportunities in the
             software industry.
