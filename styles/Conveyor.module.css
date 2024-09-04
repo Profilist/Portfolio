@@ -1,27 +1,28 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc((var(--slide-width) + 2rem) * var(--no-of-slides) * -1));
+  }
+}
+
 .logoConveyorWrapper {
   overflow: hidden;
-  width: 100%;
+  width: calc(var(--slides-in-view) * (var(--slide-width) + 2rem)); 
+  margin: 2rem auto;
   position: relative;
-  margin: 2rem;
 }
 
 .logoConveyor {
   display: flex;
   align-items: center;
-  animation: scroll 10s linear infinite;
+  animation: scroll var(--iteration-time) linear infinite;
   will-change: transform; 
 }
 
 .logoContainer {
   flex: 0 0 auto;
-  padding: 0 1rem;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  padding: 0 1rem; 
+  width: var(--slide-width); 
 }

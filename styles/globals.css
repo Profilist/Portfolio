@@ -1,10 +1,15 @@
 :root {
-  --gray: #ADBBDA;
-  --blue: #7091E6;
-  --dark-purple: #3D52A0;
-  --white: #EDE8F5;
-  --text-color: #282B3E;
+  --gray: #adbbda;
+  --blue: #7091e6;
+  --dark-purple: #3d52a0;
+  --white: #ede8f5;
+  --text-color: #282b3e;
   --max-width: 720px;
+  --no-of-slides: 21;
+  --slides-in-view: 15;
+  --slide-width: 92px;
+  --slide-height: 92px;
+  --iteration-time: 10s;
 }
 
 html,
@@ -21,8 +26,8 @@ body {
   background: linear-gradient(to bottom, var(--gray), var(--white));
 }
 
-body::-webkit-scrollbar { 
-  display: none; 
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {

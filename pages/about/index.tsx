@@ -53,11 +53,10 @@ export default function about() {
         </div>
         <div className={styles.description}>
           <p>
-            I’m a <span>Software Developer</span> from Toronto, currently
+            I&apos;m a <span>Software Developer</span> from Toronto, currently
             studying Computer Science at the{" "}
             <span>University of Waterloo. </span>
-            I’m actively seeking out new challenges and opportunities in the
-            software industry.
+            I love participating in hackathons and working on projects that I&apos;m passionate about!
           </p>
         </div>
         <div className={styles.techstack}>
