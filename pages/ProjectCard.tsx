@@ -38,7 +38,7 @@ const logoMap: { [key: string]: string } = {
 const ProjectCard: React.FC<ProjectCardProps> = ({
   projectName,
   projectDescription,
-  projectStack,
+  projectStack = "",
   projectGithub,
   projectLink,
 }) => {
