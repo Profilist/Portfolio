@@ -21,12 +21,29 @@
 }
 
 .description {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal; 
+    flex-grow: 1; 
 }
 
 .stack {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        height: 350px;
+    }
 }

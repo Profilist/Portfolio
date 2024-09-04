@@ -51,6 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className={styles.stack}>
         {stackArray.map((tech, index) => (
           <Image
+            className={styles.logo}
             key={index}
             src={logoMap[tech]}
             alt={`${tech} Logo`}
@@ -59,9 +60,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           />
         ))}
       </div>
-      <a href={projectGithub}>
-        <Image src="/github.svg" alt="GitHub Logo" width={48} height={48} />
-      </a>
+      <div className={styles.links}>
+        <a href={projectGithub}>
+          <Image src="/github.svg" alt="GitHub Logo" width={48} height={48} />
+        </a>
+        {projectLink && (
+        <a href={projectLink}>
+          <Image src="/arrow.svg" alt="View" width={36} height={36} />
+        </a>)
+        }
+      </div>
     </div>
   );
 };
