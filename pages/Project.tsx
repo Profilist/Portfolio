@@ -17,25 +17,25 @@ const Project = () => {
           projectName="The Fastest Root"
           projectDescription="A web app that calculates the cheapest and fastest grocery shopping route."
           projectGithub="https://github.com/Profilist/The-Fastest-Root"
-          projectImage=""
+          projectStack="React Nextjs TS Nodejs Express Google"
         />
         <ProjectCard
           projectName="Saving Christmas"
           projectDescription="A 2D Christmas-themed platformer game created using Unity."
           projectGithub="https://github.com/Profilist/Saving-Christmas"
-          projectImage=""
+          projectStack="Csharp Unity"
         />
         <ProjectCard
           projectName="NutriScan"
           projectDescription="An iOS app designed to provide nutrition facts from a photo."
           projectGithub="https://github.com/yanziguoo/NutriScan"
-          projectImage=""
+          projectStack="Swift Python Firebase Google"
         />
         <ProjectCard
           projectName="ML Research Paper"
           projectDescription="A research paper about a ML approach to detect financial fraud. Mentored by professor Maria Konte."
           projectGithub="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history"
-          projectImage=""
+          projectStack="Python"
         />
       </div>
     </div>

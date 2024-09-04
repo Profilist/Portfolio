@@ -10,19 +10,23 @@
     box-sizing: border-box; 
     color: var(--text-color);
     width: 100%;
-    height: 250px;
+    height: 300px;
     transition: all 0.3s ease;
+    gap: 1rem;
 }
 
 .name {
     font-weight: bold;
-    margin-bottom: 10px;
     font-size: 1.2rem;
 }
 
 .description {
-    flex-grow: 1;
-    margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.stack {
+    display: flex;
+    gap: 0.5rem;
+    
 }
