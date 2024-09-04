@@ -59,16 +59,11 @@
     padding: 2rem 2rem; 
     margin: 0 auto;
     max-width: var(--max-width); 
-    width: 100%; 
     color: var(--text-color);
     font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {
-    .headerContainer {
-        max-width: 90vw;
-    }
-
     .projectsContainer {
         max-width: 90vw;
     }
