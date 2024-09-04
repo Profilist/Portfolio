@@ -10,6 +10,9 @@ const Conveyor = () => {
           <Image src="/cplusplus.svg" alt="C++" width={92} height={92} />
         </div>
         <div className={styles.logoContainer}>
+          <Image src="/csharp.svg" alt="C#" width={92} height={92} />
+        </div>
+        <div className={styles.logoContainer}>
           <Image src="/java.svg" alt="Java" width={92} height={92} />
         </div>
         <div className={styles.logoContainer}>

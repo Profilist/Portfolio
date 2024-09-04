@@ -10,6 +10,10 @@
   font-size: 1.5rem;
 }
 
+.techstackHeader {
+  align-items: flex-start;
+}
+
 .headerContainer h1 {
   font-size: 4rem;
   margin: 2rem 0 0.5rem 0;
@@ -30,6 +34,7 @@
   color: var(--text-color);
   font-size: 1.72rem;
   line-height: 2.25rem;
+  animation: fadeInFromBottom 1s ease-out forwards;
 }
 
 .description span {
@@ -82,5 +87,16 @@
   .button {
     padding: 5px 20px;
     font-size: 1rem;
+  }
+}
+
+@keyframes fadeInFromBottom {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
   }
 }

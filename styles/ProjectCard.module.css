@@ -47,3 +47,9 @@
         height: 350px;
     }
 }
+
+@media (max-width: 600px) {
+    .cardContainer {
+        height: 300px;
+    }
+}
