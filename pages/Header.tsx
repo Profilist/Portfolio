@@ -73,14 +73,14 @@ const Header: React.FC<HeaderProps> = ({ currentPage }) => {
             height={48}
           />
         </a>
-        <a href="https://profilist.github.io/resume">
+        <Link href="/resume">
           <Image
             src="/cv.svg"
             alt="Resume"
             width={48}
             height={35}
           />
-        </a>
+        </Link>
       </div>
     </div>
   );
