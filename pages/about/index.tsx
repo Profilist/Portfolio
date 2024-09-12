@@ -39,7 +39,7 @@ export default function about() {
         <title>Larris&apos;s Portfolio</title>
         <meta name="description" content="Larris Xie's Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.svg" type="image/svg"></link>
+        <link rel="icon" href="/logo.png" type="image/png"></link>
       </Head>
       <main>
         <Header currentPage="About" />

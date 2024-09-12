@@ -21,6 +21,7 @@
 
 .headerContainer p {
   margin: 2rem;
+  margin-top: 1rem;
 }
 
 .description {
@@ -52,14 +53,19 @@
   border: none;
   cursor: pointer;
   margin-bottom: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 20px var(--dark-purple);
   font-size: 1.5rem;
   transition: all 0.3s ease;
   font-weight: bold;
+
 }
 .button p,
 .button Image {
   margin: 1rem;
+}
+
+.button:hover {
+  box-shadow: inset 0 0 20px var(--dark-purple), 0 0 20px var(--dark-purple);
 }
 
 @media (max-width: 768px) {
@@ -87,6 +93,15 @@
   .button {
     padding: 5px 20px;
     font-size: 1rem;
+  }
+
+  .techstackHeader {
+    font-size: 1rem;
+  }
+
+  .headerContainer p {
+    font-size: 1.3rem;
+    margin-top: 1rem;
   }
 }
 

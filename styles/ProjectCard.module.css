@@ -15,16 +15,32 @@
     gap: 1rem;
 }
 
+.cardContainer:hover {
+    height: 310px;
+    box-shadow: 0 0 30px var(--dark-purple);
+    cursor: pointer;
+}
+
+.cardContainer:hover .name {
+    font-size: 1.3rem;
+}
+
+.cardContainer:hover .description {
+    font-size: 1.05rem;
+}
+
 .name {
     font-weight: bold;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .description {
     overflow: visible;
     text-overflow: unset;
     white-space: normal; 
-    flex-grow: 1; 
+    flex-grow: 1;
+    transition: all 0.3s ease; 
 }
 
 .stack {

@@ -34,8 +34,24 @@
     align-items: center;
     padding: 1rem 0;
     border-bottom: 1px solid var(--text-color);
+    transition: all 0.1s ease;
+}
+
+.contactItem:hover {
+    padding: 1.2rem 0;
+    font-weight: bold;
 }
 
 .contactItem:last-child {
     margin-bottom: 5rem;
+}
+
+@media (max-width: 480px) {
+    .header {
+      font-size: 2rem;
+    }
+
+    .contactItem {
+        font-size: 1.3rem;
+    }
 }

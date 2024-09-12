@@ -11,28 +11,28 @@ interface ProjectCardProps {
 }
 
 const logoMap: { [key: string]: string } = {
-  Cplusplus: "/cplusplus.svg",
-  Css: "/css.svg",
-  Express: "/express.svg",
-  Firebase: "/firebase.svg",
-  Flutter: "/flutter.svg",
-  Html: "/html.svg",
-  Java: "/java.svg",
-  JS: "/javascript.svg",
-  Mongodb: "/mongodb.svg",
-  Nextjs: "/nextjs.svg",
-  Nodejs: "/nodejs.svg",
-  Python: "/python.svg",
-  R: "/r.svg",
-  React: "/react.svg",
-  Sqlite: "/sqlite.svg",
-  TS: "/typescript.svg",
-  Unity: "/unity.svg",
-  Vercel: "/vercel.svg",
-  Swift: "/swift.svg",
-  Google: "/google-cloud.svg",
-  OpenCV: "/opencv.svg",
-  Csharp: "/csharp.svg",
+  Cplusplus: "/cplusplus.png",
+  Css: "/css.png",
+  Express: "/express.png",
+  Firebase: "/firebase.png",
+  Flutter: "/flutter.png",
+  Html: "/html.png",
+  Java: "/java.png",
+  JS: "/javascript.png",
+  Mongodb: "/mongodb.png",
+  Nextjs: "/nextjs.png",
+  Nodejs: "/nodejs.png",
+  Python: "/python.png",
+  R: "/r.png",
+  React: "/react.png",
+  Sqlite: "/sqlite.png",
+  TS: "/typescript.png",
+  Unity: "/unity.png",
+  Vercel: "/vercel.png",
+  Swift: "/swift.png",
+  Google: "/google-cloud.png",
+  OpenCV: "/opencv.png",
+  Csharp: "/csharp.png",
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -44,8 +44,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const stackArray = projectStack.split(" ").filter((tech) => logoMap[tech]);
 
+  const handleCardClick = () => {
+    if (projectLink) {
+      window.open(projectLink, "_blank");
+    }
+  };
+
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardContainer} onClick={handleCardClick}>
       <div className={styles.name}>{projectName}</div>
       <div className={styles.description}>{projectDescription}</div>
       <div className={styles.stack}>
@@ -65,10 +71,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <Image src="/github.svg" alt="GitHub Logo" width={48} height={48} />
         </a>
         {projectLink && (
-        <a href={projectLink}>
-          <Image src="/arrow.svg" alt="View" width={36} height={36} />
-        </a>)
-        }
+          <a href={projectLink}>
+            <Image src="/arrow.svg" alt="View" width={36} height={36} />
+          </a>
+        )}
       </div>
     </div>
   );

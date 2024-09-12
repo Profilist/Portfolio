@@ -11,8 +11,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 0.5rem;
-  width: auto;
+  padding: 0.25rem 1rem;
+  width: 270px;
   border-radius: 100px;
   background: var(--white);
   position: absolute;
@@ -23,6 +23,14 @@
 .navContainer .link {
   margin: 1rem;
   color: var(--text-color);
+  transition: all 0.1s ease;
+}
+
+.link:hover {
+  background-color: rgba(61, 82, 160, 0.2) ;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  margin: 0rem;
 }
 
 .navContainer .active {
@@ -31,6 +39,10 @@
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-weight: bold;
+}
+
+.logo {
+  margin: 0 2rem;
 }
 
 .logos {
@@ -110,4 +122,11 @@
     .dropdownMenu {
         padding: 1rem 1rem;
     }
+}
+
+@media (max-width: 480px) {
+  .logos img {
+    width: 32px;
+    height: 32px;
+  }
 }

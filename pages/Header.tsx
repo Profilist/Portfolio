@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage }) => {
   return (
     <div className={styles.header}>
       <Link className={styles.logo} href="/">
-        <Image src="/logoDark.svg" alt="Logo" width={180} height={37} />
+        <Image src="/logo.png" alt="Logo" width={48} height={48} />
       </Link>
 
       <div className={styles.navContainer}>

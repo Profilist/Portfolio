@@ -33,3 +33,10 @@
     height: 72px;
   }
 }
+
+@media (max-width: 480px) {
+  .logoContainer img {
+    width: 64px;
+    height: 64px;
+  }
+}

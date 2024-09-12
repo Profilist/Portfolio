@@ -10,13 +10,14 @@ export default function projectPage() {
         <title>Larris&apos;s Portfolio</title>
         <meta name="description" content="Larris Xie's Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.svg" type="image/svg"></link>
+        <link rel="icon" href="/logo.png" type="image/png"></link>
       </Head>
       <main>
         <Header currentPage="Projects" />
         <div className={styles.wrapper}>
-          <div className={styles.headerContainer}>
+          <div className={styles.headerContainerColumn}>
             <h1 className={styles.title}>Projects</h1>
+            <p>Check out my recent work!</p>
           </div>
           <div className={styles.projectsContainer}>
             <ProjectCard
@@ -49,7 +50,7 @@ export default function projectPage() {
             />
             <ProjectCard
               projectName="Harmony Haven"
-              projectDescription="A web app that transforms any song into a gamified karoake experience."
+              projectDescription="A web app that transforms any song into a gamified karaoke experience."
               projectGithub="https://github.com/vincentjsun/HarmonyHaven"
               projectStack="React Nodejs Express Mongodb Google"
               projectLink="https://devpost.com/software/harmony-haven"
@@ -77,7 +78,7 @@ export default function projectPage() {
             />
             <ProjectCard
               projectName="NatureReads"
-              projectDescription="An R package for data processing and visualization of the naturecounts dataset, managed by the non-profit Birds Canada."
+              projectDescription="An R package for data visualization of the naturecounts dataset, managed by Birds Canada."
               projectGithub="https://github.com/Profilist/NatureReads"
               projectStack="R"
               projectLink="https://devpost.com/software/naturereads"
@@ -101,6 +102,7 @@ export default function projectPage() {
               projectDescription="A Java implementation of the Boggle game with an interactive GUI."
               projectGithub="https://github.com/melon64/ICS4UBoggle"
               projectStack="Java"
+              projectLink="https://github.com/melon64/ICS4UBoggle"
             />
           </div>
         </div>
