@@ -28,11 +28,11 @@ const Project = () => {
           projectLink="https://decypherx.itch.io/saving-christmas"
         />
         <ProjectCard
-          projectName="NutriScan"
-          projectDescription="An iOS app designed to provide nutrition facts from a photo."
-          projectGithub="https://github.com/yanziguoo/NutriScan"
-          projectStack="Swift Python Firebase Google"
-          projectLink="https://devpost.com/software/nutriscan-d06z4p"
+          projectName="Square Up"
+          projectDescription="A web app for communities to create mosaics by uploading individual photo pieces."
+          projectGithub="https://github.com/Precisshley/SquareUp"
+          projectStack="React Vite JS Flask AWS"
+          projectLink="https://square-up-pearl.vercel.app/home"
         />
         <ProjectCard
           projectName="ML Research Paper"

@@ -33,6 +33,9 @@ const logoMap: { [key: string]: string } = {
   Google: "/google-cloud.png",
   OpenCV: "/opencv.png",
   Csharp: "/csharp.png",
+  Vite: "/vite.png",
+  Flask: "/flask.png",
+  AWS: "/aws.png",
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({

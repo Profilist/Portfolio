@@ -42,6 +42,9 @@ const Contact = () => {
         <div className={styles.contactItem}>
           <a href="https://github.com/Profilist">GitHub</a>
         </div>
+        <div className={styles.contactItem}>
+          <a href="https://devpost.com/larris-xie">Devpost</a>
+        </div>
       </div>
     </div>
   );

@@ -28,6 +28,13 @@ export default function projectPage() {
               projectLink="https://devpost.com/software/the-fastest-root"
             />
             <ProjectCard
+              projectName="Square Up"
+              projectDescription="A web app for communities to create mosaics by uploading individual photo pieces."
+              projectGithub="https://github.com/Precisshley/SquareUp"
+              projectStack="React Vite JS Flask AWS"
+              projectLink="https://square-up-pearl.vercel.app/home"
+            />
+            <ProjectCard
               projectName="Saving Christmas"
               projectDescription="A 2D Christmas-themed platformer game created using Unity."
               projectGithub="https://github.com/Profilist/Saving-Christmas"
