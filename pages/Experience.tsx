@@ -34,8 +34,8 @@ const Experience = () => {
         <h1 className={styles.header}>Experience</h1>
       </div>
       <div className={styles.experienceContainer} ref={containerRef}>
-        <ExperienceCard date="Sep 2023 - Nov 2023" role="Virtual Software Engineer @ J.P. Morgan Virtual Program" />
-        <ExperienceCard date="Oct 2022 - Jan 2023" role="Autonomous Driving Research Fellow @ Inspirit AI" />
+        <ExperienceCard date="Jan 2025 - Current" role="Undergraduate Research Assistant @ University of Waterloo" />
+        <ExperienceCard date="Dec 2024 - Apr 2025" role="Frontend Developer @ Jobeyze" />
         <ExperienceCard date="Aug 2022 - Feb 2023" role="Student Researcher @ Lumiere Education" />
       </div>
     </div>

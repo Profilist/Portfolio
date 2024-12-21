@@ -12,18 +12,12 @@ const index = () => {
         <link rel="icon" href="/logo.png" type="image/png"></link>
       </Head>
       <main className={styles.wrapper}>
-        <object
-          data="resume.pdf"
-          type="application/pdf"
+        <iframe
+          src="/resume.pdf"
           width="100%"
           height="100%"
-        >
-          <embed
-            src="./resume.pdf"
-            width="100%"
-            height="100%"
-          />
-        </object>
+          style={{ border: "none" }}
+        />
       </main>
     </>
   );

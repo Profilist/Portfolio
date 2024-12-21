@@ -7,30 +7,13 @@ import Image from "next/image";
 import Conveyor from "./Conveyor";
 
 export default function about() {
-  const handleDownload = async () => {
-    try {
-      const response = await fetch("/api/getResume");
-      if (!response.ok) {
-        throw new Error("Failed to fetch the file");
-      }
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(new Blob([blob]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "resume.pdf");
-      document.body.appendChild(link);
-      link.click();
-      if (link.parentNode) {
-        link.parentNode.removeChild(link);
-      } else {
-        document.body.removeChild(link); 
-      }
-
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Download failed:", error);
-    }
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; 
+    link.setAttribute("download", "resume.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -55,8 +38,9 @@ export default function about() {
           <p>
             I&apos;m a <span>Software Developer</span> from Toronto, currently
             studying Computer Science at the{" "}
-            <span>University of Waterloo. </span>
-            I love participating in hackathons and working on projects that I&apos;m passionate about!
+            <span>University of Waterloo. </span>I love exploring new technologies, which has led me to take part
+            in <span>15+ hackathons</span> and work on projects that tackle real-world
+            challenges. 
           </p>
         </div>
         <div className={styles.techstack}>
