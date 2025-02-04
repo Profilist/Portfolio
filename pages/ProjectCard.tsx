@@ -36,6 +36,7 @@ const logoMap: { [key: string]: string } = {
   Vite: "/vite.png",
   Flask: "/flask.png",
   AWS: "/aws.png",
+  Tensorflow: "/tensorflow.png",
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({

@@ -14,11 +14,25 @@ const Project = () => {
       </div>
       <div className={styles.projectsContainer}>
         <ProjectCard
-          projectName="The Fastest Root"
-          projectDescription="A web app that calculates the cheapest and fastest grocery shopping route."
-          projectGithub="https://github.com/Profilist/The-Fastest-Root"
-          projectStack="React Nextjs TS Nodejs Express Google"
-          projectLink="https://devpost.com/software/the-fastest-root"
+          projectName="Autonomous Vision Systems for Self-Driving Cars"
+          projectDescription="An analysis of object detection pipelines for self-driving cars."
+          projectGithub="https://github.com/Profilist/Autonomous-Driving"
+          projectStack="Python Tensorflow"
+          projectLink="https://github.com/Profilist/Autonomous-Driving"
+        />
+        <ProjectCard
+          projectName="Off The Hook"
+          projectDescription="A phishing ARG educating users on the dangers of phishing attacks through the perspective of a hacker."
+          projectGithub="https://github.com/Profilist/off-the-hook"
+          projectStack="React Vite JS Flask Mongodb"
+          projectLink="https://dorahacks.io/buidl/21599"
+        />
+        <ProjectCard
+          projectName="ML Research Paper"
+          projectDescription="A research paper on using ML to detect financial fraud, mentored by professor Maria Konte."
+          projectGithub="https://github.com/Profilist/Financial-Fraud-Detection"
+          projectStack="Python"
+          projectLink="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history"
         />
         <ProjectCard
           projectName="Saving Christmas"
@@ -26,20 +40,6 @@ const Project = () => {
           projectGithub="https://github.com/Profilist/Saving-Christmas"
           projectStack="Csharp Unity"
           projectLink="https://decypherx.itch.io/saving-christmas"
-        />
-        <ProjectCard
-          projectName="Square Up"
-          projectDescription="A web app for communities to create mosaics by uploading individual photo pieces."
-          projectGithub="https://github.com/Precisshley/SquareUp"
-          projectStack="React Vite JS Flask AWS"
-          projectLink="https://square-up-pearl.vercel.app/home"
-        />
-        <ProjectCard
-          projectName="ML Research Paper"
-          projectDescription="A research paper about a ML approach to detect financial fraud. Mentored by professor Maria Konte."
-          projectGithub="https://github.com/Profilist/Financial-Fraud-Detection"
-          projectStack="Python"
-          projectLink="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history"
         />
       </div>
     </div>

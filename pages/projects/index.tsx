@@ -21,6 +21,27 @@ export default function projectPage() {
           </div>
           <div className={styles.projectsContainer}>
             <ProjectCard
+              projectName="Autonomous Vision Systems for Self-Driving Cars"
+              projectDescription="An analysis of object detection pipelines for self-driving cars."
+              projectGithub="https://github.com/Profilist/Autonomous-Driving"
+              projectStack="Python Tensorflow"
+              projectLink="https://github.com/Profilist/Autonomous-Driving"
+            />
+            <ProjectCard
+              projectName="Off The Hook"
+              projectDescription="A phishing ARG educating users on the dangers of phishing attacks through the perspective of a hacker."
+              projectGithub="https://github.com/Profilist/off-the-hook"
+              projectStack="React Vite JS Flask Mongodb"
+              projectLink="https://dorahacks.io/buidl/21599"
+            />
+            <ProjectCard
+              projectName="NavigAIt"
+              projectDescription="An onboarding assistant that uses a RAG-LLM architecture to provide live support for new employees."
+              projectGithub="https://github.com/fuselierr/navigAIt"
+              projectStack="React Nextjs JS Nodejs Express Google"
+              projectLink="https://devpost.com/software/navigait"
+            />
+            <ProjectCard
               projectName="The Fastest Root"
               projectDescription="A web app that calculates the cheapest and fastest grocery shopping route."
               projectGithub="https://github.com/Profilist/The-Fastest-Root"
