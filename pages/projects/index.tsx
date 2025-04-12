@@ -21,6 +21,13 @@ export default function projectPage() {
           </div>
           <div className={styles.projectsContainer}>
             <ProjectCard
+              projectName="On The Dot"
+              projectDescription="A trivia game for top 100 categories (1600+ plays)."
+              projectGithub="https://www.playonthedot.com"
+              projectStack="React Vite TS Supabase Postgres Python GCP" 
+              projectLink="https://www.playonthedot.com"
+            />
+            <ProjectCard
               projectName="Autonomous Vision Systems for Self-Driving Cars"
               projectDescription="An analysis of object detection pipelines for self-driving cars."
               projectGithub="https://github.com/Profilist/Autonomous-Driving"

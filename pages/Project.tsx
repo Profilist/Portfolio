@@ -21,12 +21,12 @@ const Project = () => {
           projectLink="https://github.com/Profilist/Autonomous-Driving"
         />
         <ProjectCard
-          projectName="Off The Hook"
-          projectDescription="A phishing ARG educating users on the dangers of phishing attacks through the perspective of a hacker."
-          projectGithub="https://github.com/Profilist/off-the-hook"
-          projectStack="React Vite JS Flask Mongodb"
-          projectLink="https://dorahacks.io/buidl/21599"
-        />
+            projectName="On The Dot"
+            projectDescription="A trivia game for top 100 categories (1600+ plays)."
+            projectGithub="https://www.playonthedot.com"
+            projectStack="React Vite TS Supabase Postgres Python GCP" 
+            projectLink="https://www.playonthedot.com"
+          />
         <ProjectCard
           projectName="ML Research Paper"
           projectDescription="A research paper on using ML to detect financial fraud, mentored by professor Maria Konte."

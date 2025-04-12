@@ -9,7 +9,7 @@ import Conveyor from "./Conveyor";
 export default function about() {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf"; 
+    link.href = "/resume.pdf";
     link.setAttribute("download", "resume.pdf");
     document.body.appendChild(link);
     link.click();
@@ -36,11 +36,10 @@ export default function about() {
         </div>
         <div className={styles.description}>
           <p>
-            I&apos;m a <span>Software Developer</span> from Toronto, currently
-            studying Computer Science at the{" "}
-            <span>University of Waterloo. </span>I love exploring new technologies, which has led me to take part
-            in <span>15+ hackathons</span> and work on projects that tackle real-world
-            challenges. 
+            Hi! 👋 I&apos;m a <span>Software Engineer</span> from Toronto,
+            studying CS at the <span>University of Waterloo</span>. I love
+            exploring new technologies in AI; I&apos;m currently learning about GenAI
+            in multimodal applications like video and audio.
           </p>
         </div>
         <div className={styles.techstack}>
