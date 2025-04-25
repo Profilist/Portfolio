@@ -2,25 +2,60 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --accent-yellow: #FFF8B8;
+  --accent-yellow-border: #F5E98A;
 }
 
-@theme inline {
+@theme {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card-bg);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-yellow-border: var(--accent-yellow-border);
+  
+  /* Typography */
+  --font-geist: var(--font-geist);
+  --font-serif: var(--font-instrument);
+  --font-handwriting: var(--font-handwriting);
+  
+  /* Spacing */
+  --spacing: 0.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Keep the same values as light mode since we want to keep the design exactly the same */
+    --background: #ffffff;
+    --foreground: #000000;
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --accent-yellow: #FFF8B8;
+    --accent-yellow-border: #F5E98A;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geist);
+    letter-spacing: -0.06em; /* -6% letter spacing for Geist */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium;
+  }
+  
+  .font-handwriting {
+    font-family: var(--font-handwriting);
+    letter-spacing: -0.06em;
+  }
+  
+  .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: 0;
+  }
 }
