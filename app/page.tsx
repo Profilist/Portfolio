@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import RecentProjects from "../components/RecentProjects";
+import WhereIveBeen from "../components/WhereIveBeen";
+import MoreAboutMe from "@/components/MoreAboutMe";
 
 export default function Home() {
   return (
@@ -82,6 +84,16 @@ export default function Home() {
       {/* Recent Projects Section */}
       <div className="px-8">
         <RecentProjects />
+      </div>
+
+      {/* Where I've Been Section */}
+      <div className="mt-24">
+        <WhereIveBeen />
+      </div>
+
+      {/* More About Me Section */}
+      <div className="mt-24">
+        <MoreAboutMe />
       </div>
     </div>
   );
