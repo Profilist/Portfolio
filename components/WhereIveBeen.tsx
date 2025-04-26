@@ -34,7 +34,7 @@ export default function WhereIveBeen() {
   ];
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);
-  const [progressPercent, setProgressPercent] = useState(0);
+  const [segmentFills, setSegmentFills] = useState<number[]>(() => Array(timeline.length - 1).fill(0));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,8 +42,19 @@ export default function WhereIveBeen() {
       const rect = sectionRef.current.getBoundingClientRect();
       const total = window.innerHeight * (timeline.length - 1);
       const scrollY = Math.max(-rect.top, 0);
-      setCurrent(Math.floor(scrollY / window.innerHeight));
-      setProgressPercent(Math.min(100, (scrollY / total) * 100));
+      const perItem = total / (timeline.length - 1);
+      // Compute the current segment
+      const currIdx = Math.floor(scrollY / window.innerHeight);
+      setCurrent(currIdx);
+      // Compute fill for each segment
+      const fills = Array(timeline.length - 1).fill(0).map((_, idx) => {
+        if (idx < Math.floor(scrollY / perItem)) return 100;
+        if (idx === Math.floor(scrollY / perItem)) {
+          return Math.min(100, ((scrollY - idx * perItem) / perItem) * 100);
+        }
+        return 0;
+      });
+      setSegmentFills(fills);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -66,17 +77,7 @@ export default function WhereIveBeen() {
               <div className="relative h-auto">
                 <div className="flex flex-col justify-center h-full">
                   {timeline.map((item, idx) => {
-                    // Determine segment fill for progress
-                    let segmentFill = 0;
-                    if (idx < current) {
-                      segmentFill = 100;
-                    } else if (idx === current) {
-                      // Progress within this segment
-                      const total = window.innerHeight * (timeline.length - 1);
-                      const scrollY = Math.max(-(sectionRef.current?.getBoundingClientRect().top || 0), 0);
-                      const perItem = total / (timeline.length - 1);
-                      segmentFill = Math.min(100, ((scrollY - idx * perItem) / perItem) * 100);
-                    }
+                    const segmentFill = segmentFills[idx] || 0;
                     return (
                       <div key={item.company} className="flex items-center relative z-10">
                         <div className={`w-20 flex flex-col items-center relative z-10 ${idx < timeline.length - 1 ? '-mb-6' : ''}`}>
