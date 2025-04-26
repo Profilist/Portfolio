@@ -50,65 +50,67 @@ export default function WhereIveBeen() {
   }, []);
 
   return (
-    <div className="w-full px-8">
-      <div className="flex items-center justify-between w-full mb-10">
-        <h2 className="text-3xl font-medium">Where I’ve been</h2>
-        <Link href="#" className="text-xl hover:opacity-70 transition" aria-label="View my resume">
-          view my <span className="font-medium underline underline-offset-4">resume</span>
-        </Link>
-      </div>
-
+    <div className="w-full">
       <div ref={sectionRef} style={{ height: `${timeline.length * 100}vh` }} className="relative w-full">
-        <div className="sticky top-24 h-screen flex flex-col md:flex-row md:items-start w-full">
-          <div className="flex-1 min-w-[260px] max-w-[350px] h-full px-4">
-            <div className="relative h-auto">
-              <div className="absolute left-10 top-0 bottom-0 w-1 bg-[#EEEEEE] rounded-full z-0" aria-hidden="true" />
-              <div className="flex flex-col justify-center h-full space-y-6">
-                {timeline.map((item, idx) => (
-                  <div key={item.company} className="flex items-center relative z-10">
-                    <motion.div className="w-20 flex justify-center relative z-10">
-                      <motion.div
-                        className="w-16 h-16 rounded-full flex items-center justify-center border-4"
-                        variants={timelineAccent}
-                        animate={current === idx ? "active" : "inactive"}
-                        style={{ borderColor: current === idx ? '#FFF8B8' : '#EEEEEE', background: item.accent }}
-                      >
-                        <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
+        <div className="sticky top-20 h-screen flex flex-col w-full">
+          {/* Sticky header */}
+          <div className="flex items-center justify-between w-full mb-10">
+            <h2 className="text-3xl font-medium">Where I’ve been</h2>
+            <Link href="#" className="text-xl hover:opacity-70 transition" aria-label="View my resume">
+              view my <span className="font-medium underline underline-offset-4">resume</span>
+            </Link>
+          </div>
+          <div className="flex flex-col md:flex-row md:items-start w-full h-full">
+            <div className="flex-1 min-w-[260px] max-w-[350px] h-full px-4">
+              <div className="relative h-auto">
+                <div className="absolute left-10 top-0 bottom-0 w-1 bg-[#EEEEEE] rounded-full z-0" aria-hidden="true" />
+                <div className="flex flex-col justify-center h-full space-y-6">
+                  {timeline.map((item, idx) => (
+                    <div key={item.company} className="flex items-center relative z-10">
+                      <motion.div className="w-20 flex justify-center relative z-10">
+                        <motion.div
+                          className="w-16 h-16 rounded-full flex items-center justify-center border-4"
+                          variants={timelineAccent}
+                          animate={current === idx ? "active" : "inactive"}
+                          style={{ borderColor: current === idx ? '#FFF8B8' : '#EEEEEE', background: item.accent }}
+                        >
+                          <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
+                        </motion.div>
                       </motion.div>
-                    </motion.div>
-                    <div className="flex-1 pl-6">
-                      <div className="font-bold text-2xl leading-tight">{item.company}</div>
-                      <div className="text-base font-normal">{item.role}</div>
-                      <div className="text-sm text-black/60 mt-1">{item.dates}</div>
+                      <div className="flex-1 pl-6">
+                        <div className="font-bold text-2xl leading-tight">{item.company}</div>
+                        <div className="text-base font-normal">{item.role}</div>
+                        <div className="text-sm text-black/60 mt-1">{item.dates}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex-1 flex justify-center md:justify-start">
-            <motion.div
-              className="relative rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-10 flex flex-col"
-              style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.10)', background: timeline[current].accent }}
-              variants={stickyNoteFlip}
-              key={current}
-              initial="exit"
-              animate="enter"
-              exit="exit"
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              {/* Pin at top center */}
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ width: 36, height: 36 }}>
-                <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
-              </div>
-              {/* Triangle at bottom right */}
-              <div className="absolute right-0 bottom-0 w-16 h-16 z-10 pointer-events-none">
-                <svg width="100%" height="100%" viewBox="0 0 64 64"><polygon points="0,64 64,0 64,64" fill="#FFFECF"/></svg>
-              </div>
-              <ul className="list-disc pl-6 mt-8 text-xl leading-relaxed space-y-2">
-                {notes[current].map((line, i) => <li key={i}>{line}</li>)}
-              </ul>
-            </motion.div>
+            <div className="flex-1 flex justify-center md:justify-start">
+              <motion.div
+                className="relative rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-10 flex flex-col"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.10)', background: timeline[current].accent }}
+                variants={stickyNoteFlip}
+                key={current}
+                initial="exit"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                {/* Pin at top center */}
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ width: 36, height: 36 }}>
+                  <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
+                </div>
+                {/* Triangle at bottom right */}
+                <div className="absolute right-0 bottom-0 w-16 h-16 z-10 pointer-events-none">
+                  <svg width="100%" height="100%" viewBox="0 0 64 64"><polygon points="0,64 64,0 64,64" fill="#FFFECF"/></svg>
+                </div>
+                <ul className="list-disc pl-6 mt-8 text-xl leading-relaxed space-y-2">
+                  {notes[current].map((line, i) => <li key={i}>{line}</li>)}
+                </ul>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

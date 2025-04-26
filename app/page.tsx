@@ -87,12 +87,12 @@ export default function Home() {
       </div>
 
       {/* Where I've Been Section */}
-      <div className="mt-24">
+      <div className="px-8 mt-24">
         <WhereIveBeen />
       </div>
 
       {/* More About Me Section */}
-      <div className="mt-24">
+      <div className="px-8">
         <MoreAboutMe />
       </div>
     </div>
