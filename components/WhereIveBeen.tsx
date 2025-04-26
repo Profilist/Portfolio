@@ -32,17 +32,18 @@ export default function WhereIveBeen() {
       <>worked on NLP <span role="img" aria-label="brain">🧠</span></>
     ],
   ];
-
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);
+  const [progressPercent, setProgressPercent] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      const total = window.innerHeight * timeline.length;
-      const scrollY = Math.min(Math.max(-rect.top, 0), total - window.innerHeight);
+      const total = window.innerHeight * (timeline.length - 1);
+      const scrollY = Math.max(-rect.top, 0);
       setCurrent(Math.floor(scrollY / window.innerHeight));
+      setProgressPercent(Math.min(100, (scrollY / total) * 100));
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -51,7 +52,7 @@ export default function WhereIveBeen() {
 
   return (
     <div className="w-full">
-      <div ref={sectionRef} style={{ height: `${timeline.length * 100}vh` }} className="relative w-full">
+      <div ref={sectionRef} style={{ height: `${(timeline.length + 0.5) * 100}vh` }} className="relative w-full">
         <div className="sticky top-20 h-screen flex flex-col w-full">
           {/* Sticky header */}
           <div className="flex items-center justify-between w-full mb-10">
@@ -63,27 +64,55 @@ export default function WhereIveBeen() {
           <div className="flex flex-col md:flex-row md:items-start w-full h-full">
             <div className="flex-1 min-w-[260px] max-w-[350px] h-full px-4">
               <div className="relative h-auto">
-                <div className="absolute left-10 top-0 bottom-0 w-1 bg-[#EEEEEE] rounded-full z-0" aria-hidden="true" />
-                <div className="flex flex-col justify-center h-full space-y-6">
-                  {timeline.map((item, idx) => (
-                    <div key={item.company} className="flex items-center relative z-10">
-                      <motion.div className="w-20 flex justify-center relative z-10">
-                        <motion.div
-                          className="w-16 h-16 rounded-full flex items-center justify-center border-4"
-                          variants={timelineAccent}
-                          animate={current === idx ? "active" : "inactive"}
-                          style={{ borderColor: current === idx ? '#FFF8B8' : '#EEEEEE', background: item.accent }}
-                        >
-                          <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
-                        </motion.div>
-                      </motion.div>
-                      <div className="flex-1 pl-6">
-                        <div className="font-bold text-2xl leading-tight">{item.company}</div>
-                        <div className="text-base font-normal">{item.role}</div>
-                        <div className="text-sm text-black/60 mt-1">{item.dates}</div>
+                <div className="flex flex-col justify-center h-full">
+                  {timeline.map((item, idx) => {
+                    // Determine segment fill for progress
+                    let segmentFill = 0;
+                    if (idx < current) {
+                      segmentFill = 100;
+                    } else if (idx === current) {
+                      // Progress within this segment
+                      const total = window.innerHeight * (timeline.length - 1);
+                      const scrollY = Math.max(-(sectionRef.current?.getBoundingClientRect().top || 0), 0);
+                      const perItem = total / (timeline.length - 1);
+                      segmentFill = Math.min(100, ((scrollY - idx * perItem) / perItem) * 100);
+                    }
+                    return (
+                      <div key={item.company} className="flex items-center relative z-10">
+                        <div className={`w-20 flex flex-col items-center relative z-10 ${idx < timeline.length - 1 ? '-mb-6' : ''}`}>
+                          <motion.div
+                            className="w-16 h-16 rounded-full flex items-center justify-center border-4"
+                            variants={timelineAccent}
+                            animate={current === idx ? "active" : "inactive"}
+                            style={{ borderColor: current === idx ? '#FFF8B8' : '#EEEEEE', background: item.accent }}
+                          >
+                            <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
+                          </motion.div>
+                          {/* Timeline segment below icon, except last item */}
+                          {idx < timeline.length - 1 && (
+                            <div className="relative flex flex-col items-center h-20">
+                              {/* Base line */}
+                              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-full bg-[#EEEEEE] rounded-full" aria-hidden="true" />
+                              {/* Animated progress fill */}
+                              <motion.div
+                                className="absolute top-0 left-1/2 -translate-x-1/2 w-1 bg-[#FFF8B8] rounded-full z-10"
+                                aria-hidden="true"
+                                style={{ height: `${segmentFill}%` }}
+                                initial={{ height: 0 }}
+                                animate={{ height: `${segmentFill}%` }}
+                                transition={{ type: "spring", stiffness: 100, damping: 30 }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1 pl-6">
+                          <div className="font-bold text-2xl leading-tight">{item.company}</div>
+                          <div className="text-base font-normal">{item.role}</div>
+                          <div className="text-sm text-black/60 mt-1">{item.dates}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
