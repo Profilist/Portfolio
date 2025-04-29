@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -41,7 +42,15 @@ export default function RecentProjects() {
     <div style={{ width: '100%' }}>
       <section className="mt-20 flex flex-col">
         <p className="text-xl md:text-2xl mb-10">Checkout what I've built recently!</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 relative">
+          {/* Backdrop Blur */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: activeProject ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-white/40 backdrop-blur-sm z-[15]"
+            style={{ pointerEvents: activeProject ? 'auto' : 'none' }}
+          />
           {/* Project Cards */}
           {projects.map((proj) => (
             <div
@@ -51,8 +60,17 @@ export default function RecentProjects() {
               onMouseLeave={() => setActiveProject(null)}
             >
               {activeProject?.name === proj.name ? (
-                <div className="absolute z-10 -top-8 left-1/2 -translate-x-1/2 w-[240px] flex flex-col items-center justify-center animate-spring-up bg-white p-4 rounded-2xl">
-                  <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center relative">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25
+                  }}
+                  className="absolute z-20 -top-8 left-1/2 -translate-x-1/2 w-[240px] flex flex-col items-center justify-center p-4 rounded-2xl"
+                >
+                  <div className="w-16 h-16 flex items-center justify-center relative">
                     <Image 
                       src="/projects/pmo1.png" 
                       alt="pmo" 
@@ -68,7 +86,7 @@ export default function RecentProjects() {
                       className="object-contain w-16 h-16" 
                     />
                   </div>
-                  <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center relative">
+                  <div className="w-16 h-16 flex items-center justify-center relative">
                     <Image 
                       src={proj.image} 
                       alt={proj.alt} 
@@ -85,7 +103,7 @@ export default function RecentProjects() {
                   >
                     View {proj.name}
                   </Link>
-                </div>
+                </motion.div>
               ) : null}
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white flex items-center justify-center relative">
@@ -105,7 +123,7 @@ export default function RecentProjects() {
           ))}
           {/* See More Card */}
           <div className="flex flex-col items-center">
-            <Link href="#" aria-label="See more projects">
+            <Link href="/projects" aria-label="See more projects">
               <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white flex items-center justify-center">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M21 21H3V3"/></svg>
               </div>
