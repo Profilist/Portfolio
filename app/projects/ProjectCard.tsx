@@ -12,13 +12,17 @@ interface ProjectCardProps {
     name: string
     icon: string
   }>
+  demo: {
+    type: 'video' | 'image'
+    url: string
+  }
 }
 
-export default function ProjectCard({ title, description, links, techStack }: ProjectCardProps) {
+export default function ProjectCard({ title, description, links, techStack, demo }: ProjectCardProps) {
   return (
     <div className="group relative rounded-2xl bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all hover:shadow-lg">
       <div className="flex items-start justify-between">
-        <h3 className="font-geist text-xl tracking-[-0.06em]">{title}</h3>
+        <h3 className="font-instrument text-4xl">{title}</h3>
         <div className="flex gap-2">
           {links.github && (
             <a href={links.github} target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70">
@@ -51,6 +55,26 @@ export default function ProjectCard({ title, description, links, techStack }: Pr
             className="h-6 w-auto"
           />
         ))}
+      </div>
+      <div className="mt-6 overflow-hidden rounded-lg bg-neutral-50">
+        {demo.type === 'video' ? (
+          <video
+            src={demo.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="aspect-video w-full object-cover"
+          />
+        ) : (
+          <Image
+            src={demo.url}
+            alt={`${title} demo`}
+            width={800}
+            height={450}
+            className="aspect-video w-full object-cover"
+          />
+        )}
       </div>
     </div>
   )

@@ -43,7 +43,7 @@ export const ProjectOverlay: React.FC<ProjectOverlayProps> = ({ open, onClose, p
               {project.name === "pmo" && (
                 <div className="flex flex-row gap-0 md:gap-6 items-end justify-center mb-6 md:mb-8">
                   <Image
-                    src="/pmo1.png"
+                    src="/projects/pmo1.png"
                     alt="pmo app schedule view"
                     width={180}
                     height={250}
@@ -52,7 +52,7 @@ export const ProjectOverlay: React.FC<ProjectOverlayProps> = ({ open, onClose, p
                     priority
                   />
                   <Image
-                    src="/pmo2.png"
+                    src="/projects/pmo2.png"
                     alt="pmo app timer view"
                     width={200}
                     height={140}

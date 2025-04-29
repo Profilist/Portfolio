@@ -8,21 +8,21 @@ import { ProjectOverlay } from "./ProjectOverlay";
 const projects = [
   {
     name: "pmo",
-    image: "/pmo.png",
-    alt: "pmo logo",
-    href: "#",
+    image: "/projects/pmo.png",
+    alt: "pmo",
+    href: "https://github.com/Profilist/pmo",
   },
   {
     name: "on the dot",
-    image: "/onthedot.svg",
-    alt: "on the dot logo",
-    href: "#",
+    image: "/projects/onthedot.svg",
+    alt: "on the dot",
+    href: "https://www.playonthedot.com/",
   },
   {
     name: "off the hook",
-    image: "/offthehook.svg",
-    alt: "off the hook logo",
-    href: "#",
+    image: "/projects/offthehook.svg",
+    alt: "off the hook",
+    href: "https://github.com/Profilist/off-the-hook",
   },
 ];
 

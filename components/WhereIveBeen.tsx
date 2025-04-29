@@ -7,10 +7,10 @@ import Link from "next/link";
 import { stickyNoteFlip, timelineAccent } from "../lib/animations";
 
 const timeline = [
-  { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/shopify.svg", accent: "#FFF8B8" },
-  { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Apr 2025", logo: "/uwaterloo.svg", accent: "#EEEEEE" },
-  { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/jobeyze.svg", accent: "#EEEEEE" },
-  { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/lumiere.svg", accent: "#EEEEEE" },
+  { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#FFF8B8" },
+  { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Apr 2025", logo: "/experience/uwaterloo.svg", accent: "#EEEEEE" },
+  { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/experience/jobeyze.svg", accent: "#EEEEEE" },
+  { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/experience/lumiere.svg", accent: "#EEEEEE" },
 ];
 
 export default function WhereIveBeen() {

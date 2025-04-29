@@ -33,11 +33,11 @@ export default function Home() {
             <p className="text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
               I'm a Software Engineer at
               <span className="inline-flex items-center">
-                <Image src="/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
+                <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
                 Shopify,
               </span> studying CS at the
               <span className="inline-flex items-center">
-                <Image src="/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
+                <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
                 University of Waterloo.
               </span>
             </p>
