@@ -52,16 +52,16 @@ export default function Home() {
               
               {/* Social Links */}
               <div className="flex items-center gap-4">
-                <Link href="https://linkedin.com" aria-label="LinkedIn Profile">
+                <Link href="https://linkedin.com/in/larrisxie" aria-label="LinkedIn">
                   <Image src="/linkedin.svg" alt="" width={24} height={24} aria-hidden="true" />
                 </Link>
-                <Link href="https://twitter.com" aria-label="Twitter Profile">
+                <Link href="https://x.com/larrisx" aria-label="Twitter">
                   <Image src="/x.svg" alt="" width={20} height={20} aria-hidden="true" />
                 </Link>
-                <Link href="https://github.com" aria-label="GitHub Profile">
+                <Link href="https://github.com/Profilist" aria-label="GitHub">
                   <Image src="/github.svg" alt="" width={24} height={24} aria-hidden="true" />
                 </Link>
-                <Link href="mailto:contact@example.com" aria-label="Email">
+                <Link href="mailto:larris.xie@gmail.com" aria-label="Email">
                   <Image src="/email.svg" alt="" width={24} height={24} aria-hidden="true" />
                 </Link>
               </div>

@@ -1,42 +1,14 @@
 "use client"
 
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-const projects = [
-  {
-    name: "pmo",
-    image: "/projects/pmo.png",
-    alt: "pmo",
-    href: "https://github.com/Profilist/pmo",
-    description: "A minimal Pomodoro timer desktop app"
-  },
-  {
-    name: "on the dot",
-    image: "/projects/onthedot.svg",
-    alt: "on the dot",
-    href: "https://www.playonthedot.com/",
-    description: "A web-based trivia game with 2000+ plays"
-  },
-  {
-    name: "off the hook",
-    image: "/projects/offthehook.svg",
-    alt: "off the hook",
-    href: "https://github.com/Profilist/off-the-hook",
-    description: "A phishing ARG that lets you become the hacker"
-  },
-];
+import { Project, projects } from "@/lib/projects";
 
 export default function RecentProjects() {
-  const [activeProject, setActiveProject] = useState<{
-    name: string;
-    image: string;
-    alt: string;
-    description: string;
-    href: string;
-  } | null>(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
     <div style={{ width: '100%' }}>
@@ -68,33 +40,63 @@ export default function RecentProjects() {
                     stiffness: 400,
                     damping: 25
                   }}
-                  className="absolute z-20 -top-8 left-1/2 -translate-x-1/2 w-[240px] flex flex-col items-center justify-center p-4 rounded-2xl"
+                  className="absolute z-20 -top-64 left-1/2 -translate-x-1/2 w-[240px] flex flex-col items-center justify-center p-4 rounded-2xl"
                 >
-                  <div className="w-16 h-16 flex items-center justify-center relative">
-                    <Image 
-                      src="/projects/pmo1.png" 
-                      alt="pmo" 
-                      width={64} 
-                      height={64} 
-                      className="object-contain w-16 h-16" 
-                    />
-                    <Image 
-                      src="/projects/pmo2.png" 
-                      alt="pmo" 
-                      width={64} 
-                      height={64} 
-                      className="object-contain w-16 h-16" 
-                    />
+                  <div className="w-64 h-64 relative">
+                    {proj.video ? (
+                      <div className="relative w-full h-full top-12 left-2">
+                        <Image
+                          src="/projects/monitor.svg"
+                          alt="Monitor"
+                          width={512}
+                          height={512}
+                          className="w-full h-full"
+                          priority
+                        />
+                        <div className="absolute top-[68px] left-[32px] overflow-hidden rounded-xs bg-black">
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-[178px] h-[98px] object-cover"
+                          >
+                            <source src={proj.video} type="video/mp4" />
+                          </video>
+                        </div>
+                      </div>
+                    ) : (
+                      proj.previewImages?.map((preview, index) => (
+                        <Image 
+                          key={preview.src}
+                          src={preview.src} 
+                          alt={preview.alt} 
+                          width={256} 
+                          height={256} 
+                          className="w-48 h-auto absolute"
+                          style={preview.position}
+                        />
+                      ))
+                    )}
                   </div>
-                  <div className="w-16 h-16 flex items-center justify-center relative">
+                  <motion.div 
+                    className="w-20 h-20 flex items-center justify-center relative"
+                    initial={{ scale: 1.75 }} 
+                    animate={{ scale: 1 }}
+                    transition={{ 
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 25
+                    }}
+                  >
                     <Image 
                       src={proj.image} 
                       alt={proj.alt} 
                       width={64} 
                       height={64} 
-                      className="object-contain w-16 h-16" 
+                      className="object-contain w-20 h-20" 
                     />
-                  </div>
+                  </motion.div>
                   <h3 className="font-instrument text-4xl text-center mb-2">{proj.name}</h3>
                   <p className="text-sm text-center mb-4">{proj.description}</p>
                   <Link 
@@ -105,8 +107,22 @@ export default function RecentProjects() {
                   </Link>
                 </motion.div>
               ) : null}
-              <div className="flex flex-col items-center">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white flex items-center justify-center relative">
+              <motion.div 
+                animate={{ opacity: activeProject?.name === proj.name ? 0 : 1 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col items-center"
+              >
+                <motion.div 
+                  className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white flex items-center justify-center relative"
+                  animate={{ 
+                    scale: activeProject?.name === proj.name ? 0.57 : 1 // 16/28 ≈ 0.57 (ratio of small to large icon)
+                  }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25
+                  }}
+                >
                   <Image 
                     src={proj.image} 
                     alt={proj.alt} 
@@ -114,11 +130,11 @@ export default function RecentProjects() {
                     height={64} 
                     className="object-contain w-24 h-24 md:w-28 md:h-28" 
                   />
-                </div>
+                </motion.div>
                 <span className="mt-3 px-4 py-1 bg-[#E5E5E5] text-base rounded-full font-medium">
                   {proj.name}
                 </span>
-              </div>
+              </motion.div>
             </div>
           ))}
           {/* See More Card */}
