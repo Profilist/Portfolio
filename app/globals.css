@@ -19,7 +19,7 @@
   
   /* Typography */
   --font-geist: var(--font-geist);
-  --font-serif: var(--font-instrument);
+  --font-instrument: var(--font-instrument);
   --font-handwriting: var(--font-handwriting);
   
   /* Spacing */
@@ -54,8 +54,8 @@
     letter-spacing: -0.06em;
   }
   
-  .font-serif {
-    font-family: var(--font-serif);
+  .font-instrument {
+    font-family: var(--font-instrument);
     letter-spacing: 0;
   }
 }

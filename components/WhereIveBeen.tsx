@@ -64,7 +64,7 @@ export default function WhereIveBeen() {
   return (
     <div className="w-full">
       <div ref={sectionRef} style={{ height: `${(timeline.length + 0.5) * 100}vh` }} className="relative w-full">
-        <div className="sticky top-20 h-screen flex flex-col w-full">
+        <div className="sticky top-16 h-screen flex flex-col w-full">
           {/* Sticky header */}
           <div className="flex items-center justify-between w-full mb-10">
             <h2 className="text-3xl font-medium">Where I’ve been</h2>
