@@ -20,16 +20,16 @@ export default function WhereIveBeen() {
       <>on the Retail Team <span role="img" aria-label="shopping bags">🛍️</span></>
     ],
     [
-      <>did research for Security and Privacy in Machine Learning at <span className="font-medium">UWaterloo</span></>,
-      <>built a vertical federated learning protocol in PyTorch on distributed credit card sequences</>
+      <>researched security and privacy in machine learning</>,
+      <>built a federated learning protocol in PyTorch for distributed credit card sequences</>
     ],
     [
-      <>software engineer at <span className="font-medium">Jobeyze</span></>,
-      <>built job search tools <span role="img" aria-label="briefcase">💼</span></>
+      <>developed the landing pages from scratch for <a href="https://www.jobeyze.ca/" className="underline underline-offset-4">Jobeyze</a></>,
+      <>made automated web scrapers to extract 1200+ jobs daily</>
     ],
     [
-      <>ML researcher at <span className="font-medium">Lumiere</span></>,
-      <>worked on NLP <span role="img" aria-label="brain">🧠</span></>
+      <>trained a machine learning model for financial fraud detection</>,
+      <>published a <a href="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history" className="underline underline-offset-4">research paper</a></>
     ],
   ];
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -79,7 +79,7 @@ export default function WhereIveBeen() {
                   {timeline.map((item, idx) => {
                     const segmentFill = segmentFills[idx] || 0;
                     return (
-                      <div key={item.company} className="flex items-center relative z-10">
+                      <div key={item.company} className="flex items-start relative z-10">
                         <div className={`w-20 flex flex-col items-center relative z-10 ${idx < timeline.length - 1 ? '-mb-6' : ''}`}>
                           <motion.div
                             className="w-16 h-16 rounded-full flex items-center justify-center border-4"
@@ -106,7 +106,7 @@ export default function WhereIveBeen() {
                             </div>
                           )}
                         </div>
-                        <div className="flex-1 pl-6">
+                        <div className="flex-1 pl-4">
                           <div className="font-bold text-2xl leading-tight">{item.company}</div>
                           <div className="text-base font-normal">{item.role}</div>
                           <div className="text-sm text-black/60 mt-1">{item.dates}</div>
@@ -119,8 +119,8 @@ export default function WhereIveBeen() {
             </div>
             <div className="flex-1 flex justify-center md:justify-start">
               <motion.div
-                className="relative rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-10 flex flex-col"
-                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.10)', background: timeline[current].accent }}
+                className="relative rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-8 flex flex-col"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.10)', background: '#FFF8B8' }}
                 variants={stickyNoteFlip}
                 key={current}
                 initial="exit"
