@@ -4,7 +4,6 @@ import React from "react";
 
 interface ProjectOverlayProps {
   open: boolean;
-  onClose?: () => void;
   project: {
     name: string;
     image: string;
@@ -12,21 +11,23 @@ interface ProjectOverlayProps {
   } | null;
 }
 
-export const ProjectOverlay: React.FC<ProjectOverlayProps> = ({ open, onClose, project }) => {
+export const ProjectOverlay: React.FC<ProjectOverlayProps> = ({ open, project }) => {
   if (!open || !project) return null;
 
   return (
     <AnimatePresence>
       {open && project && (
         <motion.div
-          className="fixed inset-0 z-40 flex items-center justify-center backdrop-blur-[6px] bg-black/15"
+          className="fixed inset-0 z-40 backdrop-blur-[6px] bg-black/15"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
         >
           {/* Overlay content, centered */}
-          <div className="relative flex flex-col items-center pointer-events-none select-none" style={{minWidth: 320, minHeight: 360}}>
+          <div 
+            className="pointer-events-none select-none" 
+          >
             {/* Project Icon, absolutely positioned to match card location */}
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 z-10 w-24 h-24 md:w-28 md:h-28 flex items-center justify-center">
               <Image
