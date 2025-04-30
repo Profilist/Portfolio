@@ -17,7 +17,7 @@ const carouselItems: CarouselItem[] = [
     id: 1, 
     image: '/about/osu.png', 
     alt: 'osu!mania', 
-    title: 'I play osu!mania', 
+    title: 'osu!mania', 
     description: (
       <>former #1 Canadian <Link href="https://osu.ppy.sh/users/15314355" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">osu!mania player</Link></>
     )
@@ -26,9 +26,9 @@ const carouselItems: CarouselItem[] = [
     id: 2, 
     image: '/about/devpost.svg', 
     alt: 'devpost', 
-    title: 'Check out my hackathons', 
+    title: 'I like hackathons!', 
     description: (
-      <>I&apos;ve done 20+ <Link href="http://devpost.com/larris-xie" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">hackathons</Link>!</>
+      <>I&apos;ve done 20+ <Link href="http://devpost.com/larris-xie" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">hackathons</Link></>
     ) 
   },
   { id: 3, image: '/about/hawaii.png', alt: 'hawaii', title: 'Hawaii', description: 'Beautiful beaches and stunning landscapes' },

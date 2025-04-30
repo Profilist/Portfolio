@@ -36,22 +36,22 @@ export default function WhereIveBeen() {
   const [current, setCurrent] = useState(0);
   const [segmentFills, setSegmentFills] = useState<number[]>(() => Array(timeline.length - 1).fill(0));
 
+  // fixed segment height for consistent scroll across devices
+  const segmentH = 600; // px per segment
+  const containerHeight = window.innerHeight + segmentH * (timeline.length + 0.5);
+
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      const total = window.innerHeight * (timeline.length - 1);
       const scrollY = Math.max(-rect.top, 0);
-      const perItem = total / (timeline.length - 1);
-      // Compute the current segment
-      const currIdx = Math.floor(scrollY / window.innerHeight);
-      // Ensure current index stays within bounds
-      setCurrent(Math.min(currIdx, timeline.length - 1));
-      // Compute fill for each segment
+      // compute current index based on fixed segment height
+      const currIdx = Math.min(Math.floor(scrollY / segmentH), timeline.length - 1);
+      setCurrent(currIdx);
       const fills = Array(timeline.length - 1).fill(0).map((_, idx) => {
-        if (idx < Math.floor(scrollY / perItem)) return 100;
-        if (idx === Math.floor(scrollY / perItem)) {
-          return Math.min(100, ((scrollY - idx * perItem) / perItem) * 100);
+        if (idx < currIdx) return 100;
+        if (idx === currIdx) {
+          return Math.min(100, ((scrollY - idx * segmentH) / segmentH) * 100);
         }
         return 0;
       });
@@ -64,8 +64,8 @@ export default function WhereIveBeen() {
 
   return (
     <div className="w-full">
-      <div ref={sectionRef} style={{ height: `${(timeline.length + 0.5) * 100}vh` }} className="relative w-full">
-        <div className="sticky top-16 h-screen flex flex-col w-full">
+      <div ref={sectionRef} style={{ height: `${containerHeight}px` }} className="relative w-full">
+        <div className="sticky top-16 flex flex-col w-full" style={{ height: `${segmentH}px` }}>
           {/* Sticky header */}
           <div className="flex items-center justify-between w-full mb-10">
             <h2 className="text-3xl font-medium">Where I’ve been</h2>

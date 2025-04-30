@@ -123,7 +123,7 @@ export default function Projects() {
           />
         ))}
       </div>
-      <p className="mt-6 text-left font-geist text-lg tracking-[-0.06em]">
+      <p className="mt-6 text-left font-geist text-xl md:text-2xl tracking-[-0.06em]">
         Check out all my projects{' '}
         <a href="https://github.com/Profilist" className="underline hover:opacity-70">
           here
