@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
 
 type CarouselItem = {
   id: number;
@@ -101,7 +102,7 @@ export default function MoreAboutMe() {
                     style={{ '--index': i } as React.CSSProperties}
                     onClick={() => handleClick(item)}
                   >
-                    <img src={item.image} alt={item.alt} />
+                    <Image src={item.image} alt={item.alt} width={200} height={200} />
                   </li>
                 );
               })}
@@ -138,9 +139,11 @@ export default function MoreAboutMe() {
                 damping: 25
               }}
             >
-              <img
+              <Image
                 src={activeItem.image}
                 alt={activeItem.alt}
+                width={200}
+                height={200}
                 className="w-full h-full object-cover"
               />
             </motion.div>

@@ -54,7 +54,7 @@ export default function Home() {
             animate: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.2 } }
           }}
         >
-          Hi, I'm Larris.
+          Hi, I&apos;m Larris.
         </motion.h1>
         
         {/* Intro Card */}
@@ -68,7 +68,7 @@ export default function Home() {
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
             <p className="text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
-              I'm a Software Engineer at
+              I&apos;m a Software Engineer at
               <span className="inline-flex items-center">
                 <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
                 Shopify,

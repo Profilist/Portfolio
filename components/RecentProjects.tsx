@@ -13,7 +13,7 @@ export default function RecentProjects() {
   return (
     <div style={{ width: '100%' }}>
       <section className="mt-20 flex flex-col">
-        <p className="text-xl md:text-2xl mb-10">Checkout what I've built recently!</p>
+        <p className="text-xl md:text-2xl mb-10">Checkout what I&apos;ve built recently!</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 relative">
           {/* Backdrop Blur */}
           <motion.div
@@ -66,7 +66,7 @@ export default function RecentProjects() {
                         </div>
                       </div>
                     ) : (
-                      proj.previewImages?.map((preview, index) => (
+                      proj.previewImages?.map((preview) => (
                         <Image 
                           key={preview.src}
                           src={preview.src} 
