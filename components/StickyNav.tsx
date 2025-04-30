@@ -13,7 +13,7 @@ const StickyNav = () => {
 
   return (
     <motion.nav 
-      className="fixed left-1/2 bottom-8 -translate-x-1/2 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 flex gap-8 shadow-lg"
+      className="fixed left-1/2 bottom-8 -translate-x-1/2 bg-white/60 backdrop-blur-sm rounded-full px-6 py-3 flex gap-8 border border-[#C4C4C4]"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -22,7 +22,7 @@ const StickyNav = () => {
         <Link
           key={item.label}
           href={item.href}
-          className="flex flex-col items-center gap-1 hover:scale-110 transition-transform"
+          className="flex flex-col gap-1 hover:scale-110 transition-transform"
         >
           <div className="w-6 h-6 relative">
             <Image
@@ -32,7 +32,7 @@ const StickyNav = () => {
               className="object-contain"
             />
           </div>
-          <span className="text-sm font-medium">{item.label}</span>
+          <span className="text-lg">{item.label}</span>
         </Link>
       ))}
     </motion.nav>

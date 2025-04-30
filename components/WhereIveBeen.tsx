@@ -43,7 +43,7 @@ export default function WhereIveBeen() {
   // Set container height on mount and window resize
   useEffect(() => {
     const updateContainerHeight = () => {
-      setContainerHeight(window.innerHeight + segmentH * (timeline.length + 0.5));
+      setContainerHeight(window.innerHeight + segmentH * (timeline.length + 0.3));
     };
     
     updateContainerHeight();
