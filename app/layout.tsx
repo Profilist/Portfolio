@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import StickyNav from "@/components/StickyNav";
 
 const geistSans = Geist({
   variable: "--font-geist",
@@ -33,9 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${instrumentSerif.variable} ${larrisHandwriting.variable} antialiased`}
+        className={`${geistSans.variable} ${instrumentSerif.variable} ${larrisHandwriting.variable} antialiased relative min-h-screen`}
       >
         {children}
+        <StickyNav />
       </body>
     </html>
   );

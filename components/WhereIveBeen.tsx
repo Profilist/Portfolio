@@ -38,7 +38,19 @@ export default function WhereIveBeen() {
 
   // fixed segment height for consistent scroll across devices
   const segmentH = 600; // px per segment
-  const containerHeight = window.innerHeight + segmentH * (timeline.length + 0.5);
+  const [containerHeight, setContainerHeight] = useState(0);
+
+  // Set container height on mount and window resize
+  useEffect(() => {
+    const updateContainerHeight = () => {
+      setContainerHeight(window.innerHeight + segmentH * (timeline.length + 0.5));
+    };
+    
+    updateContainerHeight();
+    window.addEventListener('resize', updateContainerHeight);
+    
+    return () => window.removeEventListener('resize', updateContainerHeight);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
