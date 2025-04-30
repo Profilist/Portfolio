@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 type CarouselItem = {
@@ -115,10 +115,12 @@ export default function MoreAboutMe() {
         </div>
         
         {/* Hover Content */}
+        <AnimatePresence mode="wait">
         {activeItem && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             transition={{
               type: "spring",
               stiffness: 400,
@@ -146,6 +148,7 @@ export default function MoreAboutMe() {
             <p className="text-sm text-center text-gray-700">{activeItem.description}</p>
           </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </div>
   );
