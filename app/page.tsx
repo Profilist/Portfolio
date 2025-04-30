@@ -118,7 +118,7 @@ export default function Home() {
 
           {/* Purin Character */}
           <motion.div 
-            className="absolute -right-4 -top-12 md:-right-8 md:-top-16 pointer-events-none"
+            className="hidden sm:block absolute -right-4 -top-12 md:-right-8 md:-top-16 pointer-events-none"
             variants={{
               initial: { opacity: 0, x: 20 },
               animate: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.6 } }
@@ -137,7 +137,7 @@ export default function Home() {
       
       {/* Recent Projects Section */}
       <motion.div 
-        className="px-8"
+        className="px-4 sm:px-8"
         variants={{
           initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -148,7 +148,7 @@ export default function Home() {
 
       {/* Where I've Been Section */}
       <motion.div 
-        className="px-8 mt-24"
+        className="px-4 sm:px-8 mt-24"
         variants={{
           initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
