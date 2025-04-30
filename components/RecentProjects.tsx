@@ -71,8 +71,8 @@ export default function RecentProjects() {
                           key={preview.src}
                           src={preview.src} 
                           alt={preview.alt} 
-                          width={256} 
-                          height={256} 
+                          width={512} 
+                          height={512} 
                           className="w-48 h-auto absolute"
                           style={preview.position}
                         />
@@ -92,8 +92,8 @@ export default function RecentProjects() {
                     <Image 
                       src={proj.image} 
                       alt={proj.alt} 
-                      width={256} 
-                      height={256} 
+                      width={512} 
+                      height={512} 
                       className="object-contain w-20 h-20" 
                     />
                   </motion.div>
@@ -126,8 +126,8 @@ export default function RecentProjects() {
                   <Image 
                     src={proj.image} 
                     alt={proj.alt} 
-                    width={256} 
-                    height={256} 
+                    width={512} 
+                    height={512} 
                     className="object-contain w-24 h-24 md:w-28 md:h-28" 
                   />
                 </motion.div>
@@ -148,26 +148,6 @@ export default function RecentProjects() {
           </div>
         </div>
       </section>
-
-      <style jsx global>{`
-        .animate-spring-up {
-          animation: spring-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes spring-up {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          60% {
-            transform: translateY(-4px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default function ProjectCard({ title, description, links, techStack, demo
       }}
     >
       <div className="flex items-start justify-between">
-        <h3 className="font-instrument text-4xl">{title}</h3>
+        <h3 className="font-instrument text-3xl md:text-4xl">{title}</h3>
         <div className="flex gap-2">
           {links.github && (
             <motion.a 

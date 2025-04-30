@@ -80,7 +80,7 @@ export default function Home() {
             </p>
             
             {/* Status and Social Links */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex flex-col flex-row items-center justify-between gap-4">
               {/* Currently Building */}
               <div className="flex items-center">
                 <motion.div 
@@ -99,9 +99,9 @@ export default function Home() {
               </div>
               
               {/* Social Links */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 md:gap-4">
                 <Link href="https://linkedin.com/in/larrisxie" aria-label="LinkedIn">
-                  <Image src="/linkedin.svg" alt="" width={24} height={24} aria-hidden="true" />
+                  <Image src="/linkedin.svg" alt="" width={20} height={20} aria-hidden="true" />
                 </Link>
                 <Link href="https://x.com/larrisx" aria-label="Twitter">
                   <Image src="/x.svg" alt="" width={20} height={20} aria-hidden="true" />

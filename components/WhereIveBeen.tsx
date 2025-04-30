@@ -73,8 +73,8 @@ export default function WhereIveBeen() {
         <div className="sticky top-16 flex flex-col w-full" style={{ height: `${segmentH}px` }}>
           {/* Sticky header */}
           <div className="flex items-center justify-between w-full mb-10">
-            <h2 className="text-3xl font-medium">Where I’ve been</h2>
-            <span className="text-xl">view my <Link href="/resume" className="text-xl hover:opacity-70 transition" aria-label="View my resume">
+            <h2 className="text-2xl md:text-3xl font-medium">Where I’ve been</h2>
+            <span className="text-lg md:text-xl">view my <Link href="/resume" className="text-lg md:text-xl hover:opacity-70 transition" aria-label="View my resume">
               <span className="font-medium underline underline-offset-4">resume</span>
             </Link></span>
           </div>
