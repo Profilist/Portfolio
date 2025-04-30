@@ -2,9 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 const StickyNav = () => {
+  const pathname = usePathname();
+  
+  // Hide nav on resume page
+  if (pathname === '/resume') return null;
+
   const navItems = [
     { href: '/', icon: '/about.svg', label: 'About' },
     { href: '/projects', icon: '/work.svg', label: 'Work' },

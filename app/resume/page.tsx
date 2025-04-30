@@ -1,25 +1,21 @@
-import React from "react";
-import Head from "next/head";
+import { Metadata } from "next";
 
-const index = () => {
+export const metadata: Metadata = {
+  title: "Larris's Resume",
+  description: "Larris Xie's Resume"
+};
+
+const ResumePage = () => {
   return (
-    <>
-      <Head>
-        <title>Larris&apos;s Resume</title>
-        <meta name="description" content="Larris Xie's Portfolio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.png" type="image/png"></link>
-      </Head>
-      <main style={{ width: "100vw", height: "100vh" }}>
-        <iframe
-          src="/resume.pdf"
-          width="100%"
-          height="100%"
-          style={{ border: "none" }}
-        />
-      </main>
-    </>
+    <main style={{ width: "100vw", height: "100vh" }}>
+      <iframe
+        src="/resume.pdf"
+        width="100%"
+        height="100%"
+        style={{ border: "none" }}
+      />
+    </main>
   );
 };
 
-export default index;
+export default ResumePage;

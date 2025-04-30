@@ -87,8 +87,6 @@ export default function ProjectCard({ title, description, links, techStack, demo
       </div>
       <motion.div 
         className="mt-6 overflow-hidden rounded-lg bg-neutral-50"
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.2 }}
       >
         {demo.type === 'video' ? (
           <video
