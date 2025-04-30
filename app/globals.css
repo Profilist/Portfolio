@@ -107,7 +107,7 @@
 
 [data-scroll="true"] .carousel,
 [data-animate="true"] .carousel {
-  animation: carousel calc(var(--total) * 0.5s) infinite linear;
+  animation: carousel calc(var(--total) * 3s) infinite linear;
 }
 
 @keyframes carousel {
