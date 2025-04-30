@@ -34,7 +34,7 @@ export default function WhereIveBeen() {
   ];
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);
-  const [segmentFills, setSegmentFills] = useState<number[]>(() => Array(timeline.length - 1).fill(0));
+  const [scrollY, setScrollY] = useState(0);
 
   // fixed segment height for consistent scroll across devices
   const segmentH = 600; // px per segment
@@ -57,17 +57,10 @@ export default function WhereIveBeen() {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const scrollY = Math.max(-rect.top, 0);
+      setScrollY(scrollY);
       // compute current index based on fixed segment height
       const currIdx = Math.min(Math.floor(scrollY / segmentH), timeline.length - 1);
       setCurrent(currIdx);
-      const fills = Array(timeline.length - 1).fill(0).map((_, idx) => {
-        if (idx < currIdx) return 100;
-        if (idx === currIdx) {
-          return Math.min(100, ((scrollY - idx * segmentH) / segmentH) * 100);
-        }
-        return 0;
-      });
-      setSegmentFills(fills);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -81,16 +74,15 @@ export default function WhereIveBeen() {
           {/* Sticky header */}
           <div className="flex items-center justify-between w-full mb-10">
             <h2 className="text-3xl font-medium">Where I’ve been</h2>
-            <Link href="/resume" className="text-xl hover:opacity-70 transition" aria-label="View my resume">
-              view my <span className="font-medium underline underline-offset-4">resume</span>
-            </Link>
+            <span className="text-xl">view my <Link href="/resume" className="text-xl hover:opacity-70 transition" aria-label="View my resume">
+              <span className="font-medium underline underline-offset-4">resume</span>
+            </Link></span>
           </div>
           <div className="flex flex-col md:flex-row md:items-start w-full h-full">
             <div className="flex-1 min-w-[260px] max-w-[350px] h-full px-4">
               <div className="relative h-auto">
                 <div className="flex flex-col justify-center h-full">
                   {timeline.map((item, idx) => {
-                    const segmentFill = segmentFills[idx] || 0;
                     return (
                       <div key={item.company} className="flex items-start relative z-10">
                         <div className={`w-20 flex flex-col items-center relative z-10 ${idx < timeline.length - 1 ? '-mb-6' : ''}`}>
@@ -107,14 +99,13 @@ export default function WhereIveBeen() {
                             <div className="relative flex flex-col items-center h-20">
                               {/* Base line */}
                               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-full bg-[#EEEEEE] rounded-full" aria-hidden="true" />
-                              {/* Animated progress fill */}
-                              <motion.div
-                                className="absolute top-0 left-1/2 -translate-x-1/2 w-1 bg-[#FFF8B8] rounded-full z-10"
-                                aria-hidden="true"
-                                style={{ height: `${segmentFill}%` }}
-                                initial={{ height: 0 }}
-                                animate={{ height: `${segmentFill}%` }}
-                                transition={{ type: "spring", stiffness: 100, damping: 30 }}
+                              {/* Fill line */}
+                              <div 
+                                className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-full bg-[#FFF8B8] rounded-full origin-top transition-transform duration-200 ease-out"
+                                style={{ 
+                                  transform: `scaleY(${idx < current ? 1 : idx === current ? Math.min(1, ((scrollY - idx * segmentH) / segmentH)) : 0})`
+                                }}
+                                aria-hidden="true" 
                               />
                             </div>
                           )}

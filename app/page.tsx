@@ -1,33 +1,70 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import RecentProjects from "../components/RecentProjects";
 import WhereIveBeen from "../components/WhereIveBeen";
 import MoreAboutMe from "@/components/MoreAboutMe";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-12 md:py-20">
+    <motion.div 
+      className="max-w-2xl mx-auto px-4 py-12 md:py-20"
+      initial="initial"
+      animate="animate"
+      variants={{
+        initial: {},
+        animate: {
+          transition: { staggerChildren: 0.1 }
+        }
+      }}
+    >
       {/* Header Section */}
-      <header className="flex flex-col items-center mb-16">
+      <motion.header 
+        className="flex flex-col items-center mb-16"
+        variants={{
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         {/* Profile Image */}
-        <div className="mb-4">
+        <motion.div 
+          className="mb-4"
+          variants={{
+            initial: { opacity: 0, scale: 0.8 },
+            animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+          }}
+        >
           <Image 
             src="/headshot.jpg" 
             alt="Larris profile photo" 
-            width={100} 
-            height={100} 
+            width={512} 
+            height={512} 
             className="rounded-full object-cover w-[100px] h-[100px]"
             priority
           />
-        </div>
+        </motion.div>
         
         {/* Greeting */}
-        <h1 className="font-handwriting text-5xl mb-8 text-center">
+        <motion.h1 
+          className="font-handwriting text-5xl mb-8 text-center"
+          variants={{
+            initial: { opacity: 0, y: 10 },
+            animate: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.2 } }
+          }}
+        >
           Hi, I'm Larris.
-        </h1>
+        </motion.h1>
         
         {/* Intro Card */}
-        <div className="relative w-full max-w-xl">
+        <motion.div 
+          className="relative w-full max-w-xl"
+          variants={{
+            initial: { opacity: 0, scale: 0.95 },
+            animate: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.3 } }
+          }}
+        >
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
             <p className="text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
@@ -46,7 +83,18 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               {/* Currently Building */}
               <div className="flex items-center">
-                <div className="w-3 h-3 rounded-full bg-[#94C040] mr-2"></div>
+                <motion.div 
+                  className="w-3 h-3 rounded-full bg-[#94C040] mr-2"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [1, 0.8, 1]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                ></motion.div>
                 <span className="text-sm">currently building pmo</span>
               </div>
               
@@ -69,7 +117,13 @@ export default function Home() {
           </div>
 
           {/* Purin Character */}
-          <div className="absolute -right-4 -top-12 md:-right-8 md:-top-16 pointer-events-none">
+          <motion.div 
+            className="absolute -right-4 -top-12 md:-right-8 md:-top-16 pointer-events-none"
+            variants={{
+              initial: { opacity: 0, x: 20 },
+              animate: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.6 } }
+            }}
+          >
             <Image 
               src="/pompompurin.svg" 
               alt="" 
@@ -77,24 +131,42 @@ export default function Home() {
               height={140}
               aria-hidden="true"
             />
-          </div>
-        </div>
-      </header>
+          </motion.div>
+        </motion.div>
+      </motion.header>
       
       {/* Recent Projects Section */}
-      <div className="px-8">
+      <motion.div 
+        className="px-8"
+        variants={{
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         <RecentProjects />
-      </div>
+      </motion.div>
 
       {/* Where I've Been Section */}
-      <div className="px-8 mt-24">
+      <motion.div 
+        className="px-8 mt-24"
+        variants={{
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         <WhereIveBeen />
-      </div>
+      </motion.div>
 
       {/* More About Me Section */}
-      <div className="px-8">
+      <motion.div 
+        className="px-8"
+        variants={{
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
         <MoreAboutMe />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
