@@ -32,7 +32,7 @@ const projects: Project[] = [
     ],
     demo: {
       type: 'image',
-      url: '/projects/pmo1.png'
+      url: '/projects/pmo3.png'
     }
   },
   {
@@ -72,7 +72,39 @@ const projects: Project[] = [
       type: 'video',
       url: '/projects/offthehook.mov'
     }
-  }
+  },
+  {
+    title: 'Saving Christmas',
+    description: 'A 2D Christmas platformer game developed using Unity and C#.',
+    links: {
+      github: 'https://github.com/Profilist/Saving-Christmas',
+      demo: 'https://decypherx.itch.io/saving-christmas'
+    },
+    techStack: [
+      { name: 'Unity', icon: '/tech/unity.svg' },
+      { name: 'C#', icon: '/tech/csharp.svg' }
+    ],
+    demo: {
+      type: 'image',
+      url: '/projects/savingchristmas.png'
+    }
+  },
+  {
+    title: 'Autonomous Vision Systems for Self-Driving Cars',
+    description: 'An analysis of object detection pipelines for self-driving cars.',
+    links: {
+      github: 'https://github.com/Profilist/Autonomous-Driving',
+      demo: 'https://github.com/Profilist/Autonomous-Driving/blob/main/Object%20Detection%20in%20Autonomous%20Cars.ipynb'
+    },
+    techStack: [
+      { name: 'Python', icon: '/tech/python.svg' },
+      { name: 'TensorFlow', icon: '/tech/tensorflow.svg' }
+    ],
+    demo: {
+      type: 'video',
+      url: '/projects/yolo.mp4'
+    }
+  },
 ]
 
 export default function Projects() {

@@ -70,9 +70,6 @@
   --radius: calc(((var(--item-width) + var(--gap)) / sin(var(--inner-angle))) * -1);
   position: relative;
   width: 100%;
-  height: 60vh;
-  min-height: 400px;
-  max-height: 600px;
   overflow: hidden;
   timeline-scope: --controller;
 }
@@ -103,10 +100,20 @@
 .carousel {
   transform-style: preserve-3d;
   transform: translate3d(0, 0, var(--radius)) rotateX(calc(var(--rotate-x) * 1deg)) rotateZ(calc(var(--rotate-z) * 1deg)) rotateY(0deg);
+  pointer-events: auto;
+}
+
+.carousel-item {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.1);
 }
 
 [data-scroll="true"] .carousel,
-[data-animate="true"] .carousel {
+[data-animate="true"] .carousel:not(.paused) {
   animation: carousel calc(var(--total) * 3s) infinite linear;
 }
 
@@ -179,10 +186,24 @@
   outline: 2px dashed var(--debug);
 }
 
+.container.paused .carousel {
+  animation-play-state: paused;
+}
+
 .carousel img {
   border-radius: 12px;
   width: 100%;
   height: 100%;
   object-fit: cover;
   background-color: var(--card-bg);
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.1);
+}
+
+.carousel-item {
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }

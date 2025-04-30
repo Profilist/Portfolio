@@ -92,8 +92,8 @@ export default function RecentProjects() {
                     <Image 
                       src={proj.image} 
                       alt={proj.alt} 
-                      width={64} 
-                      height={64} 
+                      width={256} 
+                      height={256} 
                       className="object-contain w-20 h-20" 
                     />
                   </motion.div>
@@ -126,8 +126,8 @@ export default function RecentProjects() {
                   <Image 
                     src={proj.image} 
                     alt={proj.alt} 
-                    width={64} 
-                    height={64} 
+                    width={256} 
+                    height={256} 
                     className="object-contain w-24 h-24 md:w-28 md:h-28" 
                   />
                 </motion.div>
