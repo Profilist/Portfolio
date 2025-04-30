@@ -45,7 +45,8 @@ export default function WhereIveBeen() {
       const perItem = total / (timeline.length - 1);
       // Compute the current segment
       const currIdx = Math.floor(scrollY / window.innerHeight);
-      setCurrent(currIdx);
+      // Ensure current index stays within bounds
+      setCurrent(Math.min(currIdx, timeline.length - 1));
       // Compute fill for each segment
       const fills = Array(timeline.length - 1).fill(0).map((_, idx) => {
         if (idx < Math.floor(scrollY / perItem)) return 100;
