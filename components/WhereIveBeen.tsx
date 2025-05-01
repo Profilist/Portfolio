@@ -73,7 +73,7 @@ export default function WhereIveBeen() {
 
   return (
     <div className="w-full">
-      <div ref={sectionRef} style={{ height: `${containerHeight}px` }} className="relative w-full">
+      <div ref={sectionRef} style={{ height: `${containerHeight}px` }} className="relative w-full hidden md:block">
         <div className="sticky top-16 flex flex-col w-full" style={{ height: `${segmentH}px` }}>
           {/* Sticky header */}
           <div className="flex items-center justify-between w-full mb-10">
@@ -161,6 +161,29 @@ export default function WhereIveBeen() {
             </div>
           </div>
         </div>
+      </div>
+      {/* Mobile static layout for small screens */}
+      <div className="md:hidden space-y-6 px-4 py-8">
+        {timeline.map((item, idx) => (
+          <div key={item.company} className="mb-8">
+            <div className="flex items-center space-x-4">
+              <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
+              <div className="flex-1">
+                <div className="font-bold text-2xl leading-tight">{item.company}</div>
+                <div className="text-base font-normal">{item.role}</div>
+                <div className="text-sm text-black/60">{item.dates}</div>
+              </div>
+            </div>
+            <div className="mt-4 rounded-lg shadow-[0_12px_16px_rgba(0,0,0,0.10)] px-6 py-6 relative" style={{ background: '#FFF8B8' }}>
+              <div className="absolute top-3 left-1/2 -translate-x-1/2">
+                <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
+              </div>
+              <ul className="list-disc px-6 text-xl leading-relaxed space-y-2 mt-4">
+                {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
