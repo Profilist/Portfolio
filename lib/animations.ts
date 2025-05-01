@@ -23,3 +23,43 @@ export const timelineAccent: Variants = {
     transition: { duration: 0.3 }
   }
 };
+
+export const stickyNoteStack: Variants = {
+  enter: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { 
+      duration: 0.5,
+      ease: [0.4, 0.2, 0.2, 1]
+    }
+  },
+  exit: {
+    x: "-100%",
+    opacity: 0,
+    scale: 0.9,
+    transition: { 
+      duration: 0.5,
+      ease: [0.4, 0.2, 0.2, 1]
+    }
+  }
+};
+
+export const pushpinAnimation: Variants = {
+  enter: {
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  },
+  pin: {
+    z: 20,
+    scale: 1.1,
+    transition: {
+      duration: 0.2,
+      ease: "easeIn"
+    }
+  }
+};

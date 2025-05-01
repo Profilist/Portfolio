@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { stickyNoteFlip, timelineAccent } from "../lib/animations";
+import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [
   { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#FFF8B8" },
@@ -20,8 +20,8 @@ export default function WhereIveBeen() {
       <>on the Retail Team <span role="img" aria-label="shopping bags">🛍️</span></>
     ],
     [
-      <>researched security and privacy in machine learning</>,
-      <>built a federated learning protocol in PyTorch for distributed credit card sequences</>
+      <>researched security and privacy in ML</>,
+      <>built a federated learning protocol in PyTorch for distributed time-series data</>
     ],
     [
       <>developed the landing pages from scratch for <a href="https://www.jobeyze.ca/" className="underline underline-offset-4">Jobeyze</a></>,
@@ -121,29 +121,39 @@ export default function WhereIveBeen() {
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex justify-center md:justify-start">
-              <motion.div
-                className="relative rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-8 flex flex-col"
-                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.10)', background: '#FFF8B8' }}
-                variants={stickyNoteFlip}
-                key={current}
-                initial="exit"
-                animate="enter"
-                exit="exit"
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                {/* Pin at top center */}
-                <div className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" style={{ width: 36, height: 36 }}>
+            <div className="relative flex-1 flex justify-center md:justify-start">
+              <div className="relative rounded-lg shadow-[0_8px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-8" style={{ background: '#FFF8B8' }}>
+                <AnimatePresence initial={false}>
+                  {notes.map((_, idx) => idx <= current && (
+                    <motion.div
+                      key={idx}
+                      className="absolute inset-0 rounded-lg"
+                      initial={{ x: '100%' }}
+                      animate={{ x: 0 }}
+                      exit={{ x: '100%', opacity: 0, scale: 0.9 }}
+                      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                      style={{ background: '#FFF8B8' }}
+                    >
+                      <div className="absolute right-0 bottom-0 w-16 h-16 z-10 pointer-events-none">
+                        <svg width="100%" height="100%" viewBox="0 0 64 64"><polygon points="0,64 64,0 64,64" fill="#FFFECF"/></svg>
+                      </div>
+                      <ul className="list-disc px-12 mt-12 text-xl leading-relaxed space-y-2">
+                        {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+                <motion.div
+                  key={current}
+                  className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+                  style={{ width: 36, height: 36 }}
+                  variants={pushpinAnimation}
+                  initial="enter"
+                  animate={[ 'pin', 'enter' ]}
+                >
                   <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
-                </div>
-                {/* Triangle at bottom right */}
-                <div className="absolute right-0 bottom-0 w-16 h-16 z-10 pointer-events-none">
-                  <svg width="100%" height="100%" viewBox="0 0 64 64"><polygon points="0,64 64,0 64,64" fill="#FFFECF"/></svg>
-                </div>
-                <ul className="list-disc pl-6 mt-8 text-xl leading-relaxed space-y-2">
-                  {notes[current].map((line, i) => <li key={i}>{line}</li>)}
-                </ul>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
