@@ -47,19 +47,18 @@ export const stickyNoteStack: Variants = {
 
 export const pushpinAnimation: Variants = {
   enter: {
-    scale: 1,
     y: 0,
-    transition: {
-      duration: 0.3,
-      ease: "easeOut"
-    }
+    scale: 1
   },
   pin: {
-    z: 20,
+    y: -10,
     scale: 1.1,
     transition: {
-      duration: 0.2,
-      ease: "easeIn"
+      type: "tween",
+      duration: 0.3,
+      ease: "easeOut",
+      repeat: 1,
+      repeatType: "reverse"
     }
   }
 };

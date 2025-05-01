@@ -35,6 +35,8 @@ export default function WhereIveBeen() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const prevScrollYRef = useRef(0);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
 
   // fixed segment height for consistent scroll across devices
   const segmentH = 600; // px per segment
@@ -56,10 +58,12 @@ export default function WhereIveBeen() {
     const handleScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      const scrollY = Math.max(-rect.top, 0);
-      setScrollY(scrollY);
+      const newScrollY = Math.max(-rect.top, 0);
+      setIsScrollingDown(newScrollY > prevScrollYRef.current);
+      prevScrollYRef.current = newScrollY;
+      setScrollY(newScrollY);
       // compute current index based on fixed segment height
-      const currIdx = Math.min(Math.floor(scrollY / segmentH), timeline.length - 1);
+      const currIdx = Math.min(Math.floor(newScrollY / segmentH), timeline.length - 1);
       setCurrent(currIdx);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -149,7 +153,7 @@ export default function WhereIveBeen() {
                   style={{ width: 36, height: 36 }}
                   variants={pushpinAnimation}
                   initial="enter"
-                  animate={[ 'pin', 'enter' ]}
+                  animate={isScrollingDown ? "pin" : "enter"}
                 >
                   <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
                 </motion.div>
