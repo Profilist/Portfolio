@@ -95,7 +95,7 @@ export default function Home() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm">currently building pmo</span>
+                <span className="text-sm">currently building Sparkpad</span>
               </div>
               
               {/* Social Links */}

@@ -112,9 +112,17 @@
   transform: scale(1.1);
 }
 
-[data-scroll="true"] .carousel,
+/* [data-scroll="true"] .carousel,
 [data-animate="true"] .carousel:not(.paused) {
   animation: carousel calc(var(--total) * 3s) infinite linear;
+} */
+
+[data-scroll="true"] .carousel,
+[data-animate="true"] .carousel:not(.paused) {
+  animation-name:       carousel;
+  animation-duration:   var(--duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes carousel {

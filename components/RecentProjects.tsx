@@ -141,7 +141,11 @@ export default function RecentProjects() {
           <div className="flex flex-col items-center">
             <Link href="/projects" aria-label="See more projects">
               <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M21 21H3V3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <path d="M15 3h6v6" />
+                  <path d="m10 14 11-11" />
+                </svg>
               </div>
             </Link>
             <span className="mt-3 px-4 py-1 bg-[#E5E5E5] text-base rounded-full tracking-tight font-medium" style={{ letterSpacing: '-0.02em' }}>see more</span>

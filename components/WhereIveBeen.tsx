@@ -138,10 +138,7 @@ export default function WhereIveBeen() {
                       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                       style={{ background: '#FFF8B8' }}
                     >
-                      <div className="absolute right-0 bottom-0 w-16 h-16 z-10 pointer-events-none">
-                        <svg width="100%" height="100%" viewBox="0 0 64 64"><polygon points="0,64 64,0 64,64" fill="#FFFECF"/></svg>
-                      </div>
-                      <ul className="list-disc px-12 mt-12 text-xl leading-relaxed space-y-2">
+                      <ul className="list-disc px-12 mt-12 text-lg md:text-xl leading-relaxed space-y-2">
                         {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
                       </ul>
                     </motion.div>
@@ -178,7 +175,7 @@ export default function WhereIveBeen() {
               <div className="absolute top-3 left-1/2 -translate-x-1/2">
                 <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
               </div>
-              <ul className="list-disc px-6 text-xl leading-relaxed space-y-2 mt-4">
+              <ul className="list-disc px-6 text-lg md:text-xl leading-relaxed space-y-2 mt-4">
                 {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
               </ul>
             </div>

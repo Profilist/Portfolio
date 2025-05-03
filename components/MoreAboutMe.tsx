@@ -16,7 +16,7 @@ type CarouselItem = {
 const carouselItems: CarouselItem[] = [
   { 
     id: 1, 
-    image: '/about/osu.png', 
+    image: '/about/osu.jpg', 
     alt: 'osu!mania', 
     title: 'osu!mania', 
     description: (
@@ -34,8 +34,8 @@ const carouselItems: CarouselItem[] = [
   },
   { id: 3, image: '/about/hawaii.png', alt: 'hawaii', title: 'Hawaii', description: 'Beautiful beaches and stunning landscapes' },
   { id: 4, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'Exploring the mystical Yellow Mountains' },
-  { id: 5, image: '/about/wuzhen.jpg', alt: 'wuzhen', title: 'Wuzhen', description: 'Ancient water town with rich history' },
-  { id: 6, image: '/about/nanjing.jpg', alt: 'nanjing', title: 'Nanjing', description: 'Historical city with modern charm' },
+  { id: 5, image: '/about/wordhunt.jpg', alt: 'wordhunt', title: 'I play a lot of Word Hunt', description: 'My highscore is 46300...' },
+  { id: 6, image: '/about/piano.jpg', alt: 'piano', title: '🎹', description: 'I enjoy playing the piano' },
   { id: 7, image: '/about/shanghai.jpg', alt: 'shanghai', title: 'Shanghai', description: 'The Pearl of the Orient' },
   { id: 8, image: '/about/xian.jpg', alt: 'xian', title: 'Xian', description: 'Home of the Terracotta Warriors' },
 ];
@@ -90,7 +90,11 @@ export default function MoreAboutMe() {
     <div className="relative w-full" onClick={handleOutsideClick}>
       <h2 className="text-3xl md:text-4xl text-center font-medium">More about me!</h2>
       <div className="mx-auto relative">
-        <div className={`container ${isAnimationPaused ? 'paused' : ''}`} style={{ '--total': CONFIG.items * 2 } as React.CSSProperties}>
+        <div className={`container ${isAnimationPaused ? 'paused' : ''}`} 
+          style={{ 
+            '--total': CONFIG.items * 2,
+            '--duration': `${CONFIG.items * 3}s`, 
+          } as React.CSSProperties}>
           <div className="carousel-container">
             <ul className="carousel">
               {Array.from({ length: CONFIG.items * 2}).map((_, i) => {
