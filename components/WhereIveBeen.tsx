@@ -36,7 +36,8 @@ export default function WhereIveBeen() {
   const [current, setCurrent] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const prevScrollYRef = useRef(0);
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [shouldBounce, setShouldBounce] = useState(false);
+  const prevCurrentRef = useRef(current);
 
   // fixed segment height for consistent scroll across devices
   const segmentH = 600; // px per segment
@@ -59,7 +60,6 @@ export default function WhereIveBeen() {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const newScrollY = Math.max(-rect.top, 0);
-      setIsScrollingDown(newScrollY > prevScrollYRef.current);
       prevScrollYRef.current = newScrollY;
       setScrollY(newScrollY);
       // compute current index based on fixed segment height
@@ -70,6 +70,19 @@ export default function WhereIveBeen() {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (current > prevCurrentRef.current) {
+      setShouldBounce(true);
+    }
+    prevCurrentRef.current = current;
+  }, [current]);
+
+  useEffect(() => {
+    if (!shouldBounce) return;
+    const timer = setTimeout(() => setShouldBounce(false), 600);
+    return () => clearTimeout(timer);
+  }, [shouldBounce]);
 
   return (
     <div className="w-full">
@@ -150,7 +163,7 @@ export default function WhereIveBeen() {
                   style={{ width: 36, height: 36 }}
                   variants={pushpinAnimation}
                   initial="enter"
-                  animate={isScrollingDown ? "pin" : "enter"}
+                  animate={shouldBounce ? "pin" : "enter"}
                 >
                   <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
                 </motion.div>
