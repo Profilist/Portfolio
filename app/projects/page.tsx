@@ -108,6 +108,21 @@ const projects: Project[] = [
       url: '/projects/yolo.mp4'
     }
   },
+  {
+    title: 'ML Research Paper',
+    description: 'A research paper on a ML approach to detect financial fraud. Published in JHSS.',
+    links: {
+      github: 'https://github.com/Profilist/Financial-Fraud-Detection',
+      demo: 'https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history'
+    },
+    techStack: [
+      { name: 'Python', icon: '/tech/python.svg' }
+    ],
+    demo: {
+      type: 'image',
+      url: '/projects/JHSS.avif'
+    }
+  },
 ]
 
 export default function Projects() {

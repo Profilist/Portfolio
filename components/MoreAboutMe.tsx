@@ -32,11 +32,11 @@ const carouselItems: CarouselItem[] = [
       <>I&apos;ve done 20+ <Link href="http://devpost.com/larris-xie" className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">hackathons</Link></>
     ) 
   },
-  { id: 3, image: '/about/rabbit.png', alt: 'rabbit', title: 'My pet rabbit 🐇', description: 'His name is Tutu' },
-  { id: 5, image: '/about/wordh.jpg', alt: 'wordhunt', title: 'I play a lot of Word Hunt', description: 'My highscore is 46300...' },
-  { id: 6, image: '/about/piano.jpg', alt: 'piano', title: '🎹', description: 'I enjoy playing the piano' },
-  { id: 4, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'One of my favourite views' },
-  { id: 7, image: '/about/chicken.jpg', alt: 'chicken', title: 'Chicken', description: '🐔' },
+  { id: 3, image: '/about/rabbit.png', alt: 'rabbit', title: 'My pet rabbit 🐇', description: 'His name is Tutu!' },
+  { id: 5, image: '/about/wordhunt.jpg', alt: 'wordhunt', title: 'I play a lot of Word Hunt...', description: 'My highscore is 46300' },
+  { id: 6, image: '/about/piano.jpg', alt: 'piano', title: '🎹', description: <>I&apos;ve been playing the piano for 15 years</> },
+  { id: 4, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'One of my favourite photos' },
+  { id: 7, image: '/about/frisbee.png', alt: 'frisbee', title: 'Ultimate Frisbee 🥏', description: 'I enjoy playing ultimate frisbee' },
   { id: 8, image: '/about/xian.jpg', alt: 'xian', title: 'Xian', description: 'My hometown 🏠' },
 ];
 

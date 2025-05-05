@@ -173,13 +173,19 @@ export default function WhereIveBeen() {
         </div>
       </div>
       {/* Mobile static layout for small screens */}
+      <div className="md:hidden flex items-center justify-between w-full px-4">
+        <h2 className="text-2xl font-medium">Where I’ve been</h2>
+        <span className="text-lg">my <Link href="/resume" className="text-lg hover:opacity-70 transition" aria-label="View my resume">
+          <span className="font-medium underline underline-offset-4">resume</span>
+        </Link></span>
+      </div>
       <div className="md:hidden space-y-6 px-4 py-8">
         {timeline.map((item, idx) => (
           <div key={item.company} className="mb-8">
             <div className="flex items-center space-x-4">
               <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
               <div className="flex-1">
-                <div className="font-bold text-2xl leading-tight">{item.company}</div>
+                <div className="font-bold text-xl leading-tight">{item.company}</div>
                 <div className="text-base font-normal">{item.role}</div>
                 <div className="text-sm text-black/60">{item.dates}</div>
               </div>
@@ -188,7 +194,7 @@ export default function WhereIveBeen() {
               <div className="absolute top-3 left-1/2 -translate-x-1/2">
                 <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
               </div>
-              <ul className="list-disc px-6 text-lg md:text-xl leading-relaxed space-y-2 mt-4">
+              <ul className="list-disc px-6 text-lg leading-relaxed space-y-2 mt-4">
                 {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
               </ul>
             </div>

@@ -67,7 +67,7 @@ export default function Home() {
         >
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
-            <p className="text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
+            <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
               I&apos;m a Software Engineer at
               <span className="inline-flex items-center">
                 <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
@@ -95,22 +95,22 @@ export default function Home() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm">currently building Sparkpad</span>
+                <span className="text-sm"><span className="hidden sm:inline">currently </span>building Sparkpad</span>
               </div>
               
               {/* Social Links */}
               <div className="flex items-center gap-3 md:gap-4">
                 <Link href="https://linkedin.com/in/larrisxie" aria-label="LinkedIn">
-                  <Image src="/linkedin.svg" alt="" width={20} height={20} aria-hidden="true" />
+                  <Image src="/linkedin.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="https://x.com/larrisx" aria-label="Twitter">
-                  <Image src="/x.svg" alt="" width={20} height={20} aria-hidden="true" />
+                  <Image src="/x.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="https://github.com/Profilist" aria-label="GitHub">
-                  <Image src="/github.svg" alt="" width={24} height={24} aria-hidden="true" />
+                  <Image src="/github.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="mailto:larris.xie@gmail.com" aria-label="Email">
-                  <Image src="/email.svg" alt="" width={24} height={24} aria-hidden="true" />
+                  <Image src="/email.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Home() {
 
       {/* Where I've Been Section */}
       <motion.div 
-        className="px-4 sm:px-8 mt-24"
+        className="px-4 sm:px-8 mt-16 sm:mt-24"
         variants={{
           initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0, transition: { duration: 0.6 } }
