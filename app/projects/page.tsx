@@ -17,6 +17,7 @@ interface Project {
   demo: {
     type: 'video' | 'image'
     url: string
+    ratioClass?: string
   }
 }
 
@@ -34,8 +35,8 @@ const projects: Project[] = [
       { name: 'TypeScript', icon: '/tech/typescript.svg' }
     ],
     demo: {
-      type: 'image',
-      url: '/projects/pmo3.png'
+      type: 'video',
+      url: '/projects/pmo.mov'
     }
   },
   {
@@ -54,7 +55,7 @@ const projects: Project[] = [
     ],
     demo: {
       type: 'video',
-      url: '/projects/onthedot.mov'
+      url: '/projects/onthedot.mp4'
     }
   },
   {
@@ -121,6 +122,62 @@ const projects: Project[] = [
     demo: {
       type: 'image',
       url: '/projects/JHSS.avif'
+    }
+  },
+  {
+    title: 'The <div>eloper Experience',
+    description: 'Are you a real developer if you can\'t center a div?',
+    links: {
+      github: 'https://github.com/Profilist/TheDiveloperExperience',
+      demo: 'https://the-diveloper-experience.vercel.app/'
+    },
+    techStack: [
+      { name: 'Next.js', icon: '/tech/nextjs.svg' },
+      { name: 'React', icon: '/tech/react.svg' },
+      { name: 'TypeScript', icon: '/tech/typescript.svg' },
+      { name: 'Convex', icon: '/tech/convex.svg' },
+      { name: 'Clerk', icon: '/tech/clerk.svg' },
+    ],
+    demo: {
+      type: 'video',
+      url: '/projects/thediveloperexperience.mov'
+    }
+  },
+  {
+    title: 'NutriScan',
+    description: 'An iOS nutrition tracking app using computer vision.',
+    links: {
+      github: 'https://github.com/yanziguoo/NutriScan',
+      demo: 'https://devpost.com/software/nutriscan-d06z4p'
+    },
+    techStack: [
+      { name: 'Swift', icon: '/tech/swift.svg' },
+      { name: 'Python', icon: '/tech/python.svg' },
+      { name: 'Firebase', icon: '/tech/firebase.svg' }
+    ],
+    demo: {
+      type: 'video',
+      url: '/projects/nutriscan.mov',
+      ratioClass: 'aspect-[9/16]'
+    }
+  },
+  {
+    title: 'Square Up',
+    description: 'A digital collaborative mosaic builder.',
+    links: {
+      github: 'https://github.com/Precisshley/SquareUp',
+      demo: 'https://square-up-pearl.vercel.app/home'
+    },
+    techStack: [
+      { name: 'Next.js', icon: '/tech/nextjs.svg' },
+      { name: 'React', icon: '/tech/react.svg' },
+      { name: 'JavaScript', icon: '/tech/javascript.svg' },
+      { name: 'AWS', icon: '/tech/aws.svg' },
+      { name: 'Python', icon: '/tech/python.svg' }
+    ],
+    demo: {
+      type: 'image',
+      url: '/projects/squareup.jpg'
     }
   },
 ]

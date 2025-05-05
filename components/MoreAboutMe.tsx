@@ -96,7 +96,7 @@ export default function MoreAboutMe() {
             '--duration': `${CONFIG.items * 3}s`, 
           } as React.CSSProperties}>
           <div className="carousel-container">
-            <ul className="carousel">
+            <ul className="carousel" style={{ animationDuration: `${CONFIG.items * 3}s` }}>
               {Array.from({ length: CONFIG.items * 2}).map((_, i) => {
                 const item = carouselItems[i % carouselItems.length];
                 return (

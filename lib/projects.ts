@@ -41,7 +41,7 @@ export const projects: Project[] = [
     alt: "on the dot",
     href: "https://www.playonthedot.com/",
     description: "A web-based trivia game with 2000+ plays",
-    video: "/projects/onthedot.mov",
+    video: "/projects/onthedot.mp4",
   },
   {
     name: "off the hook",

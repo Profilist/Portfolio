@@ -18,10 +18,13 @@ interface ProjectCardProps {
   demo: {
     type: 'video' | 'image'
     url: string
+    ratioClass?: string
   }
 }
 
 export default function ProjectCard({ title, description, links, techStack, demo }: ProjectCardProps) {
+  const ratio = demo.ratioClass ?? 'aspect-video'
+  
   return (
     <motion.div 
       className="group relative rounded-2xl bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
@@ -95,7 +98,7 @@ export default function ProjectCard({ title, description, links, techStack, demo
             loop
             muted
             playsInline
-            className="aspect-video w-full object-cover"
+            className={`${ratio} w-full object-cover`}
           />
         ) : (
           <Image
@@ -103,7 +106,7 @@ export default function ProjectCard({ title, description, links, techStack, demo
             alt={`${title} demo`}
             width={800}
             height={450}
-            className="aspect-video w-full object-cover"
+            className={`${ratio} w-full object-cover`}
           />
         )}
       </motion.div>

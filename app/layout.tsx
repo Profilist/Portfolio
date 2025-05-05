@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   title: "Larris's Portfolio",
   description: "Larris Xie's Portfolio",
   icons: {
-    icon: "/pompompurin.svg",
-    shortcut: "/pompompurin.svg",
-    apple: "/pompompurin.svg"
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png"
   }
 };
 
