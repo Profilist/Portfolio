@@ -36,7 +36,7 @@ const carouselItems: CarouselItem[] = [
   { id: 5, image: '/about/wordhunt.jpg', alt: 'wordhunt', title: 'I play a lot of Word Hunt...', description: 'My highscore is 46300' },
   { id: 6, image: '/about/piano.jpg', alt: 'piano', title: '🎹', description: <>I&apos;ve been playing the piano for 15 years</> },
   { id: 4, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'One of my favourite photos' },
-  { id: 7, image: '/about/frisbee.png', alt: 'frisbee', title: 'Ultimate Frisbee 🥏', description: 'I enjoy playing ultimate frisbee' },
+  { id: 7, image: '/about/frisbee.png', alt: 'frisbee', title: 'Ultimate Frisbee 🥏', description: 'I like playing ultimate frisbee' },
   { id: 8, image: '/about/xian.jpg', alt: 'xian', title: 'Xian', description: 'My hometown 🏠' },
 ];
 
@@ -115,7 +115,7 @@ export default function MoreAboutMe() {
                     style={{ '--index': i } as React.CSSProperties}
                     onClick={() => handleClick(item)}
                   >
-                    <Image src={item.image} alt={item.alt} width={200} height={200} />
+                    <Image src={item.image} alt={item.alt} width={200} height={200} priority={i < carouselItems.length}/>
                   </li>
                 );
               })}

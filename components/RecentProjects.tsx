@@ -48,8 +48,8 @@ export default function RecentProjects() {
                         <Image
                           src="/projects/monitor.svg"
                           alt="Monitor"
-                          width={512}
-                          height={512}
+                          width={80}
+                          height={80}
                           className="w-full h-full"
                           priority
                         />
@@ -71,8 +71,8 @@ export default function RecentProjects() {
                           key={preview.src}
                           src={preview.src} 
                           alt={preview.alt} 
-                          width={512} 
-                          height={512} 
+                          width={80} 
+                          height={80} 
                           className="w-48 h-auto absolute"
                           style={preview.position}
                         />
@@ -92,8 +92,8 @@ export default function RecentProjects() {
                     <Image 
                       src={proj.image} 
                       alt={proj.alt} 
-                      width={512} 
-                      height={512} 
+                      width={320} 
+                      height={320} 
                       className="object-contain w-20 h-20" 
                     />
                   </motion.div>
@@ -126,8 +126,8 @@ export default function RecentProjects() {
                   <Image 
                     src={proj.image} 
                     alt={proj.alt} 
-                    width={512} 
-                    height={512} 
+                    width={320} 
+                    height={320} 
                     className="object-contain w-24 h-24 md:w-28 md:h-28" 
                   />
                 </motion.div>

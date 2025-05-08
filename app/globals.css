@@ -28,7 +28,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Keep the same values as light mode since we want to keep the design exactly the same */
     --background: #ffffff;
     --foreground: #000000;
     --card-bg: #ffffff;
@@ -112,11 +111,6 @@
   transform: scale(1.1);
 }
 
-/* [data-scroll="true"] .carousel,
-[data-animate="true"] .carousel:not(.paused) {
-  animation: carousel calc(var(--total) * 3s) infinite linear;
-} */
-
 [data-scroll="true"] .carousel,
 [data-animate="true"] .carousel:not(.paused) {
   animation-name:       carousel;
@@ -125,10 +119,26 @@
   animation-iteration-count: infinite;
 }
 
+@-webkit-keyframes carousel {
+  0%   { transform: translate3d(0,0,var(--radius))
+                     rotateX(calc(var(--rotate-x) * 1deg))
+                     rotateZ(calc(var(--rotate-z) * 1deg))
+                     rotateY(0deg);        }
+  100% { transform: translate3d(0,0,var(--radius))
+                     rotateX(calc(var(--rotate-x) * 1deg))
+                     rotateZ(calc(var(--rotate-z) * 1deg))
+                     rotateY(-360deg);     }
+}
+
 @keyframes carousel {
-  to {
-    transform: translate3d(0, 0, var(--radius)) rotateX(calc(var(--rotate-x) * 1deg)) rotateZ(calc(var(--rotate-z) * 1deg)) rotateY(-360deg);
-  }
+  0%   { transform: translate3d(0,0,var(--radius))
+                     rotateX(calc(var(--rotate-x) * 1deg))
+                     rotateZ(calc(var(--rotate-z) * 1deg))
+                     rotateY(0deg);        }
+  100% { transform: translate3d(0,0,var(--radius))
+                     rotateX(calc(var(--rotate-x) * 1deg))
+                     rotateZ(calc(var(--rotate-z) * 1deg))
+                     rotateY(-360deg);     }
 }
 
 @supports(animation-timeline: scroll()) {
@@ -169,6 +179,8 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
+
+
 
 .controller::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */

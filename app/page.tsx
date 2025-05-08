@@ -67,17 +67,18 @@ export default function Home() {
         >
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
-            <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
-              I&apos;m a Software Engineer at
-              <span className="inline-flex items-center">
-                <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
-                Shopify,
-              </span> studying CS at the
-              <span className="inline-flex items-center">
-                <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
-                University of Waterloo.
-              </span>
-            </p>
+          <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
+            I&apos;m a Software Engineer at
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
+              Shopify,
+            </span>
+            studying CS at the
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
+              University of Waterloo.
+            </span>
+          </p>
             
             {/* Status and Social Links */}
             <div className="flex flex-col flex-row items-center justify-between gap-4">
@@ -101,16 +102,16 @@ export default function Home() {
               {/* Social Links */}
               <div className="flex items-center gap-3 md:gap-4">
                 <Link href="https://linkedin.com/in/larrisxie" aria-label="LinkedIn">
-                  <Image src="/linkedin.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/linkedin.svg" alt="" width={64} height={64} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="https://x.com/larrisx" aria-label="Twitter">
-                  <Image src="/x.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/x.svg" alt="" width={64} height={64} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="https://github.com/Profilist" aria-label="GitHub">
-                  <Image src="/github.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/github.svg" alt="" width={64} height={64} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="mailto:larris.xie@gmail.com" aria-label="Email">
-                  <Image src="/email.svg" alt="" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/email.svg" alt="" width={64} height={64} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
               </div>
             </div>
