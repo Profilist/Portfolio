@@ -67,17 +67,18 @@ export default function Home() {
         >
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
-            <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
-              I&apos;m a Software Engineer at
-              <span className="inline-flex items-center">
-                <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
-                Shopify,
-              </span> studying CS at the
-              <span className="inline-flex items-center">
-                <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
-                University of Waterloo.
-              </span>
-            </p>
+          <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
+            I&apos;m a Software Engineer at
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
+              Shopify,
+            </span>
+            studying CS at the
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
+              University of Waterloo.
+            </span>
+          </p>
             
             {/* Status and Social Links */}
             <div className="flex flex-col flex-row items-center justify-between gap-4">

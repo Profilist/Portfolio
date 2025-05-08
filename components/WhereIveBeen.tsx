@@ -16,19 +16,19 @@ const timeline = [
 export default function WhereIveBeen() {
   const notes = [
     [
-      <>currently working at <span className="font-medium">Shopify</span> this Summer!</>,
-      <>on the Retail Team <span role="img" aria-label="shopping bags">🛍️</span></>
+      <>currently working at Shopify this Summer!</>,
+      <>backend engineer on the Retail Checkout team <span role="img" aria-label="shopping bags">🛍️</span></>
     ],
     [
-      <>researched security and privacy in ML</>,
-      <>built a federated learning protocol in PyTorch for distributed time-series data</>
+      <>researched <span className="font-medium">federated learning</span> for distributed time-series data</>,
+      <>implemented transformers from <a href="https://arxiv.org/pdf/2410.24210" className="underline underline-offset-4">recent papers</a> in PyTorch</>
     ],
     [
       <>developed the landing pages from scratch for <a href="https://www.jobeyze.ca/" className="underline underline-offset-4">Jobeyze</a></>,
-      <>made automated web scrapers to extract 1200+ jobs daily</>
+      <>streamlined automated web scrapers to extract <span className="font-medium">1200+ jobs daily</span></>
     ],
     [
-      <>trained a machine learning model for financial fraud detection</>,
+      <>trained a machine learning model using XGBoost for financial fraud detection</>,
       <>published a <a href="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history" className="underline underline-offset-4">research paper</a></>
     ],
   ];
@@ -151,7 +151,7 @@ export default function WhereIveBeen() {
                       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                       style={{ background: '#FFF8B8' }}
                     >
-                      <ul className="list-disc px-12 mt-12 text-lg md:text-xl leading-relaxed space-y-2">
+                      <ul className="list-disc pl-12 pr-8 mt-12 text-lg md:text-xl leading-relaxed space-y-2">
                         {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
                       </ul>
                     </motion.div>
@@ -194,7 +194,7 @@ export default function WhereIveBeen() {
               <div className="absolute top-3 left-1/2 -translate-x-1/2">
                 <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
               </div>
-              <ul className="list-disc px-6 text-lg leading-relaxed space-y-2 mt-4">
+              <ul className="list-disc px-6 text-lg leading-relaxed space-y-2 mt-5">
                 {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
               </ul>
             </div>
