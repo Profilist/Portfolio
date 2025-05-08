@@ -115,7 +115,7 @@ export default function MoreAboutMe() {
                     style={{ '--index': i } as React.CSSProperties}
                     onClick={() => handleClick(item)}
                   >
-                    <Image src={item.image} alt={item.alt} width={200} height={200} />
+                    <Image src={item.image} alt={item.alt} width={200} height={200} priority={i < carouselItems.length}/>
                   </li>
                 );
               })}
