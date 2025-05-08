@@ -102,16 +102,16 @@ export default function Home() {
               {/* Social Links */}
               <div className="flex items-center gap-3 md:gap-4">
                 <Link href="https://linkedin.com/in/larrisxie" aria-label="LinkedIn">
-                  <Image src="/linkedin.svg" alt="" width={20} height={20} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/linkedin.svg" alt="" width={40} height={40} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="https://x.com/larrisx" aria-label="Twitter">
-                  <Image src="/x.svg" alt="" width={20} height={20} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/x.svg" alt="" width={40} height={40} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="https://github.com/Profilist" aria-label="GitHub">
-                  <Image src="/github.svg" alt="" width={20} height={20} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/github.svg" alt="" width={40} height={40} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
                 <Link href="mailto:larris.xie@gmail.com" aria-label="Email">
-                  <Image src="/email.svg" alt="" width={20} height={20} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+                  <Image src="/email.svg" alt="" width={40} height={40} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
               </div>
             </div>
