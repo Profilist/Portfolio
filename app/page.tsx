@@ -119,10 +119,15 @@ export default function Home() {
 
           {/* Purin Character */}
           <motion.div 
-            className="hidden sm:block absolute -right-4 -top-12 md:-right-8 md:-top-16 pointer-events-none"
+            className="hidden sm:block absolute -right-4 -top-12 md:-right-8 md:-top-16"
             variants={{
               initial: { opacity: 0, x: 20 },
               animate: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.6 } }
+            }}
+            whileHover={{
+              scale: 1.1,
+              rotate: -15,
+              transition: { duration: 0.2 }
             }}
           >
             <Image 

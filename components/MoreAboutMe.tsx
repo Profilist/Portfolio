@@ -37,7 +37,7 @@ const carouselItems: CarouselItem[] = [
   { id: 6, image: '/about/piano.jpg', alt: 'piano', title: '🎹', description: <>I&apos;ve been playing the piano for 15 years</> },
   { id: 4, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'One of my favourite photos' },
   { id: 7, image: '/about/frisbee.png', alt: 'frisbee', title: 'Ultimate Frisbee 🥏', description: 'I like playing ultimate frisbee' },
-  { id: 8, image: '/about/xian.jpg', alt: 'xian', title: 'Xian', description: 'My hometown 🏠' },
+  { id: 8, image: '/about/teddy.jpg', alt: 'teddy', title: 'Teddy', description: 'The best dog :3' },
 ];
 
 const CONFIG = {

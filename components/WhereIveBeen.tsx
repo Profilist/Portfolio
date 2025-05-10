@@ -83,7 +83,7 @@ export default function WhereIveBeen() {
     const timer = setTimeout(() => setShouldBounce(false), 600);
     return () => clearTimeout(timer);
   }, [shouldBounce]);
-
+  
   return (
     <div className="w-full">
       <div ref={sectionRef} style={{ height: `${containerHeight}px` }} className="relative w-full hidden md:block">
@@ -139,12 +139,12 @@ export default function WhereIveBeen() {
               </div>
             </div>
             <div className="relative flex-1 flex justify-center md:justify-start">
-              <div className="relative rounded-lg shadow-[0_8px_16px_rgba(0,0,0,0.10)] min-h-[320px] max-w-[480px] w-full px-8 py-8" style={{ background: '#FFF8B8' }}>
+              <div className="relative rotate-2 rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] min-h-[320px] max-w-[480px] w-full px-8 py-8" style={{ background: '#FFF8B8' }}>
                 <AnimatePresence initial={false}>
                   {notes.map((_, idx) => idx <= current && (
                     <motion.div
                       key={idx}
-                      className="absolute inset-0 rounded-lg"
+                      className="absolute inset-0 rounded-sm"
                       initial={{ x: '100%' }}
                       animate={{ x: 0 }}
                       exit={{ x: '100%', opacity: 0, scale: 0.9 }}
@@ -159,14 +159,12 @@ export default function WhereIveBeen() {
                 </AnimatePresence>
                 <motion.div
                   key={current}
-                  className="absolute top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-                  style={{ width: 36, height: 36 }}
+                  className="absolute top-4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pin"
                   variants={pushpinAnimation}
                   initial="enter"
                   animate={shouldBounce ? "pin" : "enter"}
-                >
-                  <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
-                </motion.div>
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </div>
@@ -190,9 +188,9 @@ export default function WhereIveBeen() {
                 <div className="text-sm text-black/60">{item.dates}</div>
               </div>
             </div>
-            <div className="mt-4 rounded-lg shadow-[0_12px_16px_rgba(0,0,0,0.10)] px-6 py-6 relative" style={{ background: '#FFF8B8' }}>
+            <div className="mt-6 rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] px-6 py-6 pb-12 relative" style={{ background: '#FFF8B8' }}>
               <div className="absolute top-3 left-1/2 -translate-x-1/2">
-                <Image src="/pushpin.svg" alt="pushpin" width={36} height={36} aria-hidden="true" />
+                <div className="pin" aria-hidden="true" />
               </div>
               <ul className="list-disc px-6 text-lg leading-relaxed space-y-2 mt-5">
                 {notes[idx].map((line, i) => <li key={i}>{line}</li>)}
