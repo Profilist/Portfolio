@@ -188,7 +188,7 @@ export default function WhereIveBeen() {
                 <div className="text-sm text-black/60">{item.dates}</div>
               </div>
             </div>
-            <div className="mt-4 rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] px-6 py-6 pb-12 relative" style={{ background: '#FFF8B8' }}>
+            <div className="mt-6 rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] px-6 py-6 pb-12 relative" style={{ background: '#FFF8B8' }}>
               <div className="absolute top-3 left-1/2 -translate-x-1/2">
                 <div className="pin" aria-hidden="true" />
               </div>
