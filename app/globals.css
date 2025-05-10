@@ -180,8 +180,6 @@
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-
-
 .controller::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
@@ -226,4 +224,59 @@
 .carousel-item {
   transition: transform 0.3s ease;
   cursor: pointer;
+}
+
+@layer components {
+  .pin {
+    background-color: #aaa;
+    display: block;
+    height: 32px;
+    width: 2px;
+    position: absolute;
+    left: 50%;
+    top: -16px;
+    z-index: 1;
+    --pin-shadow-scale: 1;
+    --pin-head-scale: 1;
+    --pin-shadow-blur: 1.5px;
+    --pin-head-shadow-offset-x: 23px;
+    --pin-head-shadow-offset-y: 20px;
+    --pin-head-shadow-blur: 3px;
+    --pin-head-shadow-color: hsla(0,0%,0%,.15);
+    --pin-stem-shadow-pos-x: 2px;
+    --pin-stem-shadow-pos-y: 5px;
+  }
+  
+  .pin:after { /* Pin Head */
+    background-color: #A31;
+    background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.3), hsla(0,0%,0%,.3));
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
+                inset 3px 3px 3px hsla(0,0%,100%,.2),
+                inset -3px -3px 3px hsla(0,0%,0%,.2),
+                var(--pin-head-shadow-offset-x) var(--pin-head-shadow-offset-y) var(--pin-head-shadow-blur) var(--pin-head-shadow-color);
+    content: '';
+    height: 12px;
+    left: -5px;
+    position: absolute;
+    top: -10px;
+    width: 12px;
+  }
+  
+  .pin:before { /* Pin Stem */
+    background-color: hsla(0,0%,0%,0.1);
+    content: '';
+    height: 24px;
+    width: 2px;
+    position: absolute;
+    left: var(--pin-stem-shadow-pos-x);
+    top: var(--pin-stem-shadow-pos-y);
+    rotate: 57.5deg;
+    transform: 
+      translateX(var(--pin-stem-shadow-pos-x)) 
+      translateY(var(--pin-stem-shadow-pos-y))
+      scale(var(--pin-shadow-scale));
+    filter: blur(var(--pin-shadow-blur));
+    transform-origin: 50% 100%;
+  }
 }

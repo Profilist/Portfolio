@@ -46,19 +46,37 @@ export const stickyNoteStack: Variants = {
 };
 
 export const pushpinAnimation: Variants = {
-  enter: {
+  enter: { // Initial state, pin is "pinned"
     y: 0,
-    scale: 1
+    "--pin-shadow-scale": 1,
+    "--pin-shadow-blur": "1.5px", 
+
+    "--pin-head-shadow-offset-x": "23px",
+    "--pin-head-shadow-offset-y": "20px",
+    "--pin-head-shadow-blur": "3px",
+    "--pin-head-shadow-color": "hsla(0,0%,0%,.15)",
+
+    "--pin-stem-shadow-pos-x": "2px",
+    "--pin-stem-shadow-pos-y": "5px",
+    transition: { duration: 0.2 }
   },
-  pin: {
-    y: -10,
-    scale: 1.1,
+  pin: { // Animation sequence: starts pinned, goes up, comes back down
+    y: [0, -20, 0], 
+
+    "--pin-shadow-scale": [1, 1, 1],       
+    "--pin-shadow-blur": ["1.5px", "2.5px", "1.5px"], 
+
+    "--pin-head-shadow-offset-x": ["23px", "30px", "23px"], 
+    "--pin-head-shadow-offset-y": ["20px", "20px", "20px"], 
+    "--pin-head-shadow-blur": ["3px", "6px", "3px"],        
+    "--pin-head-shadow-color": ["hsla(0,0%,0%,.15)", "hsla(0,0%,0%,.10)", "hsla(0,0%,0%,.15)"], 
+
+    "--pin-stem-shadow-pos-x": ["2px", "8px", "2px"],       
+    "--pin-stem-shadow-pos-y": ["5px", "0px", "5px"],       
+
     transition: {
-      type: "tween",
-      duration: 0.3,
-      ease: "easeOut",
-      repeat: 1,
-      repeatType: "reverse"
+      duration: 0.7,
+      ease: "easeInOut",
     }
   }
 };
