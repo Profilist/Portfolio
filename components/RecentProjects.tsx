@@ -71,8 +71,8 @@ export default function RecentProjects() {
                           key={preview.src}
                           src={preview.src} 
                           alt={preview.alt} 
-                          width={80} 
-                          height={80} 
+                          width={192} 
+                          height={192} 
                           className="w-48 h-auto absolute"
                           style={preview.position}
                         />
