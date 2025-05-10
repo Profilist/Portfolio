@@ -228,7 +228,7 @@
 
 @layer components {
   .pin {
-    background-color: #aaa;
+    background: linear-gradient(180deg, #aaa 0%, #aaa 60%, #949494 100%);
     display: block;
     height: 32px;
     width: 2px;
