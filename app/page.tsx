@@ -110,7 +110,7 @@ export default function Home() {
                 <Link href="https://github.com/Profilist" aria-label="GitHub">
                   <Image src="/github.svg" alt="" width={64} height={64} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
-                <Link href="mailto:larris.xie@gmail.com" aria-label="Email">
+                <Link href="mailto:larris.xie@uwaterloo.ca" aria-label="Email">
                   <Image src="/email.svg" alt="" width={64} height={64} className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
                 </Link>
               </div>
