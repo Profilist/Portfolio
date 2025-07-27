@@ -23,6 +23,29 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'LifeOS',
+    description: 'A multi-modal MCP layer for real life.',
+    links: {
+      github: 'https://github.com/owenguoo/LifeOS',
+      demo: 'https://life-os-iota.vercel.app'
+    },
+    techStack: [
+      { name: 'Python', icon: '/tech/python.svg' },
+      { name: 'Redis', icon: '/tech/redis.svg' },
+      { name: 'Qdrant', icon: '/tech/qdrant.svg' },
+      { name: 'Supabase', icon: '/tech/supabase.svg' },
+      { name: 'Docker', icon: '/tech/docker.svg' },
+      { name: 'AWS', icon: '/tech/aws.svg' },
+      { name: 'Next.js', icon: '/tech/nextjs.svg' },
+      { name: 'React', icon: '/tech/react.svg' },
+      { name: 'TypeScript', icon: '/tech/typescript.svg' },
+    ],
+    demo: {
+      type: 'video',
+      url: '/projects/lifeos.mp4'
+    }
+  },
+  {
     title: 'pmo',
     description: 'A minimal Pomodoro timer desktop app.',
     links: {
@@ -142,44 +165,7 @@ const projects: Project[] = [
       type: 'video',
       url: '/projects/thediveloperexperience.mov'
     }
-  },
-  {
-    title: 'NutriScan',
-    description: 'An iOS nutrition tracking app using computer vision.',
-    links: {
-      github: 'https://github.com/yanziguoo/NutriScan',
-      demo: 'https://devpost.com/software/nutriscan-d06z4p'
-    },
-    techStack: [
-      { name: 'Swift', icon: '/tech/swift.svg' },
-      { name: 'Python', icon: '/tech/python.svg' },
-      { name: 'Firebase', icon: '/tech/firebase.svg' }
-    ],
-    demo: {
-      type: 'video',
-      url: '/projects/nutriscan.mov',
-      ratioClass: 'aspect-[9/16]'
-    }
-  },
-  {
-    title: 'Square Up',
-    description: 'A digital collaborative mosaic builder.',
-    links: {
-      github: 'https://github.com/Precisshley/SquareUp',
-      demo: 'https://square-up-pearl.vercel.app/home'
-    },
-    techStack: [
-      { name: 'Next.js', icon: '/tech/nextjs.svg' },
-      { name: 'React', icon: '/tech/react.svg' },
-      { name: 'JavaScript', icon: '/tech/javascript.svg' },
-      { name: 'AWS', icon: '/tech/aws.svg' },
-      { name: 'Python', icon: '/tech/python.svg' }
-    ],
-    demo: {
-      type: 'image',
-      url: '/projects/squareup.jpg'
-    }
-  },
+  }
 ]
 
 export default function Projects() {
