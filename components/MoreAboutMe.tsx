@@ -33,11 +33,11 @@ const carouselItems: CarouselItem[] = [
     ) 
   },
   { id: 3, image: '/about/rabbit.png', alt: 'rabbit', title: 'My pet rabbit 🐇', description: 'His name is Tutu!' },
-  { id: 5, image: '/about/wordhunt.jpg', alt: 'wordhunt', title: 'I play a lot of Word Hunt...', description: 'My highscore is 46300' },
+  { id: 4, image: '/about/teddy.jpg', alt: 'teddy', title: 'Teddy', description: 'The best dog :3' },
+  { id: 5, image: '/about/wordhunt.jpg', alt: 'wordhunt', title: 'I play a lot of Word Hunt...', description: 'My highscore is 49100' },
   { id: 6, image: '/about/piano.jpg', alt: 'piano', title: '🎹', description: <>I&apos;ve been playing the piano for 15 years</> },
-  { id: 4, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'One of my favourite photos' },
-  { id: 7, image: '/about/frisbee.png', alt: 'frisbee', title: 'Ultimate Frisbee 🥏', description: 'I like playing ultimate frisbee' },
-  { id: 8, image: '/about/teddy.jpg', alt: 'teddy', title: 'Teddy', description: 'The best dog :3' },
+  { id: 7, image: '/about/huangshan.jpg', alt: 'huangshan', title: 'Huangshan', description: 'One of my favourite places' },
+  { id: 8, image: '/about/frisbee.png', alt: 'frisbee', title: '🏀 + 🥏 + 🏓', description: 'I like playing basketball, ultimate frisbee, and ping pong!' },
 ];
 
 const CONFIG = {
