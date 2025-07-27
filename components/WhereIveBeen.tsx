@@ -7,7 +7,8 @@ import Link from "next/link";
 import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [
-  { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#FFF8B8" },
+  { company: "MLH x Meta", role: "Production Engineer", dates: "Jun 2025 - Sep 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
+  { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#EEEEEE" },
   { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Apr 2025", logo: "/experience/uwaterloo.svg", accent: "#EEEEEE" },
   { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/experience/jobeyze.svg", accent: "#EEEEEE" },
   { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/experience/lumiere.svg", accent: "#EEEEEE" },
@@ -16,8 +17,11 @@ const timeline = [
 export default function WhereIveBeen() {
   const notes = [
     [
-      <>currently working at Shopify this Summer!</>,
-      <>backend engineer on the Retail Checkout team <span role="img" aria-label="shopping bags">🛍️</span></>
+      <>worked with mentors from Meta to administer a CentOS VPS with a NGINX reverse proxy, DNS management, CI/CD, and Dockerization</>
+    ],
+    [
+      <>designed <span className="font-medium">data models and GraphQL APIs</span> in Rails, supporting 2M+ active retailers</>,
+      <>built POS features in React Native and TypeScript</>
     ],
     [
       <>researched <span className="font-medium">federated learning</span> for distributed time-series data</>,
@@ -40,13 +44,13 @@ export default function WhereIveBeen() {
   const prevCurrentRef = useRef(current);
 
   // fixed segment height for consistent scroll across devices
-  const segmentH = 600; // px per segment
+  const segmentH = 700; // px per segment
   const [containerHeight, setContainerHeight] = useState(0);
 
   // Set container height on mount and window resize
   useEffect(() => {
     const updateContainerHeight = () => {
-      setContainerHeight(window.innerHeight + segmentH * (timeline.length + 0.3));
+      setContainerHeight(window.innerHeight + segmentH * (timeline.length - 1));
     };
     
     updateContainerHeight();
