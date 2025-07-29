@@ -17,7 +17,7 @@ const timeline = [
 export default function WhereIveBeen() {
   const notes = [
     [
-      <>worked with mentors from Meta to administer a CentOS VPS with a NGINX reverse proxy, DNS management, CI/CD, and Dockerization</>
+      <>worked with engineers from Meta to administer a CentOS VPS with a NGINX reverse proxy, DNS management, CI/CD, and Dockerization</>
     ],
     [
       <>designed <span className="font-medium">data models and GraphQL APIs</span> in Rails, supporting 2M+ active retailers</>,
@@ -36,13 +36,22 @@ export default function WhereIveBeen() {
       <>published a <a href="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history" className="underline underline-offset-4">research paper</a></>
     ],
   ];
+
+  const techStacks = [
+    ["CentOS", "Docker", "NGINX", "Bash Scripting", "MySQL", "GitHub Actions", "Grafana"],
+    ["Ruby on Rails", "GraphQL", "React Native", "TypeScript" , "Grafana"],
+    ["PyTorch", "Transformers", "Python", "Research"],
+    ["Python", "Selenium", "Laravel", "MySQL", "PHP", "TypeScript"],
+    ["XGBoost", "Python", "Pandas", "NumPy", "Research"],
+  ];
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const prevScrollYRef = useRef(0);
   const [shouldBounce, setShouldBounce] = useState(false);
-  const prevCurrentRef = useRef(current);
-
+  const prevCurrentRef = useRef(0);
+  const [direction, setDirection] = useState(1);
+  
   // fixed segment height for consistent scroll across devices
   const segmentH = 700; // px per segment
   const [containerHeight, setContainerHeight] = useState(0);
@@ -68,7 +77,11 @@ export default function WhereIveBeen() {
       setScrollY(newScrollY);
       // compute current index based on fixed segment height
       const currIdx = Math.min(Math.floor(newScrollY / segmentH), timeline.length - 1);
-      setCurrent(currIdx);
+      if (currIdx !== prevCurrentRef.current) {
+        setDirection(currIdx > prevCurrentRef.current ? 1 : -1);
+        setCurrent(currIdx);
+        prevCurrentRef.current = currIdx; // keep ref in sync immediately
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -76,11 +89,10 @@ export default function WhereIveBeen() {
   }, []);
 
   useEffect(() => {
-    if (current > prevCurrentRef.current) {
+    if (direction === 1) {
       setShouldBounce(true);
     }
-    prevCurrentRef.current = current;
-  }, [current]);
+  }, [current, direction]);
 
   useEffect(() => {
     if (!shouldBounce) return;
@@ -142,12 +154,13 @@ export default function WhereIveBeen() {
                 </div>
               </div>
             </div>
-            <div className="relative flex-1 flex justify-center md:justify-start">
-              <div className="relative rotate-2 rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] min-h-[320px] max-w-[480px] w-full px-8 py-8" style={{ background: '#FFF8B8' }}>
+            <div className="relative flex-1 flex flex-col justify-center md:justify-start gap-8">
+              {/* Sticky note */}
+              <div className="relative rotate-2 rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] min-h-[320px] max-w-[480px] w-full px-8 py-8 mb-6" style={{ background: '#FFF8B8' }}>
                 <AnimatePresence initial={false}>
                   {notes.map((_, idx) => idx <= current && (
                     <motion.div
-                      key={idx}
+                      key={`notes-${idx}`}
                       className="absolute inset-0 rounded-sm"
                       initial={{ x: '100%' }}
                       animate={{ x: 0 }}
@@ -161,6 +174,7 @@ export default function WhereIveBeen() {
                     </motion.div>
                   ))}
                 </AnimatePresence>
+                
                 <motion.div
                   key={current}
                   className="absolute top-4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pin"
@@ -169,6 +183,33 @@ export default function WhereIveBeen() {
                   animate={shouldBounce ? "pin" : "enter"}
                   aria-hidden="true"
                 />
+              </div>
+              
+              {/* Tech stack section */}
+              <div className="max-w-[480px] w-full">
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-black/10 px-6 py-4">
+                  <div className="text-sm font-medium text-black/70 mb-3">Technologies used:</div>
+                  <div className="relative overflow-hidden min-h-[110px]">
+                    <AnimatePresence initial={false}>
+                      {techStacks.map((_, idx) => idx === current && (
+                        <motion.div
+                          key={`tech-${idx}`}
+                          className="flex flex-wrap gap-2 absolute top-0 left-0 right-0"
+                          initial={{ x: direction > 0 ? '100%' : '-100%' }}
+                          animate={{ x: 0 }}
+                          exit={{ x: direction > 0 ? '-100%' : '100%' }}
+                          transition={{ x: direction > 0 ? { duration: 0.4, ease: 'easeInOut' } : { duration: 0.3, ease: 'easeInOut' } }}
+                        >
+                          {techStacks[idx].map((tech, i) => (
+                            <span key={i} className="px-3 py-1 bg-white/70 rounded-full text-sm font-medium border border-black/10 shadow-sm">
+                              {tech}
+                            </span>
+                          ))}
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

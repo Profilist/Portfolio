@@ -64,7 +64,7 @@ const projects: Project[] = [
   },
   {
     title: 'On The Dot',
-    description: 'A web-based trivia game. 2000+ plays.',
+    description: 'A web-based trivia game. 7000+ plays.',
     links: {
       github: 'https://github.com/Profilist/on-the-dot',
       demo: 'https://www.playonthedot.com'
