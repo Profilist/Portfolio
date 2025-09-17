@@ -40,7 +40,7 @@ export const projects: Project[] = [
     image: "/projects/onthedot.svg",
     alt: "on the dot",
     href: "https://www.playonthedot.com/",
-    description: "A web-based trivia game with 7000+ plays",
+    description: "A web-based trivia game with 10,000+ plays",
     video: "/projects/onthedot.mp4",
   },
   {

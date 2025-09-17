@@ -7,9 +7,9 @@ import Link from "next/link";
 import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [
-  { company: "MLH x Meta", role: "Production Engineer", dates: "Jun 2025 - Sep 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
+  { company: "Meta x MLH", role: "Production Engineer", dates: "Jun 2025 - Sep 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
   { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#EEEEEE" },
-  { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Apr 2025", logo: "/experience/uwaterloo.svg", accent: "#EEEEEE" },
+  { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Present", logo: "/experience/uwaterloo.svg", accent: "#EEEEEE" },
   { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/experience/jobeyze.svg", accent: "#EEEEEE" },
   { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/experience/lumiere.svg", accent: "#EEEEEE" },
 ];
@@ -17,18 +17,18 @@ const timeline = [
 export default function WhereIveBeen() {
   const notes = [
     [
-      <>worked with engineers from Meta to administer a CentOS VPS with a NGINX reverse proxy, DNS management, CI/CD, and Dockerization</>
+      <>worked with engineers from Meta to manage <span className="font-medium">production infrastructure</span> on CentOS with Docker, NGINX, CI/CD, Grafana, and DNS management</>
     ],
     [
       <>designed <span className="font-medium">data models and GraphQL APIs</span> in Rails, supporting 2M+ active retailers</>,
       <>built POS features in React Native and TypeScript</>
     ],
     [
-      <>researched <span className="font-medium">federated learning</span> for distributed time-series data</>,
-      <>implemented transformers from <a href="https://arxiv.org/pdf/2410.24210" className="underline underline-offset-4">recent papers</a> in PyTorch</>
+      <>researching <span className="font-medium">vertical federated learning</span> for distributed time-series data</>,
+      <>implemented transformers in PyTorch and <a href="https://github.com/facebookresearch/CrypTen" className="underline underline-offset-4">CrypTen</a></>
     ],
     [
-      <>developed the landing pages from scratch for <a href="https://www.jobeyze.ca/" className="underline underline-offset-4">Jobeyze</a></>,
+      <>developed the landing pages from scratch for a startup</>,
       <>streamlined automated web scrapers to extract <span className="font-medium">1200+ jobs daily</span></>
     ],
     [
@@ -40,7 +40,7 @@ export default function WhereIveBeen() {
   const techStacks = [
     ["CentOS", "Docker", "NGINX", "Bash Scripting", "MySQL", "GitHub Actions", "Grafana"],
     ["Ruby on Rails", "GraphQL", "React Native", "TypeScript" , "Grafana"],
-    ["PyTorch", "Transformers", "Python", "Research"],
+    ["PyTorch", "Transformers", "CrypTen", "GAN", "Python", "Research"],
     ["Python", "Selenium", "Laravel", "MySQL", "PHP", "TypeScript"],
     ["XGBoost", "Python", "Pandas", "NumPy", "Research"],
   ];
@@ -101,7 +101,7 @@ export default function WhereIveBeen() {
   }, [shouldBounce]);
   
   return (
-    <div className="w-full">
+    <div className="w-full" data-timeline-section>
       <div ref={sectionRef} style={{ height: `${containerHeight}px` }} className="relative w-full hidden md:block">
         <div className="sticky top-16 flex flex-col w-full" style={{ height: `${segmentH}px` }}>
           {/* Sticky header */}
