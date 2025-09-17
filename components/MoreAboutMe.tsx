@@ -87,7 +87,7 @@ export default function MoreAboutMe() {
   };
 
   return (
-    <div className="relative w-full" onClick={handleOutsideClick}>
+    <div className="relative w-full" data-more-about-section onClick={handleOutsideClick}>
       <h2 className="text-3xl md:text-4xl text-center font-medium">More about me!</h2>
       <div className="mx-auto relative">
         <div className={`container ${isAnimationPaused ? 'paused' : ''}`} 

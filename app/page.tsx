@@ -68,15 +68,15 @@ export default function Home() {
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
           <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
-            I&apos;m a Software Engineer at
-            <span className="inline-flex items-center gap-x-0.5 min-w-0">
-              <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
-              Shopify,
-            </span>
-            studying CS at the
+            I study CS at the
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
-              University of Waterloo.
+              University of Waterloo
+            </span>
+            and previously interned at
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
+              Shopify.
             </span>
           </p>
             
