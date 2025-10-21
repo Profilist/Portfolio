@@ -17,7 +17,7 @@ const timeline = [
 export default function WhereIveBeen() {
   const notes = [
     [
-      <>worked with engineers from Meta to manage <span className="font-medium">production infrastructure</span> on CentOS with Docker, NGINX, CI/CD, Grafana, and DNS management</>
+      <>worked with engineers from Meta to manage <span className="font-medium">Linux infrastructure</span> on CentOS with kernel-level debugging, Docker, NGINX, CI/CD, and Grafana</>
     ],
     [
       <>designed <span className="font-medium">data models and GraphQL APIs</span> in Rails, supporting 2M+ active retailers</>,
@@ -25,7 +25,7 @@ export default function WhereIveBeen() {
     ],
     [
       <>researching <span className="font-medium">vertical federated learning</span> for distributed time-series data</>,
-      <>implemented transformers in PyTorch and <a href="https://github.com/facebookresearch/CrypTen" className="underline underline-offset-4">CrypTen</a></>
+      <>implemented secure inference via <a href="https://github.com/facebookresearch/CrypTen" className="underline underline-offset-4">CrypTen</a> and PyTorch's RPC</>
     ],
     [
       <>developed the landing pages from scratch for a startup</>,
