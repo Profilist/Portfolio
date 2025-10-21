@@ -25,7 +25,7 @@ export default function WhereIveBeen() {
     ],
     [
       <>researching <span className="font-medium">vertical federated learning</span> for distributed time-series data</>,
-      <>implemented secure inference via <a href="https://github.com/facebookresearch/CrypTen" className="underline underline-offset-4">CrypTen</a> and PyTorch's RPC</>
+      <>implemented secure inference via <a href="https://github.com/facebookresearch/CrypTen" className="underline underline-offset-4">CrypTen</a> and PyTorch&apos;s RPC</>
     ],
     [
       <>developed the landing pages from scratch for a startup</>,
