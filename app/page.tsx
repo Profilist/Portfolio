@@ -96,7 +96,7 @@ export default function Home() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm"><span className="hidden sm:inline">currently looking for Summer 2026 internships!</span></span>
+                <span className="text-sm">looking for <span className="hidden sm:inline">Summer</span> 2026 internships!</span>
               </div>
               
               {/* Social Links */}
