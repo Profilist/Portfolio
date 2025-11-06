@@ -7,8 +7,8 @@ import Link from "next/link";
 import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [
-  { company: "Meta x MLH", role: "Production Engineer", dates: "Jun 2025 - Sep 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
   { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#EEEEEE" },
+  { company: "Meta x MLH", role: "Production Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
   { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Present", logo: "/experience/uwaterloo.svg", accent: "#EEEEEE" },
   { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/experience/jobeyze.svg", accent: "#EEEEEE" },
   { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/experience/lumiere.svg", accent: "#EEEEEE" },
@@ -17,11 +17,11 @@ const timeline = [
 export default function WhereIveBeen() {
   const notes = [
     [
-      <>worked with engineers from Meta to manage <span className="font-medium">Linux infrastructure</span> on CentOS with kernel-level debugging, Docker, NGINX, CI/CD, and Grafana</>
-    ],
-    [
       <>designed <span className="font-medium">data models and GraphQL APIs</span> in Rails, supporting 2M+ active retailers</>,
       <>built POS features in React Native and TypeScript</>
+    ],
+    [
+      <>worked with engineers from Meta to manage <span className="font-medium">Linux infrastructure</span> on CentOS with kernel-level debugging, Docker, NGINX, CI/CD, and Grafana</>
     ],
     [
       <>researching <span className="font-medium">vertical federated learning</span> for distributed time-series data</>,
@@ -38,9 +38,9 @@ export default function WhereIveBeen() {
   ];
 
   const techStacks = [
-    ["CentOS", "Docker", "NGINX", "Bash Scripting", "MySQL", "GitHub Actions", "Grafana"],
     ["Ruby on Rails", "GraphQL", "React Native", "TypeScript" , "Grafana"],
-    ["PyTorch", "Transformers", "CrypTen", "GAN", "Python", "Research"],
+    ["CentOS", "Docker", "NGINX", "Bash Scripting", "MySQL", "GitHub Actions", "Grafana"],
+    ["PyTorch", "Transformers", "CrypTen", "RPC", "Python", "GAN", "Linux"],
     ["Python", "Selenium", "Laravel", "MySQL", "PHP", "TypeScript"],
     ["XGBoost", "Python", "Pandas", "NumPy", "Research"],
   ];
