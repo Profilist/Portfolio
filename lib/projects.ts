@@ -49,7 +49,7 @@ export const projects: Project[] = [
     alt: "off the hook",
     href: "https://github.com/Profilist/off-the-hook",
     description: "A phishing ARG that lets you become the hacker",
-    video: "/projects/offthehook.mov",
+    video: "/projects/offthehook.mp4",
     previewImages: []
   }
 ];

@@ -59,12 +59,12 @@ const projects: Project[] = [
     ],
     demo: {
       type: 'video',
-      url: '/projects/pmo.mov'
+      url: '/projects/pmo.mp4'
     }
   },
   {
     title: 'On The Dot',
-    description: 'A web-based trivia game. 7000+ plays.',
+    description: 'A web-based trivia game. 20000+ plays.',
     links: {
       github: 'https://github.com/Profilist/on-the-dot',
       demo: 'https://www.playonthedot.com'
@@ -97,7 +97,7 @@ const projects: Project[] = [
     ],
     demo: {
       type: 'video',
-      url: '/projects/offthehook.mov'
+      url: '/projects/offthehook.mp4'
     }
   },
   {
@@ -147,25 +147,6 @@ const projects: Project[] = [
       url: '/projects/JHSS.avif'
     }
   },
-  {
-    title: 'The <div>eloper Experience',
-    description: 'Are you a real developer if you can\'t center a div?',
-    links: {
-      github: 'https://github.com/Profilist/TheDiveloperExperience',
-      demo: 'https://the-diveloper-experience.vercel.app/'
-    },
-    techStack: [
-      { name: 'Next.js', icon: '/tech/nextjs.svg' },
-      { name: 'React', icon: '/tech/react.svg' },
-      { name: 'TypeScript', icon: '/tech/typescript.svg' },
-      { name: 'Convex', icon: '/tech/convex.svg' },
-      { name: 'Clerk', icon: '/tech/clerk.svg' },
-    ],
-    demo: {
-      type: 'video',
-      url: '/projects/thediveloperexperience.mov'
-    }
-  }
 ]
 
 export default function Projects() {
