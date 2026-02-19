@@ -7,15 +7,23 @@ import Link from "next/link";
 import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [
+  { company: "Conway", role: "Software Engineer", dates: "Apr 2026 - Aug 2026", logo: "/experience/conway.svg", accent: "#EEEEEE" },
+  { company: "Kleiner Perkins", role: "Engineering Fellow", dates: "Jan 2026 - Present", logo: "/experience/kp.svg", accent: "#EEEEEE" },
   { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#EEEEEE" },
   { company: "Meta x MLH", role: "Production Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
   { company: "UWaterloo", role: "Research Assistant", dates: "Jan 2025 - Present", logo: "/experience/uwaterloo.svg", accent: "#EEEEEE" },
-  { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/experience/jobeyze.svg", accent: "#EEEEEE" },
-  { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/experience/lumiere.svg", accent: "#EEEEEE" },
+  // { company: "Jobeyze", role: "Software Engineer", dates: "Dec 2024 - Mar 2025", logo: "/experience/jobeyze.svg", accent: "#EEEEEE" },
+  // { company: "Lumiere", role: "ML Researcher", dates: "Aug 2022 - Feb 2023", logo: "/experience/lumiere.svg", accent: "#EEEEEE" },
 ];
 
 export default function WhereIveBeen() {
   const notes = [
+    [
+      <>Incoming Summer 2026</>
+    ],
+    [
+      <>Meeting cool people :)</>
+    ],
     [
       <>designed <span className="font-medium">data models and GraphQL APIs</span> in Rails, supporting 2M+ active retailers</>,
       <>built POS features in React Native and TypeScript</>
@@ -27,22 +35,24 @@ export default function WhereIveBeen() {
       <>researching <span className="font-medium">vertical federated learning</span> for distributed time-series data</>,
       <>implemented secure inference via <a href="https://github.com/facebookresearch/CrypTen" className="underline underline-offset-4">CrypTen</a> and PyTorch&apos;s RPC</>
     ],
-    [
-      <>developed the landing pages from scratch for a startup</>,
-      <>streamlined automated web scrapers to extract <span className="font-medium">1200+ jobs daily</span></>
-    ],
-    [
-      <>trained a machine learning model using XGBoost for financial fraud detection</>,
-      <>published a <a href="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history" className="underline underline-offset-4">research paper</a></>
-    ],
+    // [
+    //   <>developed the landing pages from scratch for a startup</>,
+    //   <>streamlined automated web scrapers to extract <span className="font-medium">1200+ jobs daily</span></>
+    // ],
+    // [
+    //   <>trained a machine learning model using XGBoost for financial fraud detection</>,
+    //   <>published a <a href="https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history" className="underline underline-offset-4">research paper</a></>
+    // ],
   ];
 
   const techStacks = [
+    ["Agents"],
+    ["Agents"],
     ["Ruby on Rails", "GraphQL", "React Native", "TypeScript" , "Grafana"],
     ["CentOS", "Docker", "NGINX", "Bash Scripting", "MySQL", "GitHub Actions", "Grafana"],
     ["PyTorch", "Transformers", "CrypTen", "RPC", "Python", "GAN", "Linux"],
-    ["Python", "Selenium", "Laravel", "MySQL", "PHP", "TypeScript"],
-    ["XGBoost", "Python", "Pandas", "NumPy", "Research"],
+    // ["Python", "Selenium", "Laravel", "MySQL", "PHP", "TypeScript"],
+    // ["XGBoost", "Python", "Pandas", "NumPy", "Research"],
   ];
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [current, setCurrent] = useState(0);

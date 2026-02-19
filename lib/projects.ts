@@ -17,6 +17,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: "pokestrator",
+    image: "/projects/pokestrator.png",
+    alt: "pokestrator",
+    description: "A self-improving agent harness",
+    href: "https://github.com/Profilist/pokestrator",
+    previewImages: [
+      { 
+        src: "/projects/pmo2.png", 
+        alt: "pmo",
+        position: { top: "-0px", left: "-8px" }
+      },
+      { 
+        src: "/projects/pmo1.png", 
+        alt: "pmo",
+        position: { top: "112px", left: "104px" }
+      }
+    ]
+  },
+  {
     name: "pmo",
     image: "/projects/pmo.png",
     alt: "pmo",

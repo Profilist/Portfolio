@@ -68,16 +68,26 @@ export default function Home() {
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
           <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
-            I study CS at the
+            I study CS @
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
-              University of Waterloo
+              UWaterloo,
             </span>
-            and previously interned at
+            incoming @ 
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/conway.svg" alt="Conway" width={20} height={20} className="mx-1 " />
+              Conway,
+            </span>
+            as a 
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/kp.svg" alt="Kleiner Perkins" width={20} height={20} className="mx-1" />
+              KP Fellow.
+            </span>
+            {/* prev @
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
               Shopify.
-            </span>
+            </span> */}
           </p>
             
             {/* Status and Social Links */}
@@ -96,7 +106,8 @@ export default function Home() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm">looking for <span className="hidden sm:inline">Summer</span> 2026 internships!</span>
+                <span className="text-sm">hmu if you're in SF this summer!</span>
+                {/* <span className="text-sm">looking for <span className="hidden sm:inline">Summer</span> 2026 internships!</span> */}
               </div>
               
               {/* Social Links */}

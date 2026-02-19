@@ -23,6 +23,24 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'Pokestrator',
+    description: 'A self-improving agent built on top of Poke.',
+    links: {
+      github: 'https://github.com/Profilist/pokestrator',
+      demo: 'https://github.com/Profilist/pokestrator'
+    },
+    techStack: [
+      { name: 'Python', icon: '/tech/python.svg' },
+      { name: 'Claude', icon: '/tech/claude.svg' },
+      { name: 'React', icon: '/tech/react.svg' },
+      { name: 'TypeScript', icon: '/tech/typescript.svg' },
+    ],
+    demo: {
+      type: 'video',
+      url: '/projects/pokestrator.mp4'
+    }
+  },
+  {
     title: 'LifeOS',
     description: 'A multi-modal MCP layer for real life.',
     links: {
@@ -134,7 +152,7 @@ const projects: Project[] = [
   },
   {
     title: 'ML Research Paper',
-    description: 'A research paper on a ML approach to detect financial fraud. Published in JHSS.',
+    description: 'A research paper on a ML approach to detect financial fraud. Published in the JHSS.',
     links: {
       github: 'https://github.com/Profilist/Financial-Fraud-Detection',
       demo: 'https://jhss.scholasticahq.com/article/85172-a-machine-learning-approach-to-detect-fraudulent-customers-based-on-their-financial-transaction-history'
