@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from "react";
 
 interface ProjectCardProps {
   title: string
@@ -24,10 +25,43 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, description, links, techStack, demo }: ProjectCardProps) {
   const ratio = demo.ratioClass ?? 'aspect-video'
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const element = cardRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: "300px", threshold: 0.05 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (demo.type === 'video' && isVisible) {
+      void video.play().catch(() => {
+        // Autoplay can fail in some browsers; ignore until user interaction.
+      });
+    } else {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, [demo.type, isVisible]);
+
+  const shouldLoadVideo = demo.type === 'video' && isVisible;
   
   return (
     <motion.div 
       className="group relative rounded-2xl bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+      ref={cardRef}
       whileHover={{ 
         scale: 1.02,
         boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
@@ -94,11 +128,13 @@ export default function ProjectCard({ title, description, links, techStack, demo
         {demo.type === 'video' ? (
           <video
             src={demo.url}
-            autoPlay
-            loop
             muted
             playsInline
+            loop
+            ref={videoRef}
+            preload={shouldLoadVideo ? "auto" : "none"}
             className={`${ratio} w-full object-cover`}
+            aria-hidden="true"
           />
         ) : (
           <Image
