@@ -49,8 +49,8 @@ export interface Project {
 
 export const projectCatalog: ProjectRecord[] = [
   {
-    title: "pokestrator",
-    description: "A self-improving agent harness",
+    title: "Pokestrator",
+    description: "A self-improving agent that builds its own tools to solve limitations",
     links: {
       github: "https://github.com/Profilist/pokestrator",
       demo: "https://github.com/Profilist/pokestrator",
@@ -63,23 +63,35 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/pokestrator.mp4",
+      url: "/projects/pokestrator_demo.mp4",
     },
-    image: "/projects/pokestrator.png",
+    image: "/projects/pokestrator_demo.png",
     alt: "pokestrator",
     href: "https://github.com/Profilist/pokestrator",
-    previewImages: [
-      {
-        src: "/projects/pmo2.png",
-        alt: "pmo",
-        position: { top: "-0px", left: "-8px" },
-      },
-      {
-        src: "/projects/pmo1.png",
-        alt: "pmo",
-        position: { top: "112px", left: "104px" },
-      },
+    featureOnHome: true,
+  },
+  {
+    title: "Tides",
+    description: "An agentic design platform integrated directly with user data",
+    links: {
+      github: "https://github.com/Profilist/tides",
+      demo: "https://github.com/Profilist/tides",
+    },
+    techStack: [
+      { name: "Express", icon: "/tech/express.svg" },
+      { name: "Bun", icon: "/tech/bun.svg" },
+      { name: "Supabase", icon: "/tech/supabase.svg" },
+      { name: "PostgreSQL", icon: "/tech/postgresql.svg" },
+      { name: "React", icon: "/tech/react.svg" },
+      { name: "TypeScript", icon: "/tech/typescript.svg" },
     ],
+    demo: {
+      type: "video",
+      url: "/projects/tides.mp4",
+    },
+    image: "/projects/tides.png",
+    alt: "tides",
+    href: "https://github.com/Profilist/tides",
     featureOnHome: true,
   },
   {
@@ -113,11 +125,11 @@ export const projectCatalog: ProjectRecord[] = [
         position: { top: "112px", left: "104px" },
       },
     ],
-    featureOnHome: true,
+    featureOnHome: false,
   },
   {
     title: "On The Dot",
-    description: "A web-based trivia game with 10,000+ plays",
+    description: "A web-based trivia game with 20,000+ plays",
     links: {
       github: "https://github.com/Profilist/on-the-dot",
       demo: "https://www.playonthedot.com",
@@ -249,7 +261,7 @@ export const projectCatalog: ProjectRecord[] = [
 export const projects: Project[] = projectCatalog
   .filter((project) => project.featureOnHome)
   .map((project) => ({
-    name: project.title,
+    name: project.title.toLowerCase(),
     image: project.image,
     alt: project.alt,
     description: project.description,

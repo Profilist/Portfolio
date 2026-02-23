@@ -7,7 +7,7 @@ import Link from "next/link";
 import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [
-  { company: "Conway", role: "Software Engineer", dates: "Apr 2026 - Aug 2026", logo: "/experience/conway.svg", accent: "#EEEEEE" },
+  { company: "Conway", role: "Software Engineer", dates: "May 2026 - Aug 2026", logo: "/experience/conway.svg", accent: "#EEEEEE" },
   { company: "Kleiner Perkins", role: "Engineering Fellow", dates: "Jan 2026 - Present", logo: "/experience/kp.svg", accent: "#EEEEEE" },
   { company: "Shopify", role: "Software Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/shopify.svg", accent: "#EEEEEE" },
   { company: "Meta x MLH", role: "Production Engineer", dates: "May 2025 - Aug 2025", logo: "/experience/mlh.svg", accent: "#FFF8B8" },
@@ -46,8 +46,8 @@ export default function WhereIveBeen() {
   ];
 
   const techStacks = [
-    ["Agents"],
-    ["Agents"],
+    [],
+    [],
     ["Ruby on Rails", "GraphQL", "React Native", "TypeScript" , "Grafana"],
     ["CentOS", "Docker", "NGINX", "Bash Scripting", "MySQL", "GitHub Actions", "Grafana"],
     ["PyTorch", "Transformers", "CrypTen", "RPC", "Python", "GAN", "Linux"],
@@ -61,6 +61,7 @@ export default function WhereIveBeen() {
   const [shouldBounce, setShouldBounce] = useState(false);
   const prevCurrentRef = useRef(0);
   const [direction, setDirection] = useState(1);
+  const currentTechStack = techStacks[current] ?? [];
   
   // fixed segment height for consistent scroll across devices
   const segmentH = 700; // px per segment
@@ -122,7 +123,7 @@ export default function WhereIveBeen() {
             </Link></span>
           </div>
           <div className="flex flex-col md:flex-row md:items-start w-full h-full">
-            <div className="flex-1 min-w-[260px] max-w-[350px] h-full px-4">
+            <div className="flex-1 min-w-[260px] max-w-[350px] h-full px-0">
               <div className="relative h-auto">
                 <div className="flex flex-col justify-center h-full">
                   {timeline.map((item, idx) => {
@@ -130,12 +131,12 @@ export default function WhereIveBeen() {
                       <div key={item.company} className="flex items-start relative z-10">
                         <div className={`w-20 flex flex-col items-center relative z-10 ${idx < timeline.length - 1 ? '-mb-6' : ''}`}>
                           <motion.div
-                            className="w-16 h-16 rounded-full flex items-center justify-center border-4"
+                            className="w-16 h-16 rounded-none flex items-center justify-center border-4"
                             variants={timelineAccent}
                             animate={current === idx ? "active" : "inactive"}
                             style={{ borderColor: current === idx ? '#FFF8B8' : '#EEEEEE', background: item.accent }}
                           >
-                            <Image src={item.logo} alt={`${item.company} logo`} width={40} height={40} aria-hidden="true" />
+                            <Image src={item.logo} alt={`${item.company} logo`} width={48} height={48} aria-hidden="true" />
                           </motion.div>
                           {/* Timeline segment below icon, except last item */}
                           {idx < timeline.length - 1 && (
@@ -195,32 +196,31 @@ export default function WhereIveBeen() {
                 />
               </div>
               
-              {/* Tech stack section */}
-              <div className="max-w-[480px] w-full">
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-black/10 px-6 py-4">
-                  <div className="text-sm font-medium text-black/70 mb-3">Technologies used:</div>
-                  <div className="relative overflow-hidden min-h-[110px]">
-                    <AnimatePresence initial={false}>
-                      {techStacks.map((_, idx) => idx === current && (
+              {currentTechStack.length > 0 ? (
+                <div className="max-w-[480px] w-full">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-black/10 px-6 py-4">
+                    <div className="text-sm font-medium text-black/70 mb-3">Technologies used:</div>
+                    <div className="relative overflow-hidden min-h-[110px]">
+                      <AnimatePresence initial={false}>
                         <motion.div
-                          key={`tech-${idx}`}
+                          key={`tech-${current}`}
                           className="flex flex-wrap gap-2 absolute top-0 left-0 right-0"
                           initial={{ x: direction > 0 ? '100%' : '-100%' }}
                           animate={{ x: 0 }}
                           exit={{ x: direction > 0 ? '-100%' : '100%' }}
                           transition={{ x: direction > 0 ? { duration: 0.4, ease: 'easeInOut' } : { duration: 0.3, ease: 'easeInOut' } }}
                         >
-                          {techStacks[idx].map((tech, i) => (
+                          {currentTechStack.map((tech, i) => (
                             <span key={i} className="px-3 py-1 bg-white/70 rounded-full text-sm font-medium border border-black/10 shadow-sm">
                               {tech}
                             </span>
                           ))}
                         </motion.div>
-                      ))}
-                    </AnimatePresence>
+                      </AnimatePresence>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
         </div>

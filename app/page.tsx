@@ -67,7 +67,7 @@ export default function Home() {
         >
           {/* Main Card */}
           <div className="bg-card shadow-md rounded-lg p-6">
-          <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1">
+          <p className="text-xl sm:text-2xl mb-4 leading-relaxed flex flex-wrap items-center gap-x-1 sm:pr-16">
             I study CS @
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
@@ -76,7 +76,7 @@ export default function Home() {
             incoming @ 
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/conway.svg" alt="Conway" width={20} height={20} className="mx-1 " />
-              Conway,
+              Conway
             </span>
             as a 
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
@@ -128,7 +128,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Purin Character */}
+          {/* Pompompurin */}
           <motion.div 
             className="hidden sm:block absolute -right-4 -top-12 md:-right-8 md:-top-16"
             variants={{
