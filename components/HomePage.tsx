@@ -71,7 +71,7 @@ export default function HomePage() {
               <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
               UWaterloo,
             </span>
-            incoming @ 
+            currently @
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/conway.svg" alt="Conway" width={20} height={20} className="mx-1 " />
               Conway
@@ -104,7 +104,7 @@ export default function HomePage() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm">hmu if you&apos;re in SF this summer!</span>
+                <span className="text-sm">building</span>
                 {/* <span className="text-sm">looking for <span className="hidden sm:inline">Summer</span> 2026 internships!</span> */}
               </div>
               
