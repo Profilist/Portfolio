@@ -1,14 +1,32 @@
-"use client"
-
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Image from "@/components/OptimizedImage";
+import Link from "@/components/Link";
 import { motion } from "framer-motion";
 import { Project, projects } from "@/lib/projects";
 
 export default function RecentProjects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
+
+  const activateProject = (project: Project) => {
+    setActiveProject(project);
+    const video = videoRefs.current[project.name];
+    if (video) {
+      video.currentTime = 0;
+      void video.play().catch(() => {
+        // Muted inline playback can still be delayed until the browser is ready.
+      });
+    }
+  };
+
+  const deactivateProject = (project: Project) => {
+    setActiveProject(null);
+    const video = videoRefs.current[project.name];
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
 
   return (
     <div style={{ width: '100%' }}>
@@ -28,13 +46,14 @@ export default function RecentProjects() {
             <div
               key={proj.name}
               className="group relative"
-              onMouseEnter={() => setActiveProject(proj)}
-              onMouseLeave={() => setActiveProject(null)}
+              onMouseEnter={() => activateProject(proj)}
+              onMouseLeave={() => deactivateProject(proj)}
             >
-              {activeProject?.name === proj.name ? (
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+              <motion.div
+                  initial={{ opacity: 0, y: 10, visibility: "hidden" }}
+                  animate={activeProject?.name === proj.name
+                    ? { opacity: 1, y: 0, visibility: "visible" }
+                    : { opacity: 0, y: 10, visibility: "hidden" }}
                   transition={{ 
                     type: "spring",
                     stiffness: 400,
@@ -55,10 +74,19 @@ export default function RecentProjects() {
                         />
                         <div className="absolute top-[68px] left-[32px] overflow-hidden rounded-xs bg-black">
                           <video
-                            autoPlay
                             loop
                             muted
                             playsInline
+                            preload="auto"
+                            poster={proj.poster}
+                            ref={(video) => {
+                              videoRefs.current[proj.name] = video;
+                            }}
+                            onCanPlay={(event) => {
+                              if (activeProject?.name === proj.name) {
+                                void event.currentTarget.play().catch(() => undefined);
+                              }
+                            }}
                             className="w-[178px] h-[98px] object-cover"
                           >
                             <source src={proj.video} type="video/mp4" />
@@ -106,7 +134,6 @@ export default function RecentProjects() {
                     View {proj.name}
                   </Link>
                 </motion.div>
-              ) : null}
               <motion.div 
                 animate={{ opacity: activeProject?.name === proj.name ? 0 : 1 }}
                 transition={{ duration: 0.2 }}

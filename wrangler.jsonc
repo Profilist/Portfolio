@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "larris-portfolio",
+  "main": "./src/server.ts",
+  "compatibility_date": "2026-08-04",
+  "compatibility_flags": ["nodejs_compat"],
+  "preview_urls": true,
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true
+}

@@ -1,5 +1,3 @@
-'use client';
-
 import { useTimelineDetection } from '@/lib/useTimelineDetection';
 import StickyNav from './StickyNav';
 

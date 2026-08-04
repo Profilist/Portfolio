@@ -1,3 +1,18 @@
+import lifeosVideo from "@/src/assets/videos/lifeos.mp4?url";
+import offTheHookVideo from "@/src/assets/videos/offthehook.mp4?url";
+import onTheDotVideo from "@/src/assets/videos/onthedot.mp4?url";
+import pmoVideo from "@/src/assets/videos/pmo.mp4?url";
+import pokestratorVideo from "@/src/assets/videos/pokestrator_demo.mp4?url";
+import tidesVideo from "@/src/assets/videos/tides.mp4?url";
+import yoloVideo from "@/src/assets/videos/yolo.mp4?url";
+import lifeosPoster from "@/src/assets/video-posters/lifeos.jpg?url";
+import offTheHookPoster from "@/src/assets/video-posters/offthehook.jpg?url";
+import onTheDotPoster from "@/src/assets/video-posters/onthedot.jpg?url";
+import pmoPoster from "@/src/assets/video-posters/pmo.jpg?url";
+import pokestratorPoster from "@/src/assets/video-posters/pokestrator_demo.jpg?url";
+import tidesPoster from "@/src/assets/video-posters/tides.jpg?url";
+import yoloPoster from "@/src/assets/video-posters/yolo.jpg?url";
+
 export interface ProjectPreviewImage {
   src: string;
   alt: string;
@@ -21,6 +36,7 @@ export interface ProjectLinks {
 export interface ProjectDemo {
   type: "video" | "image";
   url: string;
+  poster?: string;
   ratioClass?: string;
 }
 
@@ -44,6 +60,7 @@ export interface Project {
   description: string;
   href: string;
   video?: string;
+  poster?: string;
   previewImages?: ProjectPreviewImage[];
 }
 
@@ -63,7 +80,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/pokestrator_demo.mp4",
+      url: pokestratorVideo,
+      poster: pokestratorPoster,
     },
     image: "/projects/pokestrator_demo.png",
     alt: "pokestrator",
@@ -87,7 +105,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/tides.mp4",
+      url: tidesVideo,
+      poster: tidesPoster,
     },
     image: "/projects/tides.png",
     alt: "tides",
@@ -108,7 +127,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/pmo.mp4",
+      url: pmoVideo,
+      poster: pmoPoster,
     },
     image: "/projects/pmo.png",
     alt: "pmo",
@@ -143,7 +163,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/onthedot.mp4",
+      url: onTheDotVideo,
+      poster: onTheDotPoster,
     },
     image: "/projects/onthedot.svg",
     alt: "on the dot",
@@ -166,7 +187,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/offthehook.mp4",
+      url: offTheHookVideo,
+      poster: offTheHookPoster,
     },
     image: "/projects/offthehook.svg",
     alt: "off the hook",
@@ -194,7 +216,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/lifeos.mp4",
+      url: lifeosVideo,
+      poster: lifeosPoster,
     },
     image: "/projects/monitor.svg",
     alt: "LifeOS",
@@ -232,7 +255,8 @@ export const projectCatalog: ProjectRecord[] = [
     ],
     demo: {
       type: "video",
-      url: "/projects/yolo.mp4",
+      url: yoloVideo,
+      poster: yoloPoster,
     },
     image: "/projects/onthedot.svg",
     alt: "autonomous vision systems",
@@ -269,5 +293,6 @@ export const projects: Project[] = projectCatalog
     video: project.demo.type === "video" && !(project.previewImages && project.previewImages.length > 0)
       ? project.demo.url
       : undefined,
+    poster: project.demo.poster,
     previewImages: project.previewImages,
   }));

@@ -1,6 +1,4 @@
-"use client";
-
-import Image from 'next/image'
+import Image from '@/components/OptimizedImage'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from "react";
 
@@ -19,6 +17,7 @@ interface ProjectCardProps {
   demo: {
     type: 'video' | 'image'
     url: string
+    poster?: string
     ratioClass?: string
   }
 }
@@ -128,6 +127,7 @@ export default function ProjectCard({ title, description, links, techStack, demo
         {demo.type === 'video' ? (
           <video
             src={demo.url}
+            poster={demo.poster}
             muted
             playsInline
             loop

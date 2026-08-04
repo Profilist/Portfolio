@@ -1,12 +1,10 @@
-"use client";
-
-import ProjectCard from './ProjectCard'
+import ProjectCard from '@/components/ProjectCard'
 import { motion } from 'framer-motion'
 import { projectCatalog } from '@/lib/projects'
 
 const projects = projectCatalog
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
     <motion.main 
       className="mx-auto max-w-2xl px-6 py-12"

@@ -1,9 +1,7 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/OptimizedImage";
+import Link from "@/components/Link";
 import { pushpinAnimation, timelineAccent } from "../lib/animations";
 
 const timeline = [

@@ -1,9 +1,7 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
+import Link from "@/components/Link";
+import Image from "@/components/OptimizedImage";
 
 type CarouselItem = {
   id: number;

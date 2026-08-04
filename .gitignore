@@ -12,10 +12,13 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
 
-# next.js
-/.next/
-/out/
+# TanStack Start / Cloudflare
+/dist/
+/.output/
+/.wrangler/
 
 # production
 /build
@@ -38,7 +41,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 .windsurfrules
 .agents

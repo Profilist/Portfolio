@@ -1,13 +1,11 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import RecentProjects from "../components/RecentProjects";
-import WhereIveBeen from "../components/WhereIveBeen";
+import Image from "@/components/OptimizedImage";
+import Link from "@/components/Link";
+import RecentProjects from "@/components/RecentProjects";
+import WhereIveBeen from "@/components/WhereIveBeen";
 import MoreAboutMe from "@/components/MoreAboutMe";
 import { motion } from "framer-motion";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <motion.div 
       className="max-w-2xl mx-auto px-4 py-12 md:py-20"

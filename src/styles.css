@@ -1,4 +1,56 @@
 @import "tailwindcss";
+@source "../components";
+@source "../lib";
+@source "./routes";
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./assets/fonts/geist-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial");
+  ascent-override: 95.94%;
+  descent-override: 28.16%;
+  line-gap-override: 0%;
+  size-adjust: 104.76%;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/instrument-serif-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Instrument Serif Fallback";
+  src: local("Times New Roman");
+  ascent-override: 117.94%;
+  descent-override: 36.93%;
+  line-gap-override: 0%;
+  size-adjust: 83.94%;
+}
+
+@font-face {
+  font-family: "Larris Handwriting";
+  font-display: swap;
+  src: url("./assets/fonts/larris-handwriting.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Larris Handwriting Fallback";
+  src: local("Arial");
+  ascent-override: 87.97%;
+  descent-override: 11.49%;
+  line-gap-override: 11.89%;
+  size-adjust: 75.70%;
+}
 
 :root {
   --background: #ffffff;
@@ -7,6 +59,9 @@
   --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   --accent-yellow: #FFF8B8;
   --accent-yellow-border: #F5E98A;
+  --portfolio-font-geist: "Geist", "Geist Fallback";
+  --portfolio-font-instrument: "Instrument Serif", "Instrument Serif Fallback";
+  --portfolio-font-handwriting: "Larris Handwriting", "Larris Handwriting Fallback";
 }
 
 @theme {
@@ -18,9 +73,9 @@
   --color-accent-yellow-border: var(--accent-yellow-border);
   
   /* Typography */
-  --font-geist: var(--font-geist);
-  --font-instrument: var(--font-instrument);
-  --font-handwriting: var(--font-handwriting);
+  --font-geist: var(--portfolio-font-geist);
+  --font-instrument: var(--portfolio-font-instrument);
+  --font-handwriting: var(--portfolio-font-handwriting);
   
   /* Spacing */
   --spacing: 0.25rem;
@@ -40,7 +95,7 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-geist);
+    font-family: var(--portfolio-font-geist);
     letter-spacing: -0.06em; /* -6% letter spacing for Geist */
   }
   
@@ -49,12 +104,12 @@
   }
   
   .font-handwriting {
-    font-family: var(--font-handwriting);
+    font-family: var(--portfolio-font-handwriting);
     letter-spacing: -0.06em;
   }
   
   .font-instrument {
-    font-family: var(--font-instrument);
+    font-family: var(--portfolio-font-instrument);
     letter-spacing: 0;
   }
 }

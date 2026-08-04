@@ -1,8 +1,6 @@
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Image from '@/components/OptimizedImage';
+import Link from '@/components/Link';
+import { useLocation } from '@tanstack/react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface StickyNavProps {
@@ -10,10 +8,10 @@ interface StickyNavProps {
 }
 
 const StickyNav = ({ isVisible = true }: StickyNavProps) => {
-  const pathname = usePathname();
+  const pathname = useLocation({ select: (location) => location.pathname });
   
   // Hide nav on resume page
-  if (pathname === '/resume') return null;
+  if (pathname === '/resume' || pathname === '/resume/') return null;
 
   const navItems = [
     { href: '/', icon: '/about.svg', label: 'About' },
@@ -35,6 +33,7 @@ const StickyNav = ({ isVisible = true }: StickyNavProps) => {
             <Link
               key={item.label}
               href={item.href}
+              preload="render"
               className="flex flex-col gap-1 hover:scale-110 transition-transform"
             >
               <div className="w-6 h-6 relative">
