@@ -50,6 +50,17 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       </head>
       <body className="antialiased relative min-h-screen">
         {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if (location.hostname === "www.larrisx.com") {
+              const beacon = document.createElement("script");
+              beacon.type = "module";
+              beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+              beacon.dataset.cfBeacon = '{"token":"a3dc1bc3307d4b819a729ead77cf523a"}';
+              document.head.appendChild(beacon);
+            }`,
+          }}
+        />
         <Scripts />
       </body>
     </html>
