@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
 import { canonicalRedirect } from "../src/canonicalRedirect";
 
 test("preserves the canonical domain redirects, paths, and queries", () => {
@@ -14,6 +15,20 @@ test("preserves the canonical domain redirects, paths, and queries", () => {
     expect(response?.status).toBe(redirect.status);
     expect(response?.headers.get("location")).toBe("https://www.larrisx.com/projects?source=legacy");
   }
+});
+
+test("runs page documents through the Worker before Cloudflare assets", () => {
+  const workerConfig = JSON.parse(readFileSync("dist/server/wrangler.json", "utf8"));
+
+  expect(workerConfig.assets.run_worker_first).toEqual([
+    "/",
+    "/projects",
+    "/projects/",
+    "/resume",
+    "/resume/",
+    "/studio",
+    "/studio/",
+  ]);
 });
 
 test.beforeEach(async ({ page }) => {

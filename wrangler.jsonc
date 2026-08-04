@@ -4,6 +4,17 @@
   "main": "./src/server.ts",
   "compatibility_date": "2026-08-04",
   "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "run_worker_first": [
+      "/",
+      "/projects",
+      "/projects/",
+      "/resume",
+      "/resume/",
+      "/studio",
+      "/studio/"
+    ]
+  },
   "preview_urls": true,
   "observability": {
     "enabled": true
