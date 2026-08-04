@@ -104,7 +104,7 @@ export default function HomePage() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm">building</span>
+                <span className="text-sm">tinkering with ideas</span>
                 {/* <span className="text-sm">looking for <span className="hidden sm:inline">Summer</span> 2026 internships!</span> */}
               </div>
               
