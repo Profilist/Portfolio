@@ -110,7 +110,7 @@ const experiences: Experience[] = [
       imageAlt: "MLH Production Engineering Fellowship page preview",
       objectPosition: "center",
       href: "https://fellowship.mlh.com/programs/production-engineering-sre",
-      caption: "see the MLH Fellowship",
+      caption: "discover the MLH Fellowship",
     },
   },
 ];
@@ -406,20 +406,22 @@ export default function WhereIveBeen() {
                 <div className="text-sm text-black/60">{item.dates}</div>
               </div>
             </div>
-            <div className="relative mt-6">
+            <div className="relative mx-auto mt-6 w-[288px] max-w-full min-[680px]:flex min-[680px]:w-full min-[680px]:max-w-[544px] min-[680px]:items-start min-[680px]:gap-4">
               <div
-                className="relative z-10 rounded-lg px-6 py-6 pb-12 shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)]"
+                className="relative z-10 h-[250px] w-full rounded-lg shadow-[5px_5px_10px_-2px_rgba(33,33,33,.3)] min-[680px]:w-[288px] min-[680px]:shrink-0"
                 style={{ background: '#FFF8B8' }}
                 data-testid={`experience-note-mobile-${item.id}`}
               >
-                <div className="absolute left-1/2 top-3 -translate-x-1/2">
+                <div className="absolute inset-0 rounded-sm">
+                  <ul className="mt-12 list-disc space-y-2 pl-12 pr-8 text-[clamp(0.8125rem,3.5vw,1rem)] leading-relaxed">
+                    {item.notes.map((line, i) => <li key={i}>{line}</li>)}
+                  </ul>
+                </div>
+                <div className="absolute left-1/2 top-4 z-20 -translate-x-1/2 -translate-y-1/2">
                   <div className="pin" aria-hidden="true" />
                 </div>
-                <ul className="mt-5 list-disc space-y-2 px-6 text-lg leading-relaxed">
-                  {item.notes.map((line, i) => <li key={i}>{line}</li>)}
-                </ul>
               </div>
-              <div className="relative z-0 mx-auto mt-3 w-[92%]">
+              <div className="relative z-0 mx-auto mt-3 w-[92%] min-[680px]:mx-0 min-[680px]:mt-0 min-[680px]:min-w-0 min-[680px]:flex-1">
                 <ExperiencePostcard
                   experience={item}
                   layout="mobile"
