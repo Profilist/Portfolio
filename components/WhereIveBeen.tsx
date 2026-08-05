@@ -413,7 +413,7 @@ export default function WhereIveBeen() {
                 data-testid={`experience-note-mobile-${item.id}`}
               >
                 <div className="absolute inset-0 rounded-sm">
-                  <ul className="mt-12 list-disc space-y-2 pl-12 pr-8 text-[clamp(0.8125rem,3.5vw,1rem)] leading-relaxed">
+                  <ul className="mt-12 list-disc space-y-2 pl-12 pr-8 text-[clamp(0.875rem,3.7vw,1rem)] leading-relaxed">
                     {item.notes.map((line, i) => <li key={i}>{line}</li>)}
                   </ul>
                 </div>
