@@ -54,7 +54,7 @@ const experiences: Experience[] = [
       imageAlt: "Kleiner Perkins Fellows page preview",
       objectPosition: "center",
       href: "https://www.kleinerperkins.com/fellows/",
-      caption: "meet KP Fellows!",
+      caption: "join KP Fellows!",
     },
   },
   {
@@ -92,7 +92,7 @@ const experiences: Experience[] = [
       imageAlt: "Shopify POS page preview",
       objectPosition: "center",
       href: "https://www.shopify.com/pos",
-      caption: "explore Shopify POS",
+      caption: "take a look at Shopify POS!",
     },
   },
   {
@@ -110,7 +110,7 @@ const experiences: Experience[] = [
       imageAlt: "MLH Production Engineering Fellowship page preview",
       objectPosition: "center",
       href: "https://fellowship.mlh.com/programs/production-engineering-sre",
-      caption: "discover the MLH Fellowship",
+      caption: "learn about the MLH Fellowship!",
     },
   },
 ];
