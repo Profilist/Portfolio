@@ -2,7 +2,9 @@ const CANONICAL_HOST = "www.larrisx.com";
 
 export function canonicalRedirect(request: Request) {
   const url = new URL(request.url);
-  const status = url.hostname === "larrisx.com"
+  const status = url.hostname === CANONICAL_HOST && url.protocol !== "https:"
+    ? 308
+    : url.hostname === "larrisx.com"
     ? 307
     : url.hostname === "larris.me" || url.hostname === "www.larris.me"
       ? 308

@@ -3,8 +3,24 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Larris's Resume" },
-      { name: "description", content: "Larris Xie's Resume" },
+      { title: "Resume | Larris Xie" },
+      {
+        name: "description",
+        content:
+          "View Larris Xie's software engineering resume, including experience, education, research, and technical projects.",
+      },
+      { property: "og:title", content: "Resume | Larris Xie" },
+      {
+        property: "og:description",
+        content:
+          "View Larris Xie's software engineering resume, including experience, education, research, and technical projects.",
+      },
+      { name: "twitter:title", content: "Resume | Larris Xie" },
+      {
+        name: "twitter:description",
+        content:
+          "View Larris Xie's software engineering resume, including experience, education, research, and technical projects.",
+      },
     ],
   }),
   component: ResumePage,
