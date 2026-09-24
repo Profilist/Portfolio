@@ -71,21 +71,19 @@ export default function HomePage() {
               <Image src="/experience/uwaterloo.svg" alt="University of Waterloo" width={20} height={20} className="mx-1 rounded-full" />
               UWaterloo,
             </span>
-            currently @
-            <span className="inline-flex items-center gap-x-0.5 min-w-0">
-              <Image src="/experience/conway.svg" alt="Conway" width={20} height={20} className="mx-1 " />
-              Conway
-            </span>
-            as a 
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/kp.svg" alt="Kleiner Perkins" width={20} height={20} className="mx-1" />
               KP Fellow.
             </span>
-            {/* prev @
+            prev @
+            <span className="inline-flex items-center gap-x-0.5 min-w-0">
+              <Image src="/experience/conway.svg" alt="Conway" width={20} height={20} className="mx-1 " />
+              Conway,
+            </span>
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/shopify.svg" alt="Shopify" width={20} height={20} className="mx-1" />
               Shopify.
-            </span> */}
+            </span>
           </p>
             
             {/* Status and Social Links */}
@@ -104,7 +102,7 @@ export default function HomePage() {
                     ease: "easeInOut"
                   }}
                 ></motion.div>
-                <span className="text-sm">trying out new things</span>
+                <span className="text-sm">inferencing</span>
                 {/* <span className="text-sm">looking for <span className="hidden sm:inline">Summer</span> 2026 internships!</span> */}
               </div>
               

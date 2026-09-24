@@ -31,7 +31,7 @@ const experiences: Experience[] = [
     accent: "#EEEEEE",
     notes: [
       <>launched a <span className="font-medium">durable agent runtime</span> for fraud response on autoscaling K8s Jobs</>,
-      <>built a <span className="font-medium">live SQL rules engine</span> in Snowflake across 17M events/day</>,
+      <>built a <span className="font-medium">inference service</span> for transformers handling 17M events/day</>,
     ],
     postcard: {
       imageSrc: "/experience/conway-landing.png",
@@ -65,8 +65,8 @@ const experiences: Experience[] = [
     logo: "/experience/uwaterloo.svg",
     accent: "#EEEEEE",
     notes: [
-      <>co-first-authored <a href="https://arxiv.org/abs/2605.08343v1" className="font-medium underline underline-offset-4">PPHH-VFL</a>, a private inference architecture for distributed VFL</>,
-      <>accelerated private transformer inference by <span className="font-medium">44.4×</span> via hybrid MPC</>,
+      <>co-first-authored <a href="https://arxiv.org/abs/2605.08343v1" className="font-medium underline underline-offset-4">PPHH-VFL</a>, a private inference architecture for distributed time-series</>,
+      <>accelerated private transformer inference by <span className="font-medium">44.4×</span></>,
     ],
     postcard: {
       imageSrc: "/experience/pphh-vfl-paper.png",
