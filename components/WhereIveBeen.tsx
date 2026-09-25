@@ -31,7 +31,7 @@ const experiences: Experience[] = [
     accent: "#EEEEEE",
     notes: [
       <>launched a <span className="font-medium">durable agent runtime</span> for fraud response on autoscaling K8s Jobs</>,
-      <>built a <span className="font-medium">inference service</span> for transformers handling 17M events/day</>,
+      <>built an <span className="font-medium">inference service</span> for transformers handling 17M events/day</>,
     ],
     postcard: {
       imageSrc: "/experience/conway-landing.png",
