@@ -2,6 +2,7 @@ import Image from '@/components/OptimizedImage';
 import Link from '@/components/Link';
 import { useLocation } from '@tanstack/react-router';
 import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 interface StickyNavProps {
   isVisible?: boolean;
@@ -13,6 +14,9 @@ const StickyNav = ({ isVisible = true }: StickyNavProps) => {
   // Hide nav on resume page
   if (pathname === '/resume' || pathname === '/resume/') return null;
 
+  // The studio uses the Larris palette (and has a dark mode), so the nav follows it there.
+  const onStudio = pathname === '/studio' || pathname.startsWith('/studio/');
+
   const navItems = [
     { href: '/', icon: '/about.svg', label: 'About' },
     { href: '/projects', icon: '/work.svg', label: 'Work' },
@@ -23,7 +27,10 @@ const StickyNav = ({ isVisible = true }: StickyNavProps) => {
     <AnimatePresence>
       {isVisible && (
         <motion.nav 
-          className="fixed left-1/2 bottom-8 -translate-x-1/2 bg-white/30 backdrop-blur-sm rounded-full px-6 py-3 flex gap-8 border border-[#C4C4C4]"
+          className={cn(
+            "fixed left-1/2 bottom-8 -translate-x-1/2 backdrop-blur-sm rounded-full px-6 py-3 flex gap-8 border",
+            onStudio ? "bg-paper/70 border-line-strong text-ink" : "bg-white/30 border-[#C4C4C4]",
+          )}
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
@@ -41,7 +48,7 @@ const StickyNav = ({ isVisible = true }: StickyNavProps) => {
                   src={item.icon}
                   alt={`${item.label} icon`}
                   fill
-                  className="object-contain"
+                  className={cn("object-contain", onStudio && "dark:invert")}
                 />
               </div>
               <span className="text-lg">{item.label}</span>

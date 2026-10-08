@@ -121,7 +121,7 @@ test("navigates every internal route without a document reload", async ({ page }
   await expect(page.locator('iframe[src="/resume.pdf"]')).toBeVisible();
 
   await page.goto("/studio");
-  await expect(page.getByText("Coming Soon...")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("My Studio");
 });
 
 test("renders locally optimized postcards for every experience", async ({ page }) => {
@@ -297,4 +297,36 @@ test("keeps the projects page media lazy outside the near viewport", async ({ pa
 
   await expect.poll(() => videos.first().getAttribute("preload")).toBe("auto");
   await expect.poll(() => videos.last().getAttribute("preload")).toBe("none");
+});
+
+test("opens the studio from the nav and leaves draft posts out of production", async ({ page }) => {
+  await page.locator('nav a[href="/studio"]').click();
+  await expect(page).toHaveURL(/\/studio$/);
+  await expect(page).toHaveTitle("Studio | Larris Xie");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("My Studio");
+  await expect(page.locator('a[href="/studio/hello-world"]')).toHaveCount(0);
+
+  const response = await page.goto("/studio/hello-world");
+  expect(response?.status()).toBe(404);
+});
+
+test("scopes the studio's dark theme to studio pages", async ({ page }) => {
+  await page.evaluate(() => localStorage.setItem("larris-theme", "dark"));
+  await page.goto("/studio");
+  await expect(page.locator("html")).toHaveClass(/\bdark\b/);
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(27, 27, 24)");
+
+  await expect(page.getByRole("button", { name: "Toggle dark mode" })).toHaveCount(0);
+
+  await page.locator('nav a[href="/"]').click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator("html")).not.toHaveClass(/\bdark\b/);
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(255, 255, 255)");
+});
+
+test("opens the studio in light mode on white even when the OS prefers dark", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/studio");
+  await expect(page.locator("html")).not.toHaveClass(/\bdark\b/);
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(255, 255, 255)");
 });
