@@ -32,7 +32,7 @@ export function HoverPreview({ posts, active, follower }: HoverPreviewProps) {
               key={post.slug}
               style={{ height: HEIGHT }}
               dangerouslySetInnerHTML={{
-                __html: figureMediaHtml(post.cover ?? "placeholder:16/10", post.cover ? post.coverAlt : post.title),
+                __html: figureMediaHtml(post.preview ?? post.cover ?? "placeholder:16/10", post.title),
               }}
             />
           ))}

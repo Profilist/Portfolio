@@ -30,7 +30,7 @@ export default function BlogPostPage({ post, newer, older }: BlogPostPageProps) 
 
           {post.cover && (
             <div className="mt-12">
-              <Cover src={post.cover} alt={post.coverAlt} />
+              <Cover src={post.cover} alt={post.coverAlt} caption={post.coverCaption} />
             </div>
           )}
         </div>

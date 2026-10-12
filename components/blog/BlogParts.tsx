@@ -4,9 +4,14 @@ import { bevelButton } from "@/components/larris/bevel";
 import { figureMediaHtml, linkBrand, type PostLink, type TocEntry } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
-/** The cover under the title: an image, or a slot describing the one to come. */
-export function Cover({ src, alt }: { src: string; alt: string }) {
-  return <div className="larris-cover" dangerouslySetInnerHTML={{ __html: figureMediaHtml(src, alt) }} />;
+/** The cover under the title: an image, or a slot describing the one to come, with an optional caption. */
+export function Cover({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure className="larris-cover">
+      <div dangerouslySetInnerHTML={{ __html: figureMediaHtml(src, alt) }} />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
 }
 
 /** Who wrote it and when, as one muted phrase: "Larris Xie, Oct 8, 2026". */

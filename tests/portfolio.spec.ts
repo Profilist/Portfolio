@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { canonicalRedirect } from "../src/canonicalRedirect";
 
 const experiencePostcards = [
@@ -329,4 +329,23 @@ test("opens the studio in light mode on white even when the OS prefers dark", as
   await page.goto("/studio");
   await expect(page.locator("html")).not.toHaveClass(/\bdark\b/);
   await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(255, 255, 255)");
+});
+
+test("ships nothing from draft studio posts", () => {
+  const titles = readdirSync("content/blog")
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => readFileSync(`content/blog/${name}`, "utf8"))
+    .filter((source) => /^draft:\s*true\s*$/m.test(source))
+    .map((source) => /^title:\s*(.+)$/m.exec(source)![1].trim());
+
+  const built = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
+      entry.isDirectory() ? built(`${dir}/${entry.name}`) : [`${dir}/${entry.name}`],
+    );
+  const text = built("dist")
+    .filter((file) => /\.(js|html|json)$/.test(file))
+    .map((file) => readFileSync(file, "utf8"))
+    .join("\n");
+
+  for (const title of titles) expect(text).not.toContain(title);
 });

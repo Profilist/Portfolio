@@ -8,8 +8,10 @@ import { Marked, type Tokens } from "marked";
  *   title: Can a tiny model learn when to talk?
  *   caption: Post-training a small model for real-time interaction
  *   date: 2026-10-08
- *   cover: /studio/tiny-model/cover.webp       (or placeholder:16/9)
+ *   cover: figures/cover.png                   (or placeholder:16/9)
  *   coverAlt: What the cover image shows
+ *   coverCaption: Optional caption under the cover, when it's a figure that needs one
+ *   preview: figures/4_method.svg              (optional: what the studio list shows on hover; defaults to the cover)
  *   links: [GitHub | https://github.com/…, Model | https://huggingface.co/…]
  *   draft: true
  *   ---
@@ -20,7 +22,11 @@ import { Marked, type Tokens } from "marked";
  *
  *   ![Loss curve for each run](placeholder:16/9 "Validation loss falls fastest with…")
  *
- * Drafts render in `vite dev` and are left out of production builds.
+ * Images go beside the post in `content/blog/<slug>/` and are referenced
+ * relative to it (`figures/2_test.png`), in the body and in `cover`.
+ *
+ * Drafts render in `vite dev` and are left out of production builds entirely:
+ * their text never reaches the bundle.
  */
 
 export interface TocEntry {
@@ -41,17 +47,34 @@ export interface Post {
   date: string;
   cover?: string;
   coverAlt: string;
+  coverCaption: string;
+  /** Shown in the studio list's hover preview; falls back to the cover. */
+  preview?: string;
   links: PostLink[];
   draft: boolean;
   html: string;
   toc: TocEntry[];
 }
 
+// Drafts come through as "" in production builds (see stripDraftPosts in vite.config.ts).
 const files = import.meta.glob("/content/blog/*.md", {
   query: "?raw",
   import: "default",
   eager: true,
 }) as Record<string, string>;
+
+// Images live beside their post (content/blog/<slug>/…) and get hashed URLs.
+const assets = import.meta.glob("/content/blog/*/**/*.{png,jpg,jpeg,webp,gif,svg}", {
+  query: "?url",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
+/** `figures/2_test.png` in post <slug> → its built URL. Absolute URLs and placeholders pass through. */
+function resolveAsset(slug: string, src: string) {
+  if (/^([a-z]+:|\/)/i.test(src)) return src;
+  return assets[`/content/blog/${slug}/${src.replace(/^\.\//, "")}`] ?? src;
+}
 
 function parseFrontmatter(raw: string) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(raw);
@@ -80,6 +103,17 @@ function escapeHtml(value: string) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+/** Heading HTML → the text React should render (tags dropped, entities decoded). */
+function plainText(html: string) {
+  return html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
 }
 
 function slugify(text: string) {
@@ -111,7 +145,7 @@ export function figureMediaHtml(src: string, alt: string) {
   );
 }
 
-function render(body: string) {
+function render(slug: string, body: string) {
   const toc: TocEntry[] = [];
   const used = new Map<string, number>();
 
@@ -124,7 +158,7 @@ function render(body: string) {
         const count = used.get(base) ?? 0;
         used.set(base, count + 1);
         const id = count ? `${base}-${count}` : base;
-        if (depth === 2 || depth === 3) toc.push({ id, text: html.replace(/<[^>]+>/g, ""), depth });
+        if (depth === 2 || depth === 3) toc.push({ id, text: plainText(html), depth });
         return `<h${depth} id="${id}">${html}</h${depth}>\n`;
       },
       paragraph({ tokens }) {
@@ -133,7 +167,7 @@ function render(body: string) {
 
         const image = only[0] as Tokens.Image;
         const caption = image.title ? `<figcaption>${escapeHtml(image.title)}</figcaption>` : "";
-        return `<figure>${figureMediaHtml(image.href, image.text)}${caption}</figure>\n`;
+        return `<figure>${figureMediaHtml(resolveAsset(slug, image.href), image.text)}${caption}</figure>\n`;
       },
     },
   });
@@ -157,18 +191,21 @@ function toPost(path: string, raw: string): Post {
     title: String(data.title ?? slug),
     caption: String(data.caption ?? ""),
     date: String(data.date ?? ""),
-    cover: data.cover ? String(data.cover) : undefined,
+    cover: data.cover ? resolveAsset(slug, String(data.cover)) : undefined,
     coverAlt: String(data.coverAlt ?? ""),
+    coverCaption: String(data.coverCaption ?? ""),
+    preview: data.preview ? resolveAsset(slug, String(data.preview)) : undefined,
     links: links.flatMap((item) => {
       const [label, href] = item.split("|").map((part) => part.trim());
       return label && href ? [{ label, href }] : [];
     }),
     draft: data.draft === "true",
-    ...render(body),
+    ...render(slug, body),
   };
 }
 
 const posts: Post[] = Object.entries(files)
+  .filter(([, raw]) => raw.trim())
   .map(([path, raw]) => toPost(path, raw))
   .filter((post) => import.meta.env.DEV || !post.draft)
   .sort((a, b) => b.date.localeCompare(a.date));
