@@ -73,7 +73,7 @@ export default function HomePage() {
             </span>
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
               <Image src="/experience/kp.svg" alt="Kleiner Perkins" width={20} height={20} className="mx-1" />
-              KP Fellow.
+              KP Fellow,
             </span>
             prev @
             <span className="inline-flex items-center gap-x-0.5 min-w-0">
