@@ -58,8 +58,8 @@ Since the model already gives an accurate answer when it reads a complaint alone
 
 ![Top, the teacher: one complaint read alone, and its answer as nine bars. Bottom, the student: the same complaints packed in a grid, read one at a time. For each, the student's bars start leaning to the first complaint's product, a mortgage, then move to match the teacher's answer, which an arrow marks as the target.](figures/4_method.svg "The teacher and the student are the same 0.8B model.")
 
-1. **Teacher.** Kev-0.8B reads each complaint by itself and gives a confidence for each of the nine options.
-2. **Student.** The same model reads that complaint packed among up to 120 others and is trained to give the same confidences.
+1. **Teacher.** Kev-0.8B reads each complaint by itself and gives a probability for each option.
+2. **Student.** The same model reads that complaint packed among up to 140 others and is trained to give the same probabilities.
 
 I used 5,219 complaints the model had never seen, with about a third of training examples left alone to ensure the model is able to still answer short inputs accurately. Similarly, other kinds of questions from Kev's public training data were also mixed in, also answered by the teacher, so it stays a general decision model. 
 
