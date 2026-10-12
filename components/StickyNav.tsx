@@ -28,7 +28,7 @@ const StickyNav = ({ isVisible = true }: StickyNavProps) => {
       {isVisible && (
         <motion.nav 
           className={cn(
-            "fixed left-1/2 bottom-8 -translate-x-1/2 backdrop-blur-sm rounded-full px-6 py-3 flex gap-8 border",
+            "fixed left-1/2 bottom-8 z-50 -translate-x-1/2 backdrop-blur-sm rounded-full px-6 py-3 flex gap-8 border",
             onStudio ? "bg-paper/70 border-line-strong text-ink" : "bg-white/30 border-[#C4C4C4]",
           )}
           initial={{ y: 100, opacity: 0 }}

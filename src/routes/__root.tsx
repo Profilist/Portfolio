@@ -5,7 +5,7 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import StickyNavWrapper from "@/components/StickyNavWrapper";
+import StickyNav from "@/components/StickyNav";
 import geistHref from "../assets/fonts/geist-latin.woff2?url";
 import handwritingHref from "../assets/fonts/larris-handwriting.ttf?url";
 import instrumentHref from "../assets/fonts/instrument-serif-latin.woff2?url";
@@ -96,7 +96,7 @@ function RootComponent() {
   return (
     <RootDocument>
       <Outlet />
-      <StickyNavWrapper />
+      <StickyNav />
     </RootDocument>
   );
 }

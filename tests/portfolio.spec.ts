@@ -349,3 +349,32 @@ test("ships nothing from draft studio posts", () => {
 
   for (const title of titles) expect(text).not.toContain(title);
 });
+
+for (const viewport of [null, { width: 744, height: 1133 }]) {
+  test(`keeps the floating nav visible and on top of the whole home page${viewport ? " on a tablet" : ""}`, async ({ page }) => {
+    if (viewport) {
+      await page.setViewportSize(viewport);
+      await page.reload();
+    }
+    const nav = page.locator("nav").filter({ hasText: "Studio" });
+    await expect(nav).toBeVisible();
+
+    // Below 768px the experience notes, pins and postcards scroll under the nav; none may paint over it.
+    const covered = await nav.evaluate(async (element) => {
+      const hits: number[] = [];
+      for (let y = 0; y < document.documentElement.scrollHeight; y += 150) {
+        window.scrollTo(0, y);
+        await new Promise((resolve) => setTimeout(resolve, 150)); // let scroll-triggered entrances settle
+        const box = element.getBoundingClientRect();
+        const onTop = [0.05, 0.25, 0.5, 0.75, 0.95].every((fx) => {
+          const top = document.elementFromPoint(box.left + box.width * fx, box.top + box.height / 2);
+          return Boolean(top && element.contains(top));
+        });
+        if (!onTop) hits.push(Math.round(y));
+      }
+      return hits;
+    });
+    expect(covered).toEqual([]);
+    await expect.poll(() => nav.evaluate((element) => getComputedStyle(element).opacity)).toBe("1");
+  });
+}
