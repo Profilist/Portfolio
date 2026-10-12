@@ -61,7 +61,7 @@ const experiences: Experience[] = [
     id: "pphh-vfl",
     company: "UWaterloo",
     role: "Research Assistant",
-    dates: "Jan 2025 - Apr 2026",
+    dates: "Jan 2025 - May 2026",
     logo: "/experience/uwaterloo.svg",
     accent: "#EEEEEE",
     notes: [
