@@ -61,7 +61,7 @@ Since the model already gives an accurate answer when it reads a complaint alone
 1. **Teacher.** Kev-0.8B reads each complaint by itself and gives a probability for each option.
 2. **Student.** The same model reads that complaint packed among up to 140 others and is trained to give the same probabilities.
 
-I used 5,219 complaints the model had never seen, with about a third of training examples left alone to ensure the model is able to still answer short inputs accurately. Similarly, other kinds of questions from Kev's public training data were also mixed in, also answered by the teacher, so it stays a general decision model. 
+I trained the model on 5,219 complaints it had never seen, with about a third of training examples left alone to ensure the model is able to still answer short inputs accurately. Similarly, other kinds of questions from Kev's public training data were also mixed in, also answered by the teacher, so it stayed a general decision model. 
 
 I used a small LoRA adapter, trained for 46 minutes on one rented H100, which cost about $2.
 
