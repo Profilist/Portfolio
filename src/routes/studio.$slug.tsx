@@ -19,10 +19,10 @@ export const Route = createFileRoute("/studio/$slug")({
         { title },
         { name: "description", content: post.caption },
         { property: "og:type", content: "article" },
-        { property: "og:title", content: title },
+        { property: "og:title", content: post.title },
         { property: "og:description", content: post.caption },
         { property: "article:published_time", content: post.date },
-        { name: "twitter:title", content: title },
+        { name: "twitter:title", content: post.title },
         { name: "twitter:description", content: post.caption },
         {
           "script:ld+json": {
